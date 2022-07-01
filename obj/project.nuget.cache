@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "80Ph1UGSAjt2tRlVMj9/Z4QZKKrUMyX7qeI4PpOadGBP2EqWTXTppuEOUOYt2JjAy4kH4nWY9DNPNMRTMl9YmA==",
+  "success": true,
+  "projectFilePath": "F:\\EVO_VirtualBox\\Postek-tfs\\CashRegister\\Dev\\Project\\CashRegister\\Applications\\WinForm\\CashRegister.Applications.Winform.WFVPOS\\CashRegister.Applications.Winform.WFVPos.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Harold\\.nuget\\packages\\fontawesome.sharp\\5.15.4\\fontawesome.sharp.5.15.4.nupkg.sha512",
+    "C:\\Users\\Harold\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.17\\microsoft.netcore.app.host.win-x64.5.0.17.nupkg.sha512"
+  ],
+  "logs": []
+}
