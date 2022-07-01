@@ -56,8 +56,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
         {
             this.Hide();
 
-      MessageBox.Show("Get in");
-            var das = new Dashboard();
+           var das = new Dashboard();
             das.Show();
             
         }
