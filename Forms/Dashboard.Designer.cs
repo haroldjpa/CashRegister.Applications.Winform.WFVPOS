@@ -173,7 +173,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 80);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(177, 570);
+            this.panelMenu.Size = new System.Drawing.Size(177, 670);
             this.panelMenu.TabIndex = 2;
             // 
             // btnUsuarios
@@ -352,7 +352,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
             this.panelContenedor.ForeColor = System.Drawing.Color.Gainsboro;
             this.panelContenedor.Location = new System.Drawing.Point(177, 80);
             this.panelContenedor.Name = "panelContenedor";
-            this.panelContenedor.Size = new System.Drawing.Size(1123, 570);
+            this.panelContenedor.Size = new System.Drawing.Size(1123, 670);
             this.panelContenedor.TabIndex = 3;
             // 
             // panelDesktop
@@ -361,14 +361,14 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
             this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDesktop.Location = new System.Drawing.Point(0, 0);
             this.panelDesktop.Name = "panelDesktop";
-            this.panelDesktop.Size = new System.Drawing.Size(1123, 570);
+            this.panelDesktop.Size = new System.Drawing.Size(1123, 670);
             this.panelDesktop.TabIndex = 1;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(205, 125);
+            this.pictureBox1.Location = new System.Drawing.Point(205, 175);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(710, 317);
             this.pictureBox1.TabIndex = 0;
@@ -378,7 +378,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1300, 650);
+            this.ClientSize = new System.Drawing.Size(1300, 750);
             this.Controls.Add(this.panelContenedor);
             this.Controls.Add(this.panelMenu);
             this.Controls.Add(this.panelTitulo);

@@ -16,5 +16,10 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
         {
             InitializeComponent();
         }
+
+        private void closeTran_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

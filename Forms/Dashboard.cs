@@ -88,6 +88,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
                 currentChildForm.Close();
             }
             currentChildForm = childForm;
+            childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
             childForm.Dock = DockStyle.Fill;
             panelDesktop.Controls.Add(childForm);
@@ -100,6 +101,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
         private void bntTransacciones_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color1);
+            OpenChildForm(new Transactions());
         }
 
         private void btnCuotas_Click(object sender, EventArgs e)
@@ -129,6 +131,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
 
         private void rjCircularPictureBox2_Click(object sender, EventArgs e)
         {
+            currentChildForm.Close();
             Reset();
         }
 
