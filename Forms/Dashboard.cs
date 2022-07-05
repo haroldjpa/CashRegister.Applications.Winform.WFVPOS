@@ -81,7 +81,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
             }
         }
 
-        private void OpenChildForm(Form childForm)
+        public void OpenChildForm(Form childForm)
         {
             if (currentChildForm != null)
             {
@@ -95,7 +95,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
             panelDesktop.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
-            lblTitleChildForm.Text = childForm.Text;
+            
         }
 
         private void bntTransacciones_Click(object sender, EventArgs e)
@@ -122,6 +122,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
         private void btnTecnico_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color5);
+            OpenChildForm(new LoginTechnical());
         }
 
         private void btnUsuarios_Click(object sender, EventArgs e)

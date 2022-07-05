@@ -10,16 +10,14 @@ using System.Windows.Forms;
 
 namespace CashRegister.Applications.Winform.WFVPos.Forms
 {
-    public partial class Transactions : Form
+    public partial class Technical : Form
     {
-        
-        public Transactions()
+        public Technical()
         {
             InitializeComponent();
-            this.DoubleBuffered = true;
         }
 
-        private void closeTran_Click(object sender, EventArgs e)
+        private void closeTechnicalView_Click(object sender, EventArgs e)
         {
             this.Close();
         }
