@@ -117,6 +117,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
         private void btnTrans_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color4);
+            OpenChildForm(new Administrative());
         }
 
         private void btnTecnico_Click(object sender, EventArgs e)
