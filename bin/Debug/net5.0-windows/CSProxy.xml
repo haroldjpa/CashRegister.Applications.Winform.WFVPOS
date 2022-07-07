@@ -1,0 +1,2132 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CSProxy</name>
+    </assembly>
+    <members>
+        <member name="T:CSProxy.CSFirmwareUpdateEvent">
+            <summary>
+            Firmware Update Event of a Motorola Scanner
+            </summary>
+        </member>
+        <member name="M:CSProxy.CSFirmwareUpdateEvent.#ctor">
+            <summary>
+            Creates a new firmware update event
+            </summary>
+        </member>
+        <member name="P:CSProxy.CSFirmwareUpdateEvent.EventType">
+            <summary>
+            Get or Set the Event type of Firmware Update Event
+            </summary>
+        </member>
+        <member name="P:CSProxy.CSFirmwareUpdateEvent.ReceivingScanner">
+            <summary>
+            Get or Set the Scanner that receiving the Firmware Update Event
+            </summary>
+        </member>
+        <member name="P:CSProxy.CSFirmwareUpdateEvent.Status">
+            <summary>
+            Get or Set the Status of the Firmware Update Event
+            </summary>
+        </member>
+        <member name="P:CSProxy.CSFirmwareUpdateEvent.MaxRecords">
+            <summary>
+            Get or Set the Maximum number of records in Firmware Update Event
+            </summary>
+        </member>
+        <member name="P:CSProxy.CSFirmwareUpdateEvent.SoftwareComponent">
+            <summary>
+            Get or Set the Software Component of the Firmware Update Event
+            </summary>
+        </member>
+        <member name="P:CSProxy.CSFirmwareUpdateEvent.CurrentRecord">
+            <summary>
+            Get or Set the Current Record of the Firmware Update Event
+            </summary>
+        </member>
+        <member name="P:CSProxy.CSFirmwareUpdateEvent.Size">
+            <summary>
+            Get or Set the Size of the Software Component
+            </summary>
+        </member>
+        <member name="T:CSProxy.FirmwareUpdateEventType">
+            <summary>
+            Firmware Update Event type
+            </summary>
+        </member>
+        <member name="F:CSProxy.FirmwareUpdateEventType.SCANNER_UF_SESS_START">
+            <summary>
+            Triggered when flash download session starts
+            </summary>
+        </member>
+        <member name="F:CSProxy.FirmwareUpdateEventType.SCANNER_UF_DL_START">
+            <summary>
+            Triggered when component download starts
+            </summary>
+        </member>
+        <member name="F:CSProxy.FirmwareUpdateEventType.SCANNER_UF_DL_PROGRESS">
+            <summary>
+            Triggered when block(s) of flash completed
+            </summary>
+        </member>
+        <member name="F:CSProxy.FirmwareUpdateEventType.SCANNER_UF_DL_END">
+            <summary>
+            Triggered when component download ends
+            </summary>
+        </member>
+        <member name="F:CSProxy.FirmwareUpdateEventType.SCANNER_UF_SESS_END">
+            <summary>
+            Triggered when flash download session ends
+            </summary>
+        </member>
+        <member name="F:CSProxy.FirmwareUpdateEventType.SCANNER_UF_STATUS">
+            <summary>
+            Triggered when update error or status
+            </summary>
+        </member>
+        <member name="T:CSProxy.ScannerAttribute">
+            <summary>
+            Scanner Attribute of a Motorola Scanner
+            </summary>
+        </member>
+        <member name="M:CSProxy.ScannerAttribute.#ctor">
+            <summary>
+            Creates a new Scanner Attribute
+            </summary>
+        </member>
+        <member name="M:CSProxy.ScannerAttribute.#ctor(System.Int32,System.String,System.Object)">
+            <summary>
+            Creates a new Scanner Attribute  
+            </summary>
+            <param name="id">Attribute ID</param>
+            <param name="type">Attribute Type</param>
+            <param name="value">Attribute Value</param>
+        </member>
+        <member name="P:CSProxy.ScannerAttribute.Id">
+            <summary>
+            Get or Set the Attribute ID
+            </summary>
+        </member>
+        <member name="P:CSProxy.ScannerAttribute.Type">
+            <summary>
+            Get or Set the Attrinute Type
+            </summary>
+        </member>
+        <member name="P:CSProxy.ScannerAttribute.Value">
+            <summary>
+            Get or Set the Attribute Value
+            </summary>
+        </member>
+        <member name="P:CSProxy.ScannerAttribute.Permision">
+            <summary>
+            Get or Set the Attribute Permision
+            </summary>
+        </member>
+        <member name="T:CSProxy.PnPEventScanner">
+            <summary>
+            Scanner that caused the PnP event
+            </summary>
+        </member>
+        <member name="T:CSProxy.Scanner">
+            <summary>
+            Motorola Scanner 
+            </summary>
+        </member>
+        <member name="M:CSProxy.Scanner.#ctor">
+            <summary>
+            Creates a new Scanner
+            </summary>
+        </member>
+        <member name="M:CSProxy.Scanner.Equals(System.Object)">
+            <summary>
+            Check the equality. If Scanner ID is same consider as equal.
+            </summary>
+            <param name="obj">Object to compare</param>
+            <returns></returns>
+        </member>
+        <member name="M:CSProxy.Scanner.GetHashCode">
+            <summary>
+            Overided method for GetHashCode()
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CSProxy.Scanner.GetAsserTrackingInfo">
+            <summary>
+            Get Assert Tracking Informations(Configuration Name, Firmware Virsion,Data of Manufactured) of a Scanner
+            </summary>
+        </member>
+        <member name="M:CSProxy.Scanner.GetAttributes(System.Int32[],System.Boolean,CSProxy.ScannerAttribute[]@)">
+            <summary>
+            Get set of attributes from the scanner
+            </summary>
+            <param name="attibuteIDs">Required Attribute ID Array</param>
+            <param name="async">Async option</param>
+            <param name="atttibutes">Reference to the ScannerAttribute array </param>
+            <returns>Status of the Command</returns>
+        </member>
+        <member name="M:CSProxy.Scanner.GetAttribute(System.Int32,System.Boolean,CSProxy.ScannerAttribute@)">
+            <summary>
+            Get an one attribute of a scanner
+            </summary>
+            <param name="attributeID">Required attribute ID</param>
+            <param name="async">Async option</param>
+            <param name="atttibute">Reference to a ScannerAttribute object</param>
+            <returns>Status of the Command</returns>
+        </member>
+        <member name="M:CSProxy.Scanner.SetAttribute(CSProxy.ScannerAttribute,System.Boolean)">
+            <summary>
+            Set an one attribute of a scanner
+            </summary>
+            <param name="attribute">Attribute that want to set</param>
+            <param name="async">Async option</param>
+            <returns>Status of the Command</returns>
+        </member>
+        <member name="M:CSProxy.Scanner.StoreAttribute(CSProxy.ScannerAttribute,System.Boolean)">
+            <summary>
+            Store an one attribute of a scanner
+            </summary>
+            <param name="attribute">Attribute that want to store</param>
+            <param name="async">Async option</param>
+            <returns>Status of the Command</returns>
+        </member>
+        <member name="M:CSProxy.Scanner.SetAttributes(CSProxy.ScannerAttribute[],System.Boolean)">
+            <summary>
+            Set set of attributes of a scanner
+            </summary>
+            <param name="attributes">Array of attributes needs to set</param>
+            <param name="async">Async option</param>
+            <returns>Status of the Command</returns>
+        </member>
+        <member name="M:CSProxy.Scanner.StoreAttributes(CSProxy.ScannerAttribute[],System.Boolean)">
+            <summary>
+            Store set of attributes of a scanner
+            </summary>
+            <param name="attributes">Array of attributes needs to store</param>
+            <param name="async">Async option</param>
+            <returns>Status of the Command</returns>
+        </member>
+        <member name="M:CSProxy.Scanner.SwitchHostMode(CSProxy.ScannerHostModes,System.Boolean,System.Boolean)">
+            <summary>
+            Switch the host mode of a scanner
+            </summary>
+            <param name="hostMode">Target host mode</param>
+            <param name="isSilent">Silent switch option</param>
+            <param name="isPermanant">Permanant switch option</param>
+            <returns>Status of the Command</returns>
+        </member>
+        <member name="M:CSProxy.Scanner.Reboot">
+            <summary>
+            Reboot the scanner
+            </summary>
+            <returns>Status of the Command</returns>
+        </member>
+        <member name="M:CSProxy.Scanner.GoToImageMode">
+            <summary>
+            Switch scanner to image mode
+            </summary>
+            <returns>Status of the Command</returns>
+        </member>
+        <member name="M:CSProxy.Scanner.GoToVideoMode">
+            <summary>
+            Switch scanner to video mode
+            </summary>
+            <returns>Status of the Command</returns>
+        </member>
+        <member name="M:CSProxy.Scanner.UpdateFirmware(System.String,System.Boolean)">
+            <summary>
+            Update the firmware (scanner software) of a scanner
+            </summary>
+            <param name="filePath">Path to the firmware .DAT file or Plugin file</param>
+            <param name="bulkOption">Bulk option</param>
+            <returns>Status of the Command</returns>
+        </member>
+        <member name="M:CSProxy.Scanner.Release">
+            <summary>
+            Release a Claimed device
+            </summary>
+            <returns>Status of the Command</returns>
+        </member>
+        <member name="M:CSProxy.Scanner.Claim">
+            <summary>
+            Claim the Scanner (Other applications can not use this scanner)
+            </summary>
+            <returns>Status of the Command</returns>
+            <remarks>You need to register for the IO_Events to make use of Claim functionality</remarks>
+        </member>
+        <member name="M:CSProxy.Scanner.AbortMacroPDF">
+            <summary>
+            Aborth MacroPDF of a Scanner
+            </summary>
+            <returns>Status of the Command</returns>
+        </member>
+        <member name="M:CSProxy.Scanner.AbortUpdateFirmware">
+            <summary>
+            Abort firmware update of a Scanner
+            </summary>
+            <returns>Status of the Command</returns>
+        </member>
+        <member name="M:CSProxy.Scanner.AimOff">
+            <summary>
+            Turn off the Aim of a Scanner
+            </summary>
+            <returns>Status of the Command</returns>
+        </member>
+        <member name="M:CSProxy.Scanner.AimOn">
+            <summary>
+            Turn on the Aim of a Scanner
+            </summary>
+            <returns>Status of the Command</returns>
+        </member>
+        <member name="M:CSProxy.Scanner.LEDOn(CSProxy.ScannerLED)">
+            <summary>
+            Turn on a LED of a Scanner
+            </summary>
+            <param name="ledID">LED ID</param>
+            <returns>Status of the Command</returns>
+        </member>
+        <member name="M:CSProxy.Scanner.LEDOff(CSProxy.ScannerLED)">
+            <summary>
+            Turn off a LED of a Scanner
+            </summary>
+            <param name="ledID">LED ID</param>
+            <returns>Status of the Command</returns>
+        </member>
+        <member name="M:CSProxy.Scanner.PullTrigger">
+            <summary>
+            Pull the trigger of a Scanner
+            </summary>
+            <returns>Status of the Command</returns>
+        </member>
+        <member name="M:CSProxy.Scanner.ReleaseTrigger">
+            <summary>
+            Release the trigger of a Scanner
+            </summary>
+            <returns>Status of the Command</returns>
+        </member>
+        <member name="M:CSProxy.Scanner.ScanDisable">
+            <summary>
+            Disable the Scanner
+            </summary>
+            <returns>Status of the Command</returns>
+        </member>
+        <member name="M:CSProxy.Scanner.ScanEnable">
+            <summary>
+            Enable the Scanner
+            </summary>
+            <returns>Status of the Command</returns>
+        </member>
+        <member name="M:CSProxy.Scanner.Beep(System.Int32)">
+            <summary>
+            Beep the Scanner beeper
+            </summary>
+            <param name="beepID">Beep ID</param>
+            <returns>Status of the Command</returns>
+        </member>
+        <member name="M:CSProxy.Scanner.GetAllAtributes(System.Boolean,System.Int32[]@)">
+            <summary>
+            Get all the attribute IDs of a Scanner 
+            </summary>
+            <param name="async">Asynchronous option</param>
+            <param name="ids">Reference to a id array</param>
+            <returns>Status of the Command</returns>
+            <remarks>If asynchronous option true user needs to register for CommandResponse events to get the output</remarks>
+        </member>
+        <member name="M:CSProxy.Scanner.GetNextAttribute(System.Int32,System.Boolean,CSProxy.ScannerAttribute@)">
+            <summary>
+            Get the nest attribute of a spesific attribute
+            </summary>
+            <param name="attributeID">Attribute ID</param>
+            <param name="async">Asynchronous option</param>
+            <param name="attribute">Reference to a Attribute object</param>
+            <returns>Status of the Command</returns>
+            <remarks>If asynchronous option true user needs to register for CommandResponse events to get the output</remarks>
+        </member>
+        <member name="M:CSProxy.Scanner.EnableViewFinder(System.Boolean)">
+            <summary>
+            Enable / Disable View Finder 
+            </summary>
+            <param name="viewFinder">Enable or Disable</param>
+            <returns>Status of the Command</returns>
+        </member>
+        <member name="M:CSProxy.Scanner.SetImageFormat(CSProxy.ImageFormat)">
+            <summary>
+            Set the image format of a Scanner
+            </summary>
+            <param name="imageFormat">Image format</param>
+            <returns>Status of the Command</returns>
+        </member>
+        <member name="M:CSProxy.Scanner.FlushMacroPdf">
+            <summary>
+            Flush Macro PDF of a Scanner
+            </summary>
+            <returns>Status of the Command</returns>
+        </member>
+        <member name="M:CSProxy.Scanner.SetSerialParameters(CSProxy.CSSerialSettings)">
+            <summary>
+            Set serial port settings of a Serial Scanner
+            </summary>
+            <param name="cSSerialSettings">Serial Settings</param>
+            <returns>Status of the Command</returns>
+        </member>
+        <member name="M:CSProxy.Scanner.LaunchNewFirmware">
+            <summary>
+            Launch the new firmware
+            </summary>
+            <returns>Status of the Command</returns>
+        </member>
+        <member name="M:CSProxy.Scanner.GoToBarcodeMode">
+            <summary>
+            Switch the Scanner to Barcode Mode
+            </summary>
+            <returns>Status of the Command</returns>
+        </member>
+        <member name="M:CSProxy.Scanner.SetAction(System.Int32)">
+            <summary>
+            Do any action defined for the scanner
+            </summary>
+            <param name="actionID">UIF code</param>
+            <returns>Status of the Command</returns>
+        </member>
+        <member name="M:CSProxy.Scanner.UpdateFirmwareTunneled(System.String,System.Boolean)">
+            <summary>
+            Update scanner firmware by creating a tunnel
+            </summary>
+            <param name="filePath">Path to DAT or Plug-in file</param>
+            <param name="bulkOption">Option to use bulk channel</param>
+            <returns>Status of the Command</returns>
+        </member>
+        <member name="P:CSProxy.Scanner.ID">
+            <summary>
+            Get or Set the ID of a Scanner
+            </summary>
+        </member>
+        <member name="P:CSProxy.Scanner.SerialNumber">
+            <summary>
+            Get or Set the Serial Number of a Scanner
+            </summary>
+        </member>
+        <member name="P:CSProxy.Scanner.Model">
+            <summary>
+            Get or Set the Model of a Scanner
+            </summary>
+        </member>
+        <member name="P:CSProxy.Scanner.ScannerType">
+            <summary>
+            Get or Set the type of a Scanner
+            </summary>
+        </member>
+        <member name="P:CSProxy.Scanner.GUID">
+            <summary>
+            Get or Set the GUID of a Scanner
+            </summary>
+        </member>
+        <member name="P:CSProxy.Scanner.Firmware">
+            <summary>
+            Get or Set the Firmware version of a Scanner
+            </summary>
+        </member>
+        <member name="P:CSProxy.Scanner.DOM">
+            <summary>
+            Get or Set the Date Of Manufactured of a Scanner
+            </summary>
+        </member>
+        <member name="P:CSProxy.Scanner.ConfigName">
+            <summary>
+            Get or Set the Configuration name of a Scanner
+            </summary>
+        </member>
+        <member name="P:CSProxy.Scanner.AuxiliaryScanners">
+            <summary>
+            Get or Set the Cascaded Scanner list of a Scanner
+            </summary>
+        </member>
+        <member name="P:CSProxy.PnPEventScanner.PnpState">
+            <summary>
+            State of PnP
+            </summary>
+        </member>
+        <member name="P:CSProxy.PnPEventScanner.PnPAuxiliaryScanners">
+            <summary>
+            Get or Set the Auxiliary Scanner list of a Scanner
+            </summary>
+        </member>
+        <member name="T:CSProxy.CSBarcode">
+            <summary>
+            Barocode scanned by a Motorola Scanner
+            </summary>
+        </member>
+        <member name="M:CSProxy.CSBarcode.#ctor(System.String,CSProxy.Symbology,CSProxy.Scanner)">
+            <summary>
+            Creates a new Barcode
+            </summary>
+            <param name="data">Scan data</param>
+            <param name="symbology">Symbology of the Barcode</param>
+            <param name="receivingScanner">Scanner that scanned the barcode</param>
+        </member>
+        <member name="M:CSProxy.CSBarcode.#ctor">
+            <summary>
+            Creates a new Barcode
+            </summary>
+        </member>
+        <member name="M:CSProxy.CSBarcode.GetSymbologyName(System.String)">
+            <summary>
+            Get the Symbology Name of a Barcode Event
+            </summary>
+            <param name="pscanData">Barcode Data</param>
+            <returns>Symbology Name</returns>
+        </member>
+        <member name="M:CSProxy.CSBarcode.GetBarcodeLable(System.String)">
+            <summary>
+            Get the Barcode Lable of a Barcode Event
+            </summary>
+            <param name="pscanData">Barcode Data</param>
+            <returns>Barcode Lable</returns>
+        </member>
+        <member name="P:CSProxy.CSBarcode.Data">
+            <summary>
+            Get or Set the Scanned data of the barcode
+            </summary>
+        </member>
+        <member name="P:CSProxy.CSBarcode.Symbology">
+            <summary>
+            Get or Set the Symbology of the barcode
+            </summary>
+        </member>
+        <member name="P:CSProxy.CSBarcode.ReceivingScanner">
+            <summary>
+            Get or Set the Scanner that receiving the Barcode
+            </summary>
+        </member>
+        <member name="T:CSProxy.CSVideo">
+            <summary>
+            Video of a Motorola Scanner
+            </summary>
+        </member>
+        <member name="M:CSProxy.CSVideo.#ctor(System.Drawing.Image,System.Int32)">
+            <summary>
+            Creates a new Video frame
+            </summary>
+            <param name="Frame">Frame Data</param>
+            <param name="Size">Size of the Frame</param>
+        </member>
+        <member name="M:CSProxy.CSVideo.#ctor">
+            <summary>
+            Creates a new Video frame
+            </summary>
+        </member>
+        <member name="P:CSProxy.CSVideo.Frame">
+            <summary>
+            Get or Set the Video Frame Image
+            </summary>
+        </member>
+        <member name="P:CSProxy.CSVideo.Size">
+            <summary>
+            Get or Set the Size of the frame
+            </summary>
+        </member>
+        <member name="T:CSProxy.CSKBEmulation">
+            <summary>
+            Keyboard Emulation of a Scanner
+            </summary>
+        </member>
+        <member name="M:CSProxy.CSKBEmulation.#ctor(System.Boolean,CSProxy.KBLocale)">
+            <summary>
+            Creates a new Keyboard Emulation Object
+            </summary>
+            <param name="kbEmulationState"> Whether the Keyboard emulation enable or disable</param>
+            <param name="kBEmulationLocale"> Keyboard emulation language locale</param>
+        </member>
+        <member name="M:CSProxy.CSKBEmulation.#ctor">
+            <summary>
+            Creates a new Keyboard Emulation Object
+            </summary>
+        </member>
+        <member name="P:CSProxy.CSKBEmulation.KBEmulationState">
+            <summary>
+            Get or Set the Keyboad emulation state
+            </summary>
+        </member>
+        <member name="P:CSProxy.CSKBEmulation.KBEmulationLocale">
+            <summary>
+            Get or Set the Keyboard emulation language locale
+            </summary>
+        </member>
+        <member name="T:CSProxy.CSImage">
+            <summary>
+            Image of a Motorola Scanner
+            </summary>
+        </member>
+        <member name="M:CSProxy.CSImage.#ctor(System.Drawing.Image,System.Int32,CSProxy.ImageFormat,CSProxy.Scanner)">
+            <summary>
+            Creates a new Image
+            </summary>
+            <param name="Image">Image Data</param>
+            <param name="Size">Size of the image</param>
+            <param name="Format">Image format</param>
+            <param name="ReceivingScanner">Scanner that capture the image</param>
+        </member>
+        <member name="M:CSProxy.CSImage.#ctor">
+            <summary>
+            Creates a new Image
+            </summary>
+        </member>
+        <member name="P:CSProxy.CSImage.Image">
+            <summary>
+            Get or Set the Image data of the image
+            </summary>
+        </member>
+        <member name="P:CSProxy.CSImage.Size">
+            <summary>
+            Get or Set the Size of the image
+            </summary>
+        </member>
+        <member name="P:CSProxy.CSImage.Format">
+            <summary>
+            Get or Set the Image format of the image
+            </summary>
+        </member>
+        <member name="P:CSProxy.CSImage.ReceivingScanner">
+            <summary>
+            Get or Set the Scanner that capture the image
+            </summary>
+        </member>
+        <member name="T:CSProxy.PnPEventHandler">
+            <summary>
+            Plug and Play Event Handler
+            </summary>
+            <param name="pnPState">PnP State</param>
+            <param name="s">Scanner that attached or detached</param>
+        </member>
+        <member name="T:CSProxy.BarcodeEventHandler">
+            <summary>
+            Barcode Event Handler
+            </summary>
+            <param name="barcode">Scannerd Barcode</param>
+        </member>
+        <member name="T:CSProxy.ImageEventHandler">
+            <summary>
+            Image Event Handler
+            </summary>
+            <param name="image">Captured Image</param>
+        </member>
+        <member name="T:CSProxy.VideoEventHandler">
+            <summary>
+            Video Event Handler
+            </summary>
+            <param name="video">Captured Video Frame</param>
+        </member>
+        <member name="T:CSProxy.FirmwareUpdateEventHandler">
+            <summary>
+            Firmware Update Event Handler
+            </summary>
+            <param name="fwEvent">Firmware Update Event</param>
+        </member>
+        <member name="T:CSProxy.CommandResponseEventHandler">
+            <summary>
+            Response of a Async Command Execution
+            </summary>
+            <param name="commandResponseEvent">Command Response</param>
+        </member>
+        <member name="T:CSProxy.IOEventHandler">
+            <summary>
+            IO Event Handler
+            </summary>
+        </member>
+        <member name="T:CSProxy.NotificationEventHandler">
+            <summary>
+            Scanner Notofication Event
+            </summary>
+            <param name="type">Notification Type</param>
+            <param name="scanner">Scanner that sent the notification</param>
+        </member>
+        <member name="T:CSProxy.CoreScannerProxy">
+            <summary>
+            A wrapper class to communicate with CoreScanner Driver
+            </summary>
+        </member>
+        <member name="F:CSProxy.CoreScannerProxy.TOTAL_SCANNER_TYPES">
+            <summary>
+            Total number of Scanner Types
+            </summary>
+        </member>
+        <member name="F:CSProxy.CoreScannerProxy.TOTAL_EVENTS_TYPES">
+            <summary>
+            Total Number of Event Types
+            </summary>
+        </member>
+        <member name="F:CSProxy.CoreScannerProxy.MAX_NUM_DEVICES">
+            <summary>
+            Maximum number of Devices
+            </summary>
+        </member>
+        <member name="M:CSProxy.CoreScannerProxy.OnNotification(CSProxy.NotificationTypes,CSProxy.Scanner)">
+            <summary>
+            Notication Event
+            </summary>
+            <param name="type">Notification Type</param>
+            <param name="scanner">Scanner that sent the notification</param>
+        </member>
+        <member name="M:CSProxy.CoreScannerProxy.OnCommandResponse(CSProxy.CSCommadResponseEvent)">
+            <summary>
+            Command Response Event
+            </summary>
+            <param name="commandResponse">Response of the command</param>
+        </member>
+        <member name="M:CSProxy.CoreScannerProxy.OnIOEvent">
+            <summary>
+            IO Event
+            </summary>
+        </member>
+        <member name="M:CSProxy.CoreScannerProxy.OnPnP(CSProxy.PnPState,CSProxy.Scanner)">
+            <summary>
+            Plug and Play Event
+            </summary>
+            <param name="pnPState">State of the event</param>
+            <param name="s">Scanner Attached or Detached</param>
+        </member>
+        <member name="M:CSProxy.CoreScannerProxy.OnBarcode(CSProxy.CSBarcode)">
+            <summary>
+            Barcode Event
+            </summary>
+            <param name="b">Barcode</param>
+        </member>
+        <member name="M:CSProxy.CoreScannerProxy.OnImage(CSProxy.CSImage)">
+            <summary>
+            Image Event
+            </summary>
+            <param name="image">Image</param>
+        </member>
+        <member name="M:CSProxy.CoreScannerProxy.OnVideo(CSProxy.CSVideo)">
+            <summary>
+            Video Event
+            </summary>
+            <param name="video">Video</param>
+        </member>
+        <member name="M:CSProxy.CoreScannerProxy.OnFirmwareUpdate(CSProxy.CSFirmwareUpdateEvent)">
+            <summary>
+            Firmware Update Event
+            </summary>
+            <param name="firmwareUpdate">Firmware Update</param>
+        </member>
+        <member name="M:CSProxy.CoreScannerProxy.#ctor">
+            <summary>
+            Creates a new CoreScanner Proxy
+            </summary>
+        </member>
+        <member name="M:CSProxy.CoreScannerProxy.OnCommandResponseEvent(System.Int16,System.String@)">
+            <summary>
+            Callback function to handle CommandResponse (Async function call output) events received from the Scanner SDK
+            </summary>
+            <param name="status">Status of the executed command</param>
+            <param name="outXML">Output XML of the command</param>
+        </member>
+        <member name="M:CSProxy.CoreScannerProxy.OnScanRMDEvent(System.Int16,System.String@)">
+            <summary>
+            Callback function to handle ScanRMD (Firmware Download) events received from the Scanner SDK
+            </summary>
+            <param name="eventType">Firmware update status</param>
+            <param name="prmdData">XML contains data about the event</param>
+        </member>
+        <member name="M:CSProxy.CoreScannerProxy.OnVideoEvent(System.Int16,System.Int32,System.Object@,System.String@)">
+            <summary>
+            Callback function to handle Video events received from the Scanner SDK
+            </summary>
+            <param name="eventType">Complete video frame send eventtype as "1"</param>
+            <param name="size">Size of video data buffer</param>
+            <param name="videoData">Video data buffer</param>
+            <param name="scannerData"></param>
+        </member>
+        <member name="M:CSProxy.CoreScannerProxy.OnImageEvent(System.Int16,System.Int32,System.Int16,System.Object@,System.String@)">
+            <summary>
+            Callback function to handle Image events received from the Scanner SDK
+            </summary>
+            <param name="eventType">Complete Image Capture event send eventtype as "1"</param>
+            <param name="size">Size of image data buffer</param>
+            <param name="imageFormat">Format of the captured image</param>
+            <param name="imageData">Image data buffer</param>
+            <param name="scannerData">Scanner information</param>
+        </member>
+        <member name="M:CSProxy.CoreScannerProxy.OnPNPEvent(System.Int16,System.String@)">
+            <summary>
+            Callback function to handle PnP events received from the Scanner SDK
+            </summary>
+            <param name="eventType">Type of the event (Attached or Detached)</param>
+            <param name="pnpData">Assert tracking informations about attached/ detached scanner</param>
+            <remarks>If you are not interested in PnP events please do not register for the PnP events. Removing this function may arrise compilation errors. Blocking this function blocks all the events</remarks>
+        </member>
+        <member name="M:CSProxy.CoreScannerProxy.OnBarcodeEvent(System.Int16,System.String@)">
+            <summary>
+            Callback function to handle the barcode events received from the Scanner SDK
+            </summary>
+            <param name="eventType">Successful decode send eventtype as "1"</param>
+            <param name="scanData">XML contains the barcode and scanner data</param>
+        </member>
+        <member name="M:CSProxy.CoreScannerProxy.GetScannersFromEvent(System.String,System.Int16)">
+            <summary>
+            Get an Array of Scanners form a PnP Event
+            </summary>
+            <param name="pnpData">PnP Event Information</param>
+            <returns>PnPEventScanner</returns>
+        </member>
+        <member name="M:CSProxy.CoreScannerProxy.Open(System.Int16[])">
+            <summary>
+            Open the Scanner Proxy for the Provided Scanner Types
+            </summary>
+            <param name="arScannerTypes">Array of Required Scanner Types</param>
+            <returns>Status of the Command</returns>
+        </member>
+        <member name="M:CSProxy.CoreScannerProxy.OpenAndGetScanners(System.Int16[],System.Collections.Generic.List{CSProxy.Scanner}@)">
+            <summary>
+            Open and Get the connected scanner list
+            </summary>
+            <param name="arScannerTypes">Array of Required Scanner Types</param>
+            <param name="connectedScanners">List of connected scanners</param>
+            <returns>Status of the command</returns>
+        </member>
+        <member name="M:CSProxy.CoreScannerProxy.RefreshScanners(System.Collections.Generic.List{CSProxy.Scanner}@)">
+            <summary>
+            Refresh list of scanners connected
+            </summary>
+            <param name="connectedScanners">List of connected scanners</param>
+            <returns>Status of the command</returns>
+        </member>
+        <member name="M:CSProxy.CoreScannerProxy.RegisterForEvents(System.Int16[])">
+            <summary>
+            Register for the Provided Events 
+            </summary>
+            <param name="arEvents">Array of Events Needs to Register</param>
+            <returns>Status of the command</returns>
+        </member>
+        <member name="M:CSProxy.CoreScannerProxy.UnRegisterForEvents(System.Int16[])">
+            <summary>
+            Un-Register for the Provided Events
+            </summary>
+            <param name="arEvents">Array of Events Needs to Un-Register</param>
+            <returns>Status of the Command</returns>
+        </member>
+        <member name="M:CSProxy.CoreScannerProxy.GetScanners(System.Collections.Generic.List{CSProxy.Scanner}@)">
+            <summary>
+            Get the Scanner List Connected to the host
+            </summary>
+            <param name="connectedScanners">Reference to a Scanner List</param>
+            <returns>Status of the Command</returns>
+        </member>
+        <member name="M:CSProxy.CoreScannerProxy.Close">
+            <summary>
+            Close the Scanner Proxy
+            </summary>
+            <returns>Status of the Command</returns>
+        </member>
+        <member name="M:CSProxy.CoreScannerProxy.SetKeyboadEmulation(System.Boolean)">
+            <summary>
+            Set the Keyboard Emulation Enable / Disable when the Scanner in non-KB wedge modes
+            </summary>
+            <param name="enable">Enable or Disable</param>
+            <returns>Status of the Command</returns>
+        </member>
+        <member name="M:CSProxy.CoreScannerProxy.SetKeyboadEmulationLocale(CSProxy.KBLocale)">
+            <summary>
+            Set the language locale of the Keyboard Emulator
+            </summary>
+            <param name="kBLocale">Language Locale</param>
+            <returns>Status of the Command</returns>
+        </member>
+        <member name="M:CSProxy.CoreScannerProxy.GetKeyboardEmulationSettings(CSProxy.CSKBEmulation@)">
+            <summary>
+            Get Keyboard Emulator Settings
+            </summary>
+            <param name="kBEmulation">Reference to a KB Emulation Settings</param>
+            <returns>Status of the Command</returns>
+        </member>
+        <member name="M:CSProxy.CoreScannerProxy.SetKeyboardEmulationSettings(CSProxy.CSKBEmulation)">
+            <summary>
+            Set the Keyboad Emualation Settings
+            </summary>
+            <param name="kBEmulation">Keyboard Emulation Settings</param>
+            <returns>Status of the Command</returns>
+        </member>
+        <member name="M:CSProxy.CoreScannerProxy.GetDeviceTopology(System.Collections.Generic.List{CSProxy.Scanner}@)">
+            <summary>
+            Get the topology that devices connected
+            </summary>
+            <param name="lstScanners">Reference to a Scanner List</param>
+            <returns>Status of the Command</returns>
+        </member>
+        <member name="M:CSProxy.CoreScannerProxy.GetStatus(System.Int32)">
+            <summary>
+            Get the Status of a Command
+            </summary>
+            <param name="status">status received by CoreScanner</param>
+            <returns>Status</returns>
+        </member>
+        <member name="M:CSProxy.CoreScannerProxy.ReleaseDevice(System.Int32)">
+            <summary>
+            Release a Claimed Device
+            </summary>
+            <param name="scannerID">Scanner ID</param>
+            <returns>Status of the Command</returns>
+        </member>
+        <member name="M:CSProxy.CoreScannerProxy.ClaimDevice(System.Int32)">
+            <summary>
+            Claim a requested device
+            </summary>
+            <param name="scannerID">Scanner ID </param>
+            <returns>Status of the Command</returns>
+        </member>
+        <member name="E:CSProxy.CoreScannerProxy.PnPEvent">
+            <summary>
+            Plug and Play Event of a Scanner
+            </summary>
+        </member>
+        <member name="E:CSProxy.CoreScannerProxy.BarcodeEvent">
+            <summary>
+            Barcode Event of a Scanner
+            </summary>
+        </member>
+        <member name="E:CSProxy.CoreScannerProxy.ImageEvent">
+            <summary>
+            Image Event of a Scanner
+            </summary>
+        </member>
+        <member name="E:CSProxy.CoreScannerProxy.VideoEvent">
+            <summary>
+            Video Event of a Scanner
+            </summary>
+        </member>
+        <member name="E:CSProxy.CoreScannerProxy.FirmwareUpdateEvent">
+            <summary>
+            Firmware Update Event of a Scanner
+            </summary>
+        </member>
+        <member name="E:CSProxy.CoreScannerProxy.CommandResponseEvent">
+            <summary>
+            Command Response Event of a Scanner
+            </summary>
+        </member>
+        <member name="E:CSProxy.CoreScannerProxy.IOEvent">
+            <summary>
+            IO Event of a Scanner
+            </summary>
+        </member>
+        <member name="E:CSProxy.CoreScannerProxy.NotificatioEvent">
+            <summary>
+            Scanner Notification Event
+            </summary>
+        </member>
+        <member name="P:CSProxy.CoreScannerProxy.Instance">
+            <summary>
+            Proxy to Communicate with CoreScanner Driver
+            </summary>
+        </member>
+        <member name="T:CSProxy.Status">
+            <summary>
+            Status of the Commands
+            </summary>
+        </member>
+        <member name="F:CSProxy.Status.S_SUCCESS">
+            <summary>
+            Command Success
+            </summary>
+        </member>
+        <member name="F:CSProxy.Status.S_NOT_OPEN">
+            <summary>
+            CoreScanner Not Open
+            </summary>
+        </member>
+        <member name="F:CSProxy.Status.S_LOCKED">
+            <summary>
+            Scanner Locked by another client
+            </summary>
+        </member>
+        <member name="F:CSProxy.Status.E_INVALID_APPHANDLE">
+            <summary>
+            Invalid AppHandle
+            </summary>
+        </member>
+        <member name="F:CSProxy.Status.E_COMMLIB_UNAVAILABLE">
+            <summary>
+            Com lib unavailable
+            </summary>
+        </member>
+        <member name="F:CSProxy.Status.E_NULL_BUFFER_POINTER">
+            <summary>
+            Null buffer pointer
+            </summary>
+        </member>
+        <member name="F:CSProxy.Status.E_INVALID_BUFFER_POINTER">
+            <summary>
+            Invalid buffer pointer
+            </summary>
+        </member>
+        <member name="F:CSProxy.Status.E_INCORRECT_BUFFER_SIZE">
+            <summary>
+            Incorrect buffer size
+            </summary>
+        </member>
+        <member name="F:CSProxy.Status.E_DUPLICATE_TYPES">
+            <summary>
+            Duplicate scanner types
+            </summary>
+        </member>
+        <member name="F:CSProxy.Status.E_INCORRECT_NUMBER_OF_TYPES">
+            <summary>
+            Incorrect number of types
+            </summary>
+        </member>
+        <member name="F:CSProxy.Status.E_INVALID_ARG">
+            <summary>
+            Invalid arguments
+            </summary>
+        </member>
+        <member name="F:CSProxy.Status.E_INVALID_SCANNERID">
+            <summary>
+            Invalid scanner id
+            </summary>
+        </member>
+        <member name="F:CSProxy.Status.E_INCORRECT_NUMBER_OF_EVENTS">
+            <summary>
+            Incorrect number of events
+            </summary>
+        </member>
+        <member name="F:CSProxy.Status.E_DUPLICATE_EVENTID">
+            <summary>
+            Duplicate event id
+            </summary>
+        </member>
+        <member name="F:CSProxy.Status.E_INVALID_EVENTID">
+            <summary>
+            Invalid event id
+            </summary>
+        </member>
+        <member name="F:CSProxy.Status.E_DEVICE_UNAVAILABLE">
+            <summary>
+            Device unavailable
+            </summary>
+        </member>
+        <member name="F:CSProxy.Status.E_INVALID_OPCODE">
+            <summary>
+            Invalid opcode(method)
+            </summary>
+        </member>
+        <member name="F:CSProxy.Status.E_INVALID_TYPE">
+            <summary>
+            Invalid type
+            </summary>
+        </member>
+        <member name="F:CSProxy.Status.E_ASYNC_NOT_SUPPORTED">
+            <summary>
+            Asyncronous option not supported
+            </summary>
+        </member>
+        <member name="F:CSProxy.Status.E_OPCODE_NOT_SUPPORTED">
+            <summary>
+            Opcode not supported
+            </summary>
+        </member>
+        <member name="F:CSProxy.Status.E_OPERATION_FAILED">
+            <summary>
+            Operation failed
+            </summary>
+        </member>
+        <member name="F:CSProxy.Status.E_REQUEST_FAILED">
+            <summary>
+            Request failed
+            </summary>
+        </member>
+        <member name="F:CSProxy.Status.E_ALREADY_OPENED">
+            <summary>
+            Already opened
+            </summary>
+        </member>
+        <member name="F:CSProxy.Status.E_ALREADY_CLOSED">
+            <summary>
+            Already closed
+            </summary>
+        </member>
+        <member name="F:CSProxy.Status.E_CLOSED">
+            <summary>
+            CoreScanner Closed
+            </summary>
+        </member>
+        <member name="F:CSProxy.Status.E_INVALID_INXML">
+            <summary>
+            Invalid input XML
+            </summary>
+        </member>
+        <member name="F:CSProxy.Status.E_XMLREADER_NOT_CREATED">
+            <summary>
+            XML reader not created
+            </summary>
+        </member>
+        <member name="F:CSProxy.Status.E_XMLREADER_INPUT_NOT_SET">
+            <summary>
+            XML reader input not set
+            </summary>
+        </member>
+        <member name="F:CSProxy.Status.E_XMLREADER_PROPERTY_NOT_SET">
+            <summary>
+            XML reader property not set
+            </summary>
+        </member>
+        <member name="F:CSProxy.Status.E_XMLWRITER_NOT_CREATED">
+            <summary>
+            XML writer not created
+            </summary>
+        </member>
+        <member name="F:CSProxy.Status.E_XMLWRITER_OUTPUT_NOT_SET">
+            <summary>
+            XML writer output not set
+            </summary>
+        </member>
+        <member name="F:CSProxy.Status.E_XMLWRITER_PROPERTY_NOT_SET">
+            <summary>
+            XML writer property not set
+            </summary>
+        </member>
+        <member name="F:CSProxy.Status.E_XML_ELEMENT_CANT_READ">
+            <summary>
+            XML element cannot read
+            </summary>
+        </member>
+        <member name="F:CSProxy.Status.E_XML_INVALID_ARG">
+            <summary>
+            Invalid arguments in XML
+            </summary>
+        </member>
+        <member name="F:CSProxy.Status.E_XML_WRITE_FAIL">
+            <summary>
+            XML write failed
+            </summary>
+        </member>
+        <member name="F:CSProxy.Status.E_XML_INXML_EXCEED_LENGTH">
+            <summary>
+            Input XML exceed the length
+            </summary>
+        </member>
+        <member name="F:CSProxy.Status.E_XML_EXCEED_BUFFER_LENGTH">
+            <summary>
+            XML exceed the buffer length
+            </summary>
+        </member>
+        <member name="F:CSProxy.Status.E_NULL_POINTER">
+            <summary>
+            Null pointer
+            </summary>
+        </member>
+        <member name="F:CSProxy.Status.E_DUPLICATE_CLIENT">
+            <summary>
+            Duplicate client
+            </summary>
+        </member>
+        <member name="F:CSProxy.Status.E_FW_INVALID_DATFILE">
+            <summary>
+            Invalid DAT file
+            </summary>
+        </member>
+        <member name="F:CSProxy.Status.E_FW_UPDATE_FAILED_IN_SCN">
+            <summary>
+            Firmware update failed in the Scanner
+            </summary>
+        </member>
+        <member name="F:CSProxy.Status.E_FW_READ_FAILED_DATFILE">
+            <summary>
+            Failed to read DAT file
+            </summary>
+        </member>
+        <member name="F:CSProxy.Status.E_FW_UPDATE_INPROGRESS">
+            <summary>
+            Firmware update in progress
+            </summary>
+        </member>
+        <member name="F:CSProxy.Status.E_FW_UPDATE_ALREADY_ABORTED">
+            <summary>
+            Firmware update already aborted
+            </summary>
+        </member>
+        <member name="F:CSProxy.Status.E_FW_UPDATE_ABORTED">
+            <summary>
+            firmware update aborted
+            </summary>
+        </member>
+        <member name="F:CSProxy.Status.E_FW_SCN_DETTACHED">
+            <summary>
+            Scanner detached while updating firmware
+            </summary>
+        </member>
+        <member name="F:CSProxy.Status.S_FW_SWCOMP_RESIDENT">
+            <summary>
+            Resident software component
+            </summary>
+        </member>
+        <member name="F:CSProxy.Status.N_NULL">
+            <summary>
+            Null
+            </summary>
+        </member>
+        <member name="T:CSProxy.NotificationTypes">
+            <summary>
+            Scanner Notification Event Type
+            </summary>
+        </member>
+        <member name="F:CSProxy.NotificationTypes.BARCODE_MODE">
+            <summary>
+            Barcode Mode
+            </summary>
+        </member>
+        <member name="F:CSProxy.NotificationTypes.IMAGE_MODE">
+            <summary>
+            Image Mode
+            </summary>
+        </member>
+        <member name="F:CSProxy.NotificationTypes.VIDEO_MODE">
+            <summary>
+            Video Mode
+            </summary>
+        </member>
+        <member name="T:CSProxy.ScannerLED">
+            <summary>
+            LED of a Scanner
+            </summary>
+        </member>
+        <member name="F:CSProxy.ScannerLED.GREEN">
+            <summary>
+            Green
+            </summary>
+        </member>
+        <member name="F:CSProxy.ScannerLED.YELLOW">
+            <summary>
+            Yellow
+            </summary>
+        </member>
+        <member name="F:CSProxy.ScannerLED.RED">
+            <summary>
+            Red
+            </summary>
+        </member>
+        <member name="T:CSProxy.ImageFormat">
+            <summary>
+            Image Format of the Image
+            </summary>
+        </member>
+        <member name="F:CSProxy.ImageFormat.JPEG">
+            <summary>
+            JPEG 
+            </summary>
+        </member>
+        <member name="F:CSProxy.ImageFormat.BMP">
+            <summary>
+            BMP
+            </summary>
+        </member>
+        <member name="F:CSProxy.ImageFormat.TIFF">
+            <summary>
+            TIFF
+            </summary>
+        </member>
+        <member name="T:CSProxy.ScannerTypes">
+            <summary>
+            Scanner Type
+            </summary>
+        </member>
+        <member name="F:CSProxy.ScannerTypes.ALL">
+            <summary>
+            All Scanner Types
+            </summary>
+        </member>
+        <member name="F:CSProxy.ScannerTypes.SNAPI">
+            <summary>
+            Symbol Native API (SNAPI)
+            </summary>
+        </member>
+        <member name="F:CSProxy.ScannerTypes.IBMHID">
+            <summary>
+            IBM Hand-Held USB
+            </summary>
+        </member>
+        <member name="F:CSProxy.ScannerTypes.SSI">
+            <summary>
+            SSI
+            </summary>
+        </member>
+        <member name="F:CSProxy.ScannerTypes.NIXMODB">
+            <summary>
+            NIXDORF Mode B
+            </summary>
+        </member>
+        <member name="F:CSProxy.ScannerTypes.HIDKB">
+            <summary>
+            HID Keyboard
+            </summary>
+        </member>
+        <member name="F:CSProxy.ScannerTypes.IBMTT">
+            <summary>
+            IBM Table Top USB
+            </summary>
+        </member>
+        <member name="T:CSProxy.ScannerEvents">
+            <summary>
+            Events Received by the CoreScanner
+            </summary>
+        </member>
+        <member name="F:CSProxy.ScannerEvents.BARCODE">
+            <summary>
+            Barcode Event
+            </summary>
+        </member>
+        <member name="F:CSProxy.ScannerEvents.IMAGE">
+            <summary>
+            Image Event
+            </summary>
+        </member>
+        <member name="F:CSProxy.ScannerEvents.VIDEO">
+            <summary>
+            Video Event
+            </summary>
+        </member>
+        <member name="F:CSProxy.ScannerEvents.RMD">
+            <summary>
+            Firmware Update Event
+            </summary>
+        </member>
+        <member name="F:CSProxy.ScannerEvents.PNP">
+            <summary>
+            Plug and Play Event
+            </summary>
+        </member>
+        <member name="F:CSProxy.ScannerEvents.OTHER">
+            <summary>
+            Other Events (Command Responce, IO)
+            </summary>
+        </member>
+        <member name="T:CSProxy.ScannerHostModes">
+            <summary>
+            Scanner Host Modes (USB Cable Type)
+            </summary>
+        </member>
+        <member name="F:CSProxy.ScannerHostModes.USB_HIDKB">
+            <summary>
+            HID Keyboard Emulation
+            </summary>
+        </member>
+        <member name="F:CSProxy.ScannerHostModes.USB_IBMHID">
+            <summary>
+            IBM Hand-Held USB
+            </summary>
+        </member>
+        <member name="F:CSProxy.ScannerHostModes.SNAPI_WITH_IMAGING">
+            <summary>
+            Symbol Native API (SNAPI) with Imaging Interface
+            </summary>
+        </member>
+        <member name="F:CSProxy.ScannerHostModes.SNAPI_WO_IMAGING">
+            <summary>
+            Symbol Native API (SNAPI) without Imaging Interface
+            </summary>
+        </member>
+        <member name="F:CSProxy.ScannerHostModes.USB_IBMTT">
+            <summary>
+            IBM Table Top USB
+            </summary>
+        </member>
+        <member name="F:CSProxy.ScannerHostModes.USB_OPOS">
+            <summary>
+            USB OPOS
+            </summary>
+        </member>
+        <member name="T:CSProxy.ScannerMethods">
+            <summary>
+            Method to Execute
+            </summary>
+        </member>
+        <member name="F:CSProxy.ScannerMethods.GET_VERSION">
+            <summary>
+            Get the version of CoreScanner Driver
+            </summary>
+        </member>
+        <member name="F:CSProxy.ScannerMethods.REGISTER_FOR_EVENTS">
+            <summary>
+            Register for Device Events
+            </summary>
+        </member>
+        <member name="F:CSProxy.ScannerMethods.UNREGISTER_FOR_EVENTS">
+            <summary>
+            Unregister from Device Events
+            </summary>
+        </member>
+        <member name="F:CSProxy.ScannerMethods.CLAIM_DEVICE">
+            <summary>
+            Claim the Device
+            </summary>
+        </member>
+        <member name="F:CSProxy.ScannerMethods.RELEASE_DEVICE">
+            <summary>
+            Release the Device
+            </summary>
+        </member>
+        <member name="F:CSProxy.ScannerMethods.ABORT_MACROPDF">
+            <summary>
+            Abort Macro PDF
+            </summary>
+        </member>
+        <member name="F:CSProxy.ScannerMethods.ABORT_UPDATE_FIRMWARE">
+            <summary>
+            Abort Update Firmware
+            </summary>
+        </member>
+        <member name="F:CSProxy.ScannerMethods.AIM_OFF">
+            <summary>
+            Turn off the Scanner Aim
+            </summary>
+        </member>
+        <member name="F:CSProxy.ScannerMethods.AIM_ON">
+            <summary>
+            Turn on the Scanner Aim
+            </summary>
+        </member>
+        <member name="F:CSProxy.ScannerMethods.FLUSH_MACROPDF">
+            <summary>
+            Flush Macro PDF
+            </summary>
+        </member>
+        <member name="F:CSProxy.ScannerMethods.DEVICE_LED_OFF">
+            <summary>
+            Turn On the Scanner LED
+            </summary>
+        </member>
+        <member name="F:CSProxy.ScannerMethods.DEVICE_LED_ON">
+            <summary>
+            Turn Off the Scanner LED
+            </summary>
+        </member>
+        <member name="F:CSProxy.ScannerMethods.DEVICE_PULL_TRIGGER">
+            <summary>
+            Trigger the Scanner
+            </summary>
+        </member>
+        <member name="F:CSProxy.ScannerMethods.DEVICE_RELEASE_TRIGGER">
+            <summary>
+            Release the trigger of the Scanner
+            </summary>
+        </member>
+        <member name="F:CSProxy.ScannerMethods.SCAN_DISABLE">
+            <summary>
+            Disable the Scanner
+            </summary>
+        </member>
+        <member name="F:CSProxy.ScannerMethods.SCAN_ENABLE">
+            <summary>
+            Enable the Scanner
+            </summary>
+        </member>
+        <member name="F:CSProxy.ScannerMethods.DEVICE_SET_PARAMETERS">
+            <summary>
+            Send SNAPI Dirrect Commands
+            </summary>
+        </member>
+        <member name="F:CSProxy.ScannerMethods.DEVICE_BEEP_CONTROL">
+            <summary>
+            Beep the Scanner
+            </summary>
+        </member>
+        <member name="F:CSProxy.ScannerMethods.REBOOT_SCANNER">
+            <summary>
+            Reboot the Scanner
+            </summary>
+        </member>
+        <member name="F:CSProxy.ScannerMethods.ATTR_GETALL">
+            <summary>
+            Get all the RSM attribute IDs of the Scanner
+            </summary>
+        </member>
+        <member name="F:CSProxy.ScannerMethods.ATTR_GET">
+            <summary>
+            Get an attribute or set of attributes from the scanner 
+            </summary>
+        </member>
+        <member name="F:CSProxy.ScannerMethods.ATTR_GETNEXT">
+            <summary>
+            Get the next attribute of the Scanner
+            </summary>
+        </member>
+        <member name="F:CSProxy.ScannerMethods.ATTR_SET">
+            <summary>
+            Temporary Set an attribute or set of attributes of the Scanner
+            </summary>
+        </member>
+        <member name="F:CSProxy.ScannerMethods.ATTR_STORE">
+            <summary>
+            Permanantly Set an attribute or set of attributes of the Scanner
+            </summary>
+        </member>
+        <member name="F:CSProxy.ScannerMethods.GET_DEVICE_TOPOLOGY">
+            <summary>
+            Get the topology that devices are connected to the host
+            </summary>
+        </member>
+        <member name="F:CSProxy.ScannerMethods.SET_SERIAL_PORT_SETTINGS">
+            <summary>
+            Set serial port settings of a serial scanner
+            </summary>
+        </member>
+        <member name="F:CSProxy.ScannerMethods.DEVICE_SWITCH_HOST_MODE">
+            <summary>
+            Switch the host mode of a scanner
+            </summary>
+        </member>
+        <member name="F:CSProxy.ScannerMethods.DEVICE_CAPTURE_IMAGE">
+            <summary>
+            Swith a scanner to image mode
+            </summary>
+        </member>
+        <member name="F:CSProxy.ScannerMethods.DEVICE_CAPTURE_BARCODE">
+            <summary>
+            Switch the Scanner to Barcode Mode
+            </summary>
+        </member>
+        <member name="F:CSProxy.ScannerMethods.DEVICE_CAPTURE_VIDEO">
+            <summary>
+            Swith a scanner to video mode
+            </summary>
+        </member>
+        <member name="F:CSProxy.ScannerMethods.START_NEW_FIRMWARE">
+            <summary>
+            Start the new firmware
+            </summary>
+        </member>
+        <member name="F:CSProxy.ScannerMethods.UPDATE_FIRMWARE_FROM_DAT">
+            <summary>
+            Update the Scanner firmware from a DAT file
+            </summary>
+        </member>
+        <member name="F:CSProxy.ScannerMethods.UPDATE_FIRMWARE_FROM_PLUGIN">
+            <summary>
+            Update the Scanner firmware from a Plug-in file
+            </summary>
+        </member>
+        <member name="F:CSProxy.ScannerMethods.TUNNELED_FIRMWARE_UPDATE">
+            <summary>
+            Update the scanner firmware from a plug-in or DAT file. If it is a cascaded device create a tunnel and do the firmware update.
+            </summary>
+        </member>
+        <member name="F:CSProxy.ScannerMethods.SET_ACTION">
+            <summary>
+            Set Scanner Actions like Beeps and LED patterns
+            </summary>
+        </member>
+        <member name="F:CSProxy.ScannerMethods.KEYBOARD_EMULATOR_ENABLE">
+            <summary>
+            Enable the Keyboard Emulator
+            </summary>
+        </member>
+        <member name="F:CSProxy.ScannerMethods.KEYBOARD_EMULATOR_SET_LOCALE">
+            <summary>
+            Set the locale of the keyboard emulation
+            </summary>
+        </member>
+        <member name="F:CSProxy.ScannerMethods.KEYBOARD_EMULATOR_GET_CONFIG">
+            <summary>
+            Get the current keyboard emullator configuration
+            </summary>
+        </member>
+        <member name="T:CSProxy.PnPState">
+            <summary>
+            PnP state
+            </summary>
+        </member>
+        <member name="F:CSProxy.PnPState.ATTACHED">
+            <summary>
+            Scanner Attached
+            </summary>
+        </member>
+        <member name="F:CSProxy.PnPState.DETACHED">
+            <summary>
+            Scanner Detached
+            </summary>
+        </member>
+        <member name="F:CSProxy.PnPState.NO_CHANGE">
+            <summary>
+            Scanner has no change in the PnP state
+            </summary>
+        </member>
+        <member name="T:CSProxy.KBLocale">
+            <summary>
+            Language locale of the Keyboard Emulator
+            </summary>
+        </member>
+        <member name="F:CSProxy.KBLocale.ENGLISH">
+            <summary>
+            English
+            </summary>
+        </member>
+        <member name="F:CSProxy.KBLocale.FRENCH">
+            <summary>
+            French
+            </summary>
+        </member>
+        <member name="T:CSProxy.BaudRate">
+            <summary>
+            Baud rate of a Serial Scanner
+            </summary>
+        </member>
+        <member name="F:CSProxy.BaudRate.BR9600">
+            <summary>
+            9600
+            </summary>
+        </member>
+        <member name="F:CSProxy.BaudRate.BR19200">
+            <summary>
+            19200
+            </summary>
+        </member>
+        <member name="F:CSProxy.BaudRate.BR38400">
+            <summary>
+            38400
+            </summary>
+        </member>
+        <member name="F:CSProxy.BaudRate.BR57600">
+            <summary>
+            57600
+            </summary>
+        </member>
+        <member name="F:CSProxy.BaudRate.BR115200">
+            <summary>
+            115200
+            </summary>
+        </member>
+        <member name="T:CSProxy.Parity">
+            <summary>
+            Parity of a serial scanner
+            </summary>
+        </member>
+        <member name="F:CSProxy.Parity.ODD">
+            <summary>
+            Odd parity
+            </summary>
+        </member>
+        <member name="F:CSProxy.Parity.EVEN">
+            <summary>
+            Even parity
+            </summary>
+        </member>
+        <member name="F:CSProxy.Parity.NONE">
+            <summary>
+            No parity
+            </summary>
+        </member>
+        <member name="T:CSProxy.DataBit">
+            <summary>
+            Data bit of a serial scanner
+            </summary>
+        </member>
+        <member name="F:CSProxy.DataBit.DB7">
+            <summary>
+            7 Data bits
+            </summary>
+        </member>
+        <member name="F:CSProxy.DataBit.DB8">
+            <summary>
+            8 Data bits
+            </summary>
+        </member>
+        <member name="T:CSProxy.StopBit">
+            <summary>
+            Stop bit of a serial scanner
+            </summary>
+        </member>
+        <member name="F:CSProxy.StopBit.SB1">
+            <summary>
+            1 stop bit
+            </summary>
+        </member>
+        <member name="F:CSProxy.StopBit.SB1nHalf">
+            <summary>
+            1.5 stop bit
+            </summary>
+        </member>
+        <member name="F:CSProxy.StopBit.SB2">
+            <summary>
+            2 stop bit
+            </summary>
+        </member>
+        <member name="T:CSProxy.Symbology">
+            <summary>
+            Barcode Sybology
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.CODE_39">
+            <summary>
+            Code 39
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.CODABAR">
+            <summary>
+            Codabar
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.CODE_128">
+            <summary>
+            Code 128
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.D2OF5">
+            <summary>
+            Discrete 2 of 5
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.IATA">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.I2OF5">
+            <summary>
+            Interleaved 2 of 5
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.CODE93">
+            <summary>
+            Code 93
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.UPCA">
+            <summary>
+            UPCA
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.UPCE0">
+            <summary>
+            UPC-E0
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.EAN8">
+            <summary>
+            EAN-8
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.EAN13">
+            <summary>
+            EAN-13
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.CODE11">
+            <summary>
+            Code 11
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.CODE49">
+            <summary>
+            Code 49
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.MSI">
+            <summary>
+            MSI
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.EAN128">
+            <summary>
+            EAN-128
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.UPCE1">
+            <summary>
+            UPC-E1
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.PDF417">
+            <summary>
+            PDF 417
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.CODE16K">
+            <summary>
+            Code 16K
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.C39FULL">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.UPCD">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.TRIOPTIC">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.BOOKLAND">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.COUPON">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.NW7">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.ISBT128">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.MICRO_PDF">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.DATAMATRIX">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.QR_CODE">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.MICRO_PDF_CCA">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.POSTNET_US">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.PLANET_CODE">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.CODE_32">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.ISBT128_CON">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.JAPAN_POSTAL">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.AUS_POSTAL">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.DUTCH_POSTAL">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.MAXICODE">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.CANADIN_POSTAL">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.UK_POSTAL">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.MACRO_PDF">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.RSS14">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.RSS_LIMITET">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.RSS_EXPANDED">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.SCANLET">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.UPCA_2">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.UPCE0_2">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.EAN8_2">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.EAN13_2">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.UPCE1_2">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.CCA_EAN128">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.CCA_EAN13">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.CCA_EAN8">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.CCA_RSS_EXPANDED">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.CCA_RSS_LIMITED">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.CCA_RSS14">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.CCA_UPCA">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.CCA_UPCE">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.CCC_EAN128">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.TLC39">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.CCB_EAN128">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.CCB_EAN13">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.CCB_EAN8">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.CCB_RSS_EXPANDED">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.CCB_RSS_LIMITED">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.CCB_RSS14">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.CCB_UPCA">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.CCB_UPCE">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.SIGNATURE_CAPTURE">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.MATRIX2OF5">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.CHINESE2OF5">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.UPCA_5">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.UPCE0_5">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.EAN8_5">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.EAN13_5">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.UPCE1_5">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.MACRO_MICRO_PDF">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.C25">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.MICRO_QR_CODE">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.AZTEC">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CSProxy.Symbology.UNKNOWN">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:CSProxy.CSCommadResponseEvent">
+            <summary>
+            Command Response Event of a Async Command
+            </summary>
+        </member>
+        <member name="M:CSProxy.CSCommadResponseEvent.#ctor">
+            <summary>
+            Creates a new Command Response Event
+            </summary>
+        </member>
+        <member name="P:CSProxy.CSCommadResponseEvent.Status">
+            <summary>
+            Get or Set the Status of the Command
+            </summary>
+        </member>
+        <member name="P:CSProxy.CSCommadResponseEvent.Method">
+            <summary>
+            Get or Set the Method executed
+            </summary>
+        </member>
+        <member name="P:CSProxy.CSCommadResponseEvent.ReceivingScanner">
+            <summary>
+            Get or Set the Scanner that receiving the event
+            </summary>
+        </member>
+        <member name="P:CSProxy.CSCommadResponseEvent.Output">
+            <summary>
+            Output of the Method. User needs to cast the object accordingly.
+            </summary>
+        </member>
+        <member name="T:CSProxy.CSSerialSettings">
+            <summary>
+            Serial Settings for a Serial Scanner
+            </summary>
+        </member>
+        <member name="M:CSProxy.CSSerialSettings.#ctor">
+            <summary>
+            Creates a new Serial Settings object
+            </summary>
+        </member>
+        <member name="M:CSProxy.CSSerialSettings.#ctor(CSProxy.BaudRate,CSProxy.Parity,CSProxy.DataBit,CSProxy.StopBit,System.Boolean)">
+            <summary>
+            Creates a new Serial Settings object
+            </summary>
+            <param name="baudRate">Baud Rate</param>
+            <param name="parity">Parity</param>
+            <param name="dataBit">Data Bit</param>
+            <param name="stopBit">Stop Bit</param>
+            <param name="flowControl">Flow Control</param>
+        </member>
+        <member name="P:CSProxy.CSSerialSettings.BaudRate">
+            <summary>
+            Set or get the BaudRate of Serial Settings
+            </summary>
+        </member>
+        <member name="P:CSProxy.CSSerialSettings.Parity">
+            <summary>
+            Set or get hte Parity of Serial Settings
+            </summary>
+        </member>
+        <member name="P:CSProxy.CSSerialSettings.DataBit">
+            <summary>
+            Set or get the DataBit of Serial Settings
+            </summary>
+        </member>
+        <member name="P:CSProxy.CSSerialSettings.StopBit">
+            <summary>
+            Set or get the Stop Bit of Serial Settings
+            </summary>
+        </member>
+        <member name="P:CSProxy.CSSerialSettings.FlowControl">
+            <summary>
+            Set or get the Flow Control of Serial Settings
+            </summary>
+        </member>
+    </members>
+</doc>

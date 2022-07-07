@@ -8,6 +8,21 @@
 
   <ItemGroup>
     <PackageReference Include="FontAwesome.Sharp" Version="5.15.4" />
+    <PackageReference Include="Npgsql" Version="6.0.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Libraries\CashRegister.Libraries.Basic\CashRegister.Libraries.Basic.csproj" />
+    <ProjectReference Include="..\..\..\Libraries\CashRegister.Libraries.ControlDataBase\CashRegister.Libraries.ControlDataBase.csproj" />
+    <ProjectReference Include="..\..\..\Libraries\CashRegister.Libraries.Core.Service\CashRegister.Libraries.Core.Service.csproj" />
+    <ProjectReference Include="..\..\..\Libraries\CashRegister.Libraries.Database.Business\CashRegister.Libraries.Database.Repository.csproj" />
+    <ProjectReference Include="..\..\..\Libraries\CashRegister.Libraries.Database.Entity\CashRegister.Libraries.Database.Entity.csproj" />
+    <ProjectReference Include="..\..\..\Libraries\CashRegister.Libraries.Database.Interface\CashRegister.Libraries.Database.Interface.csproj" />
+    <ProjectReference Include="..\..\..\Libraries\CashRegister.Libraries.DataStructs\CashRegister.Libraries.DataStructs.csproj" />
+    <ProjectReference Include="..\..\..\Libraries\CashRegister.Libraries.MessageResource\CashRegister.Libraries.MessageResource.csproj" />
+    <ProjectReference Include="..\..\..\Libraries\CashRegister.Libraries.Transaction\CashRegister.Libraries.Transaction.csproj" />
+    <ProjectReference Include="..\..\..\Libraries\CashRegister.Libraries.Utilities\CashRegister.Libraries.Utilities.csproj" />
+    <ProjectReference Include="..\..\..\Libraries\CashRegister.Libraries.VPOS\CashRegister.Libraries.VPOS.csproj" />
   </ItemGroup>
 
   <ItemGroup>
