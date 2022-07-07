@@ -1,4 +1,5 @@
-﻿using CashRegister.Libraries.Core.Service;
+﻿using CashRegister.Libraries.Basic.Database;
+using CashRegister.Libraries.Core.Service;
 using CashRegister.Libraries.Database.Entity;
 using CashRegister.Libraries.DataStructs;
 using CashRegister.Libraries.Utilities;
@@ -6,21 +7,55 @@ using CashRegister.Libraries.VPOS;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using CashRegister.Libraries.Basic.Core;
+using CashRegister.Libraries.Basic.Database;
+using CashRegister.Libraries.Basic.DataStore;
+using CashRegister.Libraries.Database.Interface;
+using CashRegister.Libraries.Database.Repository;
+using CashRegister.Libraries.ControlDataBase;
+using CashRegister.Libraries.DataStructs;
 
 namespace CashRegister.Applications.Winform.WFVPos.Forms
 {
   public partial class Login : Form
   {
+    string DataBaseName = "cashregister";
     public Login()
     {
+      StartDBBinding();
       InitializeComponent();
+    }
+
+    private void LoadIoContainer()
+    {
+
+      IoContainer.Add<IPaymentRepository>(typeof(PaymentRepository));
+      IoContainer.Add<IItemRepository>(typeof(ItemRepository));
+      IoContainer.Add<IUserRepository>(typeof(UserRepository));
+      IoContainer.Add<ICashRegisterRepository>(typeof(CashRegisterRepository));
+      IoContainer.Add<IUnitOfWork>(typeof(DbUnitOfWork));
+    }
+    private void StartDBBinding()
+    {
+      try
+      {
+        System.Configuration.ConnectionStringSettings connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["connectionString"];
+        ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings["connectionString"];
+        DbMultiThreadManager.SetDefaultProvider("Npgsql"
+          , @"Server=localhost;Port=5434;Database=" + DataBaseName + "; User Id=postgres;Password=PostekDB; Pooling=true; MinPoolSize=3; MaxPoolSize=50"/*settings.ConnectionString*/);
+        LoadIoContainer();
+      }
+      catch (Exception ex)
+      {
+        MessageBox.Show( ex.Message);
+      }
     }
 
     private void close_Click(object sender, EventArgs e)
@@ -63,7 +98,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
 
       string login = txtUser.Text.Trim();
       string password = txtPass.Text.Trim();
-      
+
       try
       {
 
@@ -72,26 +107,17 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
         string hash = Utils.GetSHA512(password);
         DataContractUsers user = usr.GetCheckUser(login, hash);
 
-        //RegisterSession(user);
-        //SetGlobalInformationWebApp(user);
+        SetGlobalInformationWebApp(user);
         this.Hide();
 
         var das = new Dashboard();
         das.Show();
 
       }
-      //catch (UserExpiredCredentialException Ex)
-      //{
-      //  Session["login_change_credential"] = login;
-      //  resultAjax.Code = "1";
-      //  resultAjax.Message = Ex.Message;
-      //  resultAjax.Url = Url.Action("Change", "Security");
-      //}
       catch (Exception Ex)
       {
-        MessageBox.Show(Ex.Message,"VPOS");
-        //resultAjax.Code = "1";
-        //resultAjax.Message = Ex.Message;
+        MessageBox.Show(Ex.Message, "VPOS");
+
       }
 
     }
