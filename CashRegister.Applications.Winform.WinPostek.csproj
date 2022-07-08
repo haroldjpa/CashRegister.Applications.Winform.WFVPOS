@@ -1,43 +1,342 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0AE05F80-CD1F-4CFE-9970-D5DA8F22DAC3}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net5.0-windows</TargetFramework>
-    <UseWindowsForms>true</UseWindowsForms>
+    <RootNamespace>Cashregister</RootNamespace>
+    <AssemblyName>WinPostek</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
-
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>C:\Assemblies\CashRegister\Debug\Winform\CashRegister.Applications.Winform.WinPostek\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>C:\Assemblies\CashRegister\Release\Winform\CashRegister.Applications.Winform.WinPostek\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>
+    </ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>CashRegister.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="FontAwesome.Sharp" Version="5.15.4" />
-    <PackageReference Include="Npgsql" Version="6.0.5" />
+    <Reference Include="FontAwesome.Sharp, Version=6.1.1.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\FontAwesome.Sharp.6.1.1\lib\net48\FontAwesome.Sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.Bcl.AsyncInterfaces.6.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.HashCode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.Bcl.HashCode.1.1.1\lib\net461\Microsoft.Bcl.HashCode.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.900.148\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.900.148\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.900.148\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.900.148\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebDesign, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.900.148\lib\net40\Microsoft.ReportViewer.WebDesign.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.900.148\lib\net40\Microsoft.ReportViewer.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.900.148\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="Npgsql, Version=6.0.5.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Npgsql.6.0.5\lib\netstandard2.0\Npgsql.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Immutable, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Collections.Immutable.6.0.0\lib\net461\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Diagnostics.DiagnosticSource.6.0.0\lib\net461\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Text.Encodings.Web, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Text.Encodings.Web.6.0.0\lib\net461\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Text.Json.6.0.0\lib\net461\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Channels, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Threading.Channels.6.0.0\lib\net461\System.Threading.Channels.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ToggleSwitch">
+      <HintPath>..\..\Libraries\Externs.Libraries\ToggleSwitch.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
   </ItemGroup>
-
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Libraries\CashRegister.Libraries.Basic\CashRegister.Libraries.Basic.csproj" />
-    <ProjectReference Include="..\..\..\Libraries\CashRegister.Libraries.ControlDataBase\CashRegister.Libraries.ControlDataBase.csproj" />
-    <ProjectReference Include="..\..\..\Libraries\CashRegister.Libraries.Core.Service\CashRegister.Libraries.Core.Service.csproj" />
-    <ProjectReference Include="..\..\..\Libraries\CashRegister.Libraries.Database.Business\CashRegister.Libraries.Database.Repository.csproj" />
-    <ProjectReference Include="..\..\..\Libraries\CashRegister.Libraries.Database.Entity\CashRegister.Libraries.Database.Entity.csproj" />
-    <ProjectReference Include="..\..\..\Libraries\CashRegister.Libraries.Database.Interface\CashRegister.Libraries.Database.Interface.csproj" />
-    <ProjectReference Include="..\..\..\Libraries\CashRegister.Libraries.DataStructs\CashRegister.Libraries.DataStructs.csproj" />
-    <ProjectReference Include="..\..\..\Libraries\CashRegister.Libraries.MessageResource\CashRegister.Libraries.MessageResource.csproj" />
-    <ProjectReference Include="..\..\..\Libraries\CashRegister.Libraries.Transaction\CashRegister.Libraries.Transaction.csproj" />
-    <ProjectReference Include="..\..\..\Libraries\CashRegister.Libraries.Utilities\CashRegister.Libraries.Utilities.csproj" />
-    <ProjectReference Include="..\..\..\Libraries\CashRegister.Libraries.VPOS\CashRegister.Libraries.VPOS.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Update="Properties\Resources.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
+    <Compile Include="Forms\Administrative.cs">
+      <SubType>Form</SubType>
     </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Update="Properties\Resources.resx">
+    <Compile Include="Forms\Administrative.Designer.cs">
+      <DependentUpon>Administrative.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dashboard.Designer.cs">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\LoginTechnical.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LoginTechnical.Designer.cs">
+      <DependentUpon>LoginTechnical.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Technical.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Technical.Designer.cs">
+      <DependentUpon>Technical.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Transactions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Transactions.Designer.cs">
+      <DependentUpon>Transactions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="RJControls\RJCircularPictureBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <EmbeddedResource Include="Forms\Administrative.resx">
+      <DependentUpon>Administrative.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dashboard.resx">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\LoginTechnical.resx">
+      <DependentUpon>LoginTechnical.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Technical.resx">
+      <DependentUpon>Technical.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Transactions.resx">
+      <DependentUpon>Transactions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
   </ItemGroup>
-
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Libraries\CashRegister.Libraries.Basic\CashRegister.Libraries.Basic.csproj">
+      <Project>{1e7c8583-dffc-4e8d-89d7-7409aa9efd8b}</Project>
+      <Name>CashRegister.Libraries.Basic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Libraries\CashRegister.Libraries.ClientService\CashRegister.Libraries.ClientService.csproj">
+      <Project>{cb26316d-944c-44bf-835e-25e521df3c1d}</Project>
+      <Name>CashRegister.Libraries.ClientService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Libraries\CashRegister.Libraries.ControlDataBase\CashRegister.Libraries.ControlDataBase.csproj">
+      <Project>{d928fd17-5a37-45de-9fe6-b1489f220465}</Project>
+      <Name>CashRegister.Libraries.ControlDataBase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Libraries\CashRegister.Libraries.Core.Service\CashRegister.Libraries.Core.Service.csproj">
+      <Project>{b60b3410-3100-46c7-a4db-664a588b216a}</Project>
+      <Name>CashRegister.Libraries.Core.Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Libraries\CashRegister.Libraries.Core\CashRegister.Libraries.Core.csproj">
+      <Project>{233d2be0-1366-41bf-9ed4-bcbdf15a15de}</Project>
+      <Name>CashRegister.Libraries.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Libraries\CashRegister.Libraries.Database.Business\CashRegister.Libraries.Database.Repository.csproj">
+      <Project>{85a0a5ba-a251-4536-b3bd-9166ed115a61}</Project>
+      <Name>CashRegister.Libraries.Database.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Libraries\CashRegister.Libraries.Database.Entity\CashRegister.Libraries.Database.Entity.csproj">
+      <Project>{73325fba-c871-4652-89be-efbb4f9658de}</Project>
+      <Name>CashRegister.Libraries.Database.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Libraries\CashRegister.Libraries.Database.Interface\CashRegister.Libraries.Database.Interface.csproj">
+      <Project>{27e45146-4de4-4af1-9fe9-29e3ca0d6094}</Project>
+      <Name>CashRegister.Libraries.Database.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Libraries\CashRegister.Libraries.DataStructs\CashRegister.Libraries.DataStructs.csproj">
+      <Project>{c5b8e325-dc9c-4a5a-a9ee-03a1a47f9eab}</Project>
+      <Name>CashRegister.Libraries.DataStructs</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Libraries\CashRegister.Libraries.Keyboard\CashRegister.Libraries.Keyboard.csproj">
+      <Project>{12e7b034-9f65-4411-9b54-2b3f2f17e1d4}</Project>
+      <Name>CashRegister.Libraries.Keyboard</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Libraries\CashRegister.Libraries.MessageResource\CashRegister.Libraries.MessageResource.csproj">
+      <Project>{ca267e1a-c893-4bb1-914e-6346daa59c4f}</Project>
+      <Name>CashRegister.Libraries.MessageResource</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Libraries\CashRegister.Libraries.TextBoxKeyboard\CashRegister.Libraries.TextBoxKeyboard.csproj">
+      <Project>{ea5dae41-c9cd-4b5d-b43c-d0f69fb2dd2b}</Project>
+      <Name>CashRegister.Libraries.TextBoxKeyboard</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Libraries\CashRegister.Libraries.Transaction\CashRegister.Libraries.Transaction.csproj">
+      <Project>{c8e8de52-d4ad-4f59-be7b-be3833dd5c4c}</Project>
+      <Name>CashRegister.Libraries.Transaction</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Libraries\CashRegister.Libraries.Utilities\CashRegister.Libraries.Utilities.csproj">
+      <Project>{eba72036-9e9b-431e-a736-7366d2d90cc7}</Project>
+      <Name>CashRegister.Libraries.Utilities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Libraries\CashRegister.Libraries.VPOS\CashRegister.Libraries.VPOS.csproj">
+      <Project>{6165B07A-4EA5-478A-83D4-4C26012016A4}</Project>
+      <Name>CashRegister.Libraries.VPOS</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Scripts\fontawesome\" />
+    <Folder Include="webfonts\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.1 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Postek.ico" />
+    <Content Include="Resources\Ficohsa.PNG" />
+    <Content Include="Resources\logo_Ficohsa.bmp" />
+    <Content Include="Resources\user-default-ficohsa-160x160.jpg" />
+    <Content Include="Resources\user-default-ficohsa-160x1601.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\..\..\packages\System.Text.Json.6.0.0\build\System.Text.Json.targets" Condition="Exists('..\..\..\packages\System.Text.Json.6.0.0\build\System.Text.Json.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\..\..\packages\System.Text.Json.6.0.0\build\System.Text.Json.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\packages\System.Text.Json.6.0.0\build\System.Text.Json.targets'))" />
+  </Target>
 </Project>
