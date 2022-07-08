@@ -6,21 +6,14 @@ using CashRegister.Libraries.Utilities;
 using CashRegister.Libraries.VPOS;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Configuration;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using CashRegister.Libraries.Basic.Core;
-using CashRegister.Libraries.Basic.Database;
 using CashRegister.Libraries.Basic.DataStore;
 using CashRegister.Libraries.Database.Interface;
 using CashRegister.Libraries.Database.Repository;
-using CashRegister.Libraries.ControlDataBase;
-using CashRegister.Libraries.DataStructs;
 
 namespace CashRegister.Applications.Winform.WFVPos.Forms
 {
@@ -54,7 +47,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       }
       catch (Exception ex)
       {
-        MessageBox.Show( ex.Message);
+        MessageBox.Show(ex.Message);
       }
     }
 
@@ -108,10 +101,9 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
         DataContractUsers user = usr.GetCheckUser(login, hash);
 
         SetGlobalInformationWebApp(user);
-        this.Hide();
+        
 
-        var das = new Dashboard();
-        das.Show();
+
 
       }
       catch (Exception Ex)
@@ -120,6 +112,9 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
 
       }
 
+      this.Hide();
+      var das = new Dashboard();
+      das.Show();
     }
     private void SetGlobalInformationWebApp(DataContractUsers user)
     {
