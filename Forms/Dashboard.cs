@@ -107,11 +107,13 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
         private void btnCuotas_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color2);
+            OpenChildForm(new FinancialFee());
         }
 
         private void btnPuntos_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color3);
+            OpenChildForm(new Points());
         }
 
         private void btnTrans_Click(object sender, EventArgs e)

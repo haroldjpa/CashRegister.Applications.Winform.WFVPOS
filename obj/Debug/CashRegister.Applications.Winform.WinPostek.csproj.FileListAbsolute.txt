@@ -33,3 +33,5 @@ F:\EVO_VirtualBox\Postek-tfs\CashRegister\Dev\Project\CashRegister\Applications\
 F:\EVO_VirtualBox\Postek-tfs\CashRegister\Dev\Project\CashRegister\Applications\WinForm\CashRegister.Applications.Winform.WFVPOS\obj\Debug\CashRegister.Applications.Winform.WinPostek.csproj.CopyComplete
 F:\EVO_VirtualBox\Postek-tfs\CashRegister\Dev\Project\CashRegister\Applications\WinForm\CashRegister.Applications.Winform.WFVPOS\obj\Debug\WinPostek.exe
 F:\EVO_VirtualBox\Postek-tfs\CashRegister\Dev\Project\CashRegister\Applications\WinForm\CashRegister.Applications.Winform.WFVPOS\obj\Debug\WinPostek.pdb
+F:\EVO_VirtualBox\Postek-tfs\CashRegister\Dev\Project\CashRegister\Applications\WinForm\CashRegister.Applications.Winform.WFVPOS\obj\Debug\CashRegister.Applications.Winform.WFVPos.Forms.FinancialFee.resources
+F:\EVO_VirtualBox\Postek-tfs\CashRegister\Dev\Project\CashRegister\Applications\WinForm\CashRegister.Applications.Winform.WFVPOS\obj\Debug\CashRegister.Applications.Winform.WFVPos.Forms.Points.resources

@@ -147,5 +147,9 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       GlobalInformation.Instance.ListAcquirer = VPOSCore.GetAllAcquirer(GlobalInformation.Instance.GetParameterValue(PA_PARAMETERS.LIST_ACQUIRER.ToString()));
     }
 
+    private void textBox2_TextChanged(object sender, EventArgs e)
+    {
+
+    }
   }
 }

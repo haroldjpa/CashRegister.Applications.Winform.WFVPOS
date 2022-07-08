@@ -10,14 +10,11 @@ using System.Windows.Forms;
 
 namespace CashRegister.Applications.Winform.WFVPos.Forms
 {
-    public partial class Transactions : Form
+    public partial class Points : Form
     {
-        
-        public Transactions()
+        public Points()
         {
-            this.DoubleBuffered = true;
             InitializeComponent();
-            
         }
 
         private void closeTran_Click(object sender, EventArgs e)

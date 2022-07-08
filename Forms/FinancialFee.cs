@@ -10,10 +10,9 @@ using System.Windows.Forms;
 
 namespace CashRegister.Applications.Winform.WFVPos.Forms
 {
-    public partial class Transactions : Form
+    public partial class FinancialFee : Form
     {
-        
-        public Transactions()
+        public FinancialFee()
         {
             this.DoubleBuffered = true;
             InitializeComponent();
