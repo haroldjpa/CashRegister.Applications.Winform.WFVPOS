@@ -24,6 +24,10 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
     {
       StartDBBinding();
       InitializeComponent();
+
+      //When User uses Tab key for form surfing
+      txtPass.GotFocus += textBox2_Click;
+      txtUser.GotFocus += textBox1_Click;
     }
 
     private void LoadIoContainer()

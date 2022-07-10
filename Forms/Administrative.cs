@@ -17,25 +17,10 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
             InitializeComponent();
         }
 
-        private void closeAnulView_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
 
-        private void closeTransactionView_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        
-        private void closeCierreView_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void closeDupView_Click(object sender, EventArgs e)
-        {
-            this.Close(); 
-        }
+    private void closeTransactionView_Click_1(object sender, EventArgs e)
+    {
+      this.Close();
     }
+  }
 }

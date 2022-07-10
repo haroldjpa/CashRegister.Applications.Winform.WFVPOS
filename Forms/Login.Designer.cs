@@ -36,8 +36,8 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       this.label1 = new System.Windows.Forms.Label();
       this.pictureBox1 = new System.Windows.Forms.PictureBox();
       this.panel2 = new System.Windows.Forms.Panel();
-      this.button2 = new System.Windows.Forms.Button();
-      this.button1 = new System.Windows.Forms.Button();
+      this.btnCloseWindow = new System.Windows.Forms.Button();
+      this.btnLogin = new System.Windows.Forms.Button();
       this.panel4 = new System.Windows.Forms.Panel();
       this.txtPass = new System.Windows.Forms.TextBox();
       this.iconPictureBox2 = new FontAwesome.Sharp.IconPictureBox();
@@ -111,8 +111,8 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       // 
       // panel2
       // 
-      this.panel2.Controls.Add(this.button2);
-      this.panel2.Controls.Add(this.button1);
+      this.panel2.Controls.Add(this.btnCloseWindow);
+      this.panel2.Controls.Add(this.btnLogin);
       this.panel2.Controls.Add(this.panel4);
       this.panel2.Controls.Add(this.panel3);
       this.panel2.Controls.Add(this.label4);
@@ -123,32 +123,32 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       this.panel2.Size = new System.Drawing.Size(386, 459);
       this.panel2.TabIndex = 1;
       // 
-      // button2
+      // btnCloseWindow
       // 
-      this.button2.FlatAppearance.BorderSize = 0;
-      this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-      this.button2.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold);
-      this.button2.Location = new System.Drawing.Point(351, 0);
-      this.button2.Name = "button2";
-      this.button2.Size = new System.Drawing.Size(34, 35);
-      this.button2.TabIndex = 6;
-      this.button2.Text = "X";
-      this.button2.UseVisualStyleBackColor = true;
-      this.button2.Click += new System.EventHandler(this.close_Click);
+      this.btnCloseWindow.FlatAppearance.BorderSize = 0;
+      this.btnCloseWindow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+      this.btnCloseWindow.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold);
+      this.btnCloseWindow.Location = new System.Drawing.Point(351, 0);
+      this.btnCloseWindow.Name = "btnCloseWindow";
+      this.btnCloseWindow.Size = new System.Drawing.Size(34, 35);
+      this.btnCloseWindow.TabIndex = 6;
+      this.btnCloseWindow.Text = "X";
+      this.btnCloseWindow.UseVisualStyleBackColor = true;
+      this.btnCloseWindow.Click += new System.EventHandler(this.close_Click);
       // 
-      // button1
+      // btnLogin
       // 
-      this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
-      this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-      this.button1.Font = new System.Drawing.Font("Century Gothic", 10F);
-      this.button1.ForeColor = System.Drawing.Color.White;
-      this.button1.Location = new System.Drawing.Point(110, 270);
-      this.button1.Name = "button1";
-      this.button1.Size = new System.Drawing.Size(127, 30);
-      this.button1.TabIndex = 5;
-      this.button1.Text = "Ingresar";
-      this.button1.UseVisualStyleBackColor = false;
-      this.button1.Click += new System.EventHandler(this.button1_Click);
+      this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
+      this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+      this.btnLogin.Font = new System.Drawing.Font("Century Gothic", 10F);
+      this.btnLogin.ForeColor = System.Drawing.Color.White;
+      this.btnLogin.Location = new System.Drawing.Point(108, 306);
+      this.btnLogin.Name = "btnLogin";
+      this.btnLogin.Size = new System.Drawing.Size(145, 45);
+      this.btnLogin.TabIndex = 5;
+      this.btnLogin.Text = "Ingresar";
+      this.btnLogin.UseVisualStyleBackColor = false;
+      this.btnLogin.Click += new System.EventHandler(this.button1_Click);
       // 
       // panel4
       // 
@@ -238,6 +238,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       // 
       // Login
       // 
+      this.AcceptButton = this.btnLogin;
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(643, 459);
@@ -278,7 +279,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
         private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
         private System.Windows.Forms.TextBox txtPass;
         private System.Windows.Forms.TextBox txtUser;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnLogin;
+        private System.Windows.Forms.Button btnCloseWindow;
     }
 }
