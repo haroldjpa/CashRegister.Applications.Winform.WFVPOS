@@ -1,4 +1,11 @@
-﻿using System;
+﻿using CashRegister.Libraries.Core.Service;
+using CashRegister.Libraries.Database.Entity;
+using CashRegister.Libraries.DataStructs;
+using CashRegister.Libraries.MessageResource;
+using CashRegister.Libraries.Transaction;
+using CashRegister.Libraries.Utilities;
+using CashRegister.Libraries.VPOS;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,19 +17,441 @@ using System.Windows.Forms;
 
 namespace CashRegister.Applications.Winform.WFVPos.Forms
 {
-    public partial class Transactions : Form
+  public partial class Transactions : Form
+  {
+    static AcquirerInfo acquirerInfo;
+    static VPOSstructParams paymentParamsToPrint;
+    static bool AutoPrint = true;
+    static string glvApproval = "";
+    public Transactions()
     {
+      this.DoubleBuffered = true;
+      InitializeComponent();
+      SetViewBagData();
+    }
+
+    private void closeTran_Click(object sender, EventArgs e)
+    {
+      this.Close();
+    }
+
+    private void SetViewBagData()
+    {
+      //TODO: Crear un metodo para este fin en las demas vistas y/o darle una mejor implementacion
+      acquirerInfo = new AcquirerInfo();
+
+      if (SYS_COUNTRY_APPLICATION.Nicaragua_Lafise != GlobalInformation.Instance.SysCountryApplication)
+      {
+        this.web_impuesto15.Visible = GlobalInformation.Instance.GetParameterBooleanValue(PA_PARAMETERS.SHOW_TAX1_FIELD.ToString());
+        this.web_impuesto18.Visible  = GlobalInformation.Instance.GetParameterBooleanValue(PA_PARAMETERS.SHOW_TAX2_FIELD.ToString());
+        this.web_propina.Visible = GlobalInformation.Instance.GetParameterBooleanValue(PA_PARAMETERS.SHOW_TIP_FIELD.ToString());
+      }
+      else
+      {
+        this.web_impuesto15.Visible = this.web_impuesto18.Visible = this.web_propina.Visible = false;
+      }
+
+      this.web_fecha_expiracion.Visible = GlobalInformation.Instance.GetParameterBooleanValue(PA_PARAMETERS.SHOW_EXP_DATE_FIELD.ToString());
+      this.web_ultimos4.Visible = GlobalInformation.Instance.GetParameterBooleanValue(PA_PARAMETERS.SHOW_LAST_4_FIELD.ToString());
+      this.print_commerce.Checked = GlobalInformation.Instance.GetParameterBooleanValue(PA_PARAMETERS.ALWAYS_CHECKED_PRINT_COMMERCE.ToString());
+      this.print_copy.Checked = GlobalInformation.Instance.GetParameterBooleanValue(PA_PARAMETERS.ALWAYS_CHECKED_PRINT_CUSTOM.ToString());
+
+
+      this.enviar.Text = "Enviar";
+      //this.ButtonCaptionSendCTLS = "Enviar CTLS";
+      this.limpiar.Text = "Limpiar";
+      this.closeTran.Text = "Cerrar";
+
+      this.lblTitle.Text = "Venta";
+      this.lblSubTotal.Text = "Importe Base:";
+      this.lblTip.Text = "Propina:";
+      this.lblExpirationDate.Text = "Fecha de Expiración:";
+      this.lblTotal.Text = "Total:";
+      this.lblTitleResult.Text = "Resultado";
+      this.lblTitleResultTX.Text = "Resultado Transacción:";
+      this.lblApprovalNum.Text = "Código Aprobación:";
+      //this.ButtonCaptionPrint = "Imprimir Voucher";
+
+      if (SYS_COUNTRY_APPLICATION.Belice_Atlantida == GlobalInformation.Instance.SysCountryApplication)
+      {//Belice
+        this.lblTax1.Text = "Impuesto 15%";
+        this.lblTax2.Text = "Impuesto 18%";
+        this.lblLast4.Text = "Últimos 4 de la tarjeta";
+
+      }
+      else if (SYS_COUNTRY_APPLICATION.Honduras_Ficohsa == GlobalInformation.Instance.SysCountryApplication)
+      {//Honduras
+        //this.DiscountFunction = false;//true;
+
+        this.lblTax1.Text = "Impuesto:";
+        this.lblTax2.Text = "Otros Impuestos:";
+        this.lblLast4.Text = "Últimos 4 de la tarjeta:";
+        this.print_commerce.Text = "Comercio";
+        this.print_copy.Text = "Cliente";
+        this.lblMerchantName.Text = "Nombre:";
+        this.lblTerminalId.Text = "Terminal ID:";
+        this.lblMerchantId.Text = "Merchant ID:";
+        this.lblCommerce.Text = "Comercio";
+        // this.toolTip = "Seleccione adquirente";
+
+        FillAdquirerList();
+
+        //AcquirerInfo[] ArrayAcquirer = new AcquirerInfo[GlobalInformation.Instance.ListAcquirer.Count];
+        //int IndexAc = 0;
+        //foreach (var item in GlobalInformation.Instance.ListAcquirer)
+        //{
+
+        //  ArrayAcquirer[IndexAc++] = item.Value;
+        //}
+
+        //this.lstCommerces = ArrayAcquirer;
+      }
+      else if (SYS_COUNTRY_APPLICATION.Honduras_Banrural == GlobalInformation.Instance.SysCountryApplication ||
+        GlobalInformation.Instance.SysCountryApplication == SYS_COUNTRY_APPLICATION.Honduras_Atlantida)
+      {
+        //this.DiscountFunction = false;//true;
         
-        public Transactions()
+        this.lblTax1.Text = "Impuesto:";
+        this.lblTax2.Text = "Otros Impuestos:";
+        this.lblLast4.Text = "Últimos 4 de la tarjeta:";
+
+      }
+      else if (SYS_COUNTRY_APPLICATION.Nicaragua_Lafise == GlobalInformation.Instance.SysCountryApplication)
+      {
+
+        //this.DiscountFunction = false;//true;
+        
+        this.lblTax1.Text = "Impuesto:";
+        this.lblTax2.Text = "Otros Impuestos:";
+        this.lblLast4.Text = "Número de tarjeta:";
+        this.lblMerchantName.Text = "Nombre:";
+        this.lblTerminalId.Text = "Terminal ID:";
+        this.lblMerchantId.Text = "Merchant ID:";
+        this.lblCommerce.Text = "Comercio:";
+        //this.lblSelectOption = "Seleccione adquirente";
+
+
+        FillAdquirerList();
+        //AcquirerInfo[] ArrayAcquirer = new AcquirerInfo[GlobalInformation.Instance.ListAcquirer.Count];
+        //int IndexAc = 0;
+        //foreach (var item in GlobalInformation.Instance.ListAcquirer)
+        //{
+
+        //  ArrayAcquirer[IndexAc++] = item.Value;
+        //}
+
+        //this.lstCommerces = ArrayAcquirer;
+
+        //this.MerchantName ;
+        //this.TerminalId;
+        //this.MerchantId;
+      }
+      else if (SYS_COUNTRY_APPLICATION.Nicaragua_Ficohsa == GlobalInformation.Instance.SysCountryApplication)
+      {
+        this.web_impuesto15.Visible = this.web_impuesto18.Visible = this.web_propina.Visible = false;
+
+        this.lblSubTotal.Text = "Monto:";
+        this.lblLast4.Text = "Últimos 4 de la tarjeta:";
+        this.lblMerchantName.Text = "Nombre:";
+        this.lblTerminalId.Text = "Terminal ID:";
+        this.lblMerchantId.Text = "Merchant ID:";
+        this.lblCommerce.Text = "Comercio:";
+
+        this.print_commerce.Text = "Comercio";
+        this.print_copy.Text = "Cliente";
+        //this.lblSelectOption = "Seleccione adquirente";
+
+
+        int IndexAc = 0;
+
+        foreach (var item1 in GlobalInformation.Instance.ListAcquirer)
         {
-            this.DoubleBuffered = true;
-            InitializeComponent();
-            
+          if (item1.Value.IsSaleVisible)
+            IndexAc++;
         }
 
-        private void closeTran_Click(object sender, EventArgs e)
+        AcquirerInfo[] ArrayAcquirer = new AcquirerInfo[IndexAc];
+
+        if (ArrayAcquirer.Length > 0)
         {
-            this.Close();
+
+          IndexAc = 0;
+          foreach (var item in GlobalInformation.Instance.ListAcquirer)
+          {
+            if (item.Value.IsSaleVisible)
+              ArrayAcquirer[IndexAc++] = item.Value;
+          }
+
+          if (ArrayAcquirer.Length == 1)
+          {
+            acquirerInfo.id = ArrayAcquirer[0].id;
+            acquirerInfo.name = ArrayAcquirer[0].name;
+            acquirerInfo.MerchantID = ArrayAcquirer[0].MerchantID;
+            acquirerInfo.TerminalID = ArrayAcquirer[0].TerminalID;
+            acquirerInfo.CurrencyID = ArrayAcquirer[0].CurrencyID;
+            acquirerInfo.ListCuotas = ArrayAcquirer[0].ListCuotas;
+
+            this.merchant_id.Text = ArrayAcquirer[0].MerchantID;
+            this.terminal_id.Text = ArrayAcquirer[0].TerminalID;
+            this.merchant_name.Text = ArrayAcquirer[0].name;
+          }
+
+          FillAdquirerList();
         }
+        
+      }
     }
+
+    void FillAdquirerList()
+    {
+      foreach (var item in GlobalInformation.Instance.ListAcquirer)
+      {
+        item.Value.AliasName = "Acquirer" + item.Value.id;
+        if(item.Value.IsSaleVisible)
+          this.commerces.Items.Add(item.Value.name);
+
+      }
+    }
+
+    private static object _sync = new object();
+    private void enviar_Click(object sender, EventArgs e)
+    {
+      lock (_sync)
+      {
+        bool OnlyTrack2 = false;
+       // var resultAjax = new ResultAjax();
+        string ResponseVPOSCode = string.Empty;
+        string CalculatedWebAmount;
+        try
+        {
+          VPOSstructParams paymentParams = new VPOSstructParams();
+          paymentParamsToPrint = null;
+          paymentParams.ClientLocalIP = "localhost";
+          paymentParams.Last4 = web_ultimos4.Text;
+          paymentParams.ExpDate = web_fecha_expiracion.Text;
+          paymentParams.Currency = GetCurrency("moneda");
+          paymentParams.Tip = Utils.GetValueWithoutPoint(web_propina.Text, true);
+          paymentParams.Tax1 = Utils.GetValueWithoutPoint(web_impuesto15.Text, true);
+          paymentParams.Tax2 = Utils.GetValueWithoutPoint(web_impuesto18.Text, true);
+          paymentParams.SubTotal = Utils.GetValueWithoutPoint(web_importe_base.Text, true);
+          paymentParams.Amount = Utils.GetValueWithoutPoint(web_total_transaccion.Text, true);
+          CalculatedWebAmount = paymentParams.Amount;
+          paymentParams.SysCountryApplication = GlobalInformation.Instance.SysCountryApplication;
+          //paymentParams.PayEntryMode = ((PA_PAYMENT_ENTRY_MODE)Convert.ToInt32(param["pay_entry_mode"])).ToString();
+          paymentParams.PayEntryMode = PA_PAYMENT_ENTRY_MODE.Contactless.ToString();
+          paymentParams.VPOSTxType = VPOSTransactionType.TxSale;
+          paymentParams.ClientLocalIP = "localhost";
+          paymentParams.VPOSTxSubType = VPOSTransactionSubType.TxSale;
+          paymentParams.VPOSNonIntegred = "yes";
+
+          //if (ExistKey(param, "print_copy"))
+            paymentParams.PrintCopy = (print_copy.Checked ? "1" : "2");  //1-Yes copy  2-No copy
+          //else
+          //  paymentParams.PrintCopy = "1"; //1-Yes copy  2-No copy
+
+          //if (ExistKey(param, "print_commerce"))
+            paymentParams.PrintCommerce = (print_commerce.Checked ? "1" : "2");  //1-Yes copy  2-No copy
+          //else
+          //  paymentParams.PrintCommerce = "1"; //1-Yes copy  2-No copy        
+
+          //TODO: Refactorizar estas validaciones a clases polimorficas
+          if (SYS_COUNTRY_APPLICATION.Nicaragua_Lafise == GlobalInformation.Instance.SysCountryApplication ||
+            SYS_COUNTRY_APPLICATION.Nicaragua_Ficohsa == GlobalInformation.Instance.SysCountryApplication)
+          {
+            if (paymentParams.Amount.Equals("000") && !paymentParams.SubTotal.Equals("000"))
+            {
+              paymentParams.Amount = paymentParams.SubTotal;
+            }
+            paymentParams.AcquireId = acquirerInfo.id;
+
+            //TODO: SE CREO UNICAMENTE PARA EVALUER UNA PRUEBA, BORRAR O Crear un checkbox que indique que solo se pretende leer el track 2
+          }
+          else if (SYS_COUNTRY_APPLICATION.Belice_Atlantida == GlobalInformation.Instance.SysCountryApplication)
+          {
+            paymentParams.AcquireId = "100";
+            OnlyTrack2 = true;
+          }
+          else if (SYS_COUNTRY_APPLICATION.Honduras_Ficohsa == GlobalInformation.Instance.SysCountryApplication)
+          {
+            paymentParams.Amount = paymentParams.SubTotal;
+
+            paymentParams.AcquireId = acquirerInfo.id;
+          }
+          else
+            paymentParams.AcquireId = "1";
+
+
+          VPOSCommunication VPOSComm = new VPOSCommunication(paymentParams);
+          VPOSstructParams paymentResponse = VPOSComm.PerformVPOSTransaction();
+          ResponseVPOSCode = paymentResponse.authNum;
+          CoreMessage.GetErrorVposMessage(paymentResponse.authNum);
+
+          if (SYS_COUNTRY_APPLICATION.Honduras_Banrural == GlobalInformation.Instance.SysCountryApplication ||
+            SYS_COUNTRY_APPLICATION.Honduras_Atlantida == GlobalInformation.Instance.SysCountryApplication)
+          {
+            paymentParams.Amount = paymentResponse.AmountP4; //(Convert.ToInt32(paymentParams.Amount) - (Convert.ToInt32(paymentParams.Tax1) - Convert.ToInt32(paymentParams.Discount))).ToString();
+            paymentParams.Discount = string.Format("-{0}", Convert.ToInt32(paymentParams.Tax1) - Convert.ToInt32(paymentParams.Discount));
+          }
+          else if ((SYS_COUNTRY_APPLICATION.Honduras_Ficohsa == GlobalInformation.Instance.SysCountryApplication))
+          {
+            paymentParams.Discount = string.Format("-{0}", Convert.ToInt32(CalculatedWebAmount) - Convert.ToInt32(paymentResponse.AmountP4));
+            paymentParams.Amount = paymentResponse.AmountP4; //(Convert.ToInt32(paymentParams.Amount) - (Convert.ToInt32(paymentParams.Tax1) - Convert.ToInt32(paymentParams.Discount))).ToString();
+
+          }
+
+          paymentParamsToPrint = new VPOSstructParams();
+          paymentParamsToPrint = paymentParams;
+
+          if (!OnlyTrack2)
+            SaveTransactionSale(paymentParams);
+
+          //FinantialDataToView finantialDataToView = new FinantialDataToView();
+
+          //finantialDataToView.AccountNumber = paymentParams.AccountNumber;
+          //finantialDataToView.authNum = paymentParams.authNum;
+          //finantialDataToView.Brand = paymentParams.Brand;
+          //finantialDataToView.CardHolderName = paymentParams.CardHolderName;
+          //finantialDataToView.numReceipt = paymentParams.numReceipt;
+          //resultAjax.Code = "0";
+
+          //resultAjax.JsonData = Utils.ToJson(finantialDataToView);
+
+          codigoAprobacion.Text = paymentParams.authNum;
+
+          if (SYS_COUNTRY_APPLICATION.Belice_Atlantida == GlobalInformation.Instance.SysCountryApplication && OnlyTrack2)
+          {
+            return;
+           // return Json(resultAjax);
+          }
+
+          if (AutoPrint)
+          {
+            CurrencyInfo curInfo = new CurrencyInfo();
+            //TODO: Poder seleccionar la moneda desde la pantalla de venta para la no integrada
+            GlobalInformation.Instance.ListCurrency.TryGetValue(paymentParams.Currency, out curInfo);
+            paymentParamsToPrint.CurrencySymbol = curInfo.symbol;
+
+            //SendPrintVoucher(paymentParamsToPrint);
+
+          }
+
+        }
+        catch (Exception Ex)
+        {
+          MessageBox.Show(Ex.Message , "VPOS Control", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+          if (ResponseVPOSCode.Contains("ERR:07") || ResponseVPOSCode.Contains("ERR:98"))
+          {
+            // resultAjax.Code = "2";
+            MessageBox.Show(Ex.Message, "VPOS Control", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+          }
+          else
+          {
+            //resultAjax.Code = "1";
+            MessageBox.Show(Ex.Message, "VPOS Control", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+          }
+          //resultAjax.Message = Ex.Message;
+        }
+
+      }
+    }
+
+    private string SaveTransactionSale(VPOSstructParams paymentParams)
+    {
+      ItemsCore itemsCore = new ItemsCore();
+      TransactionInformation transactionInformation = new TransactionInformation(true, GlobalInformation.Instance.userInfo.user_id);
+      PaymentCore paymentCore = new PaymentCore();
+
+      DataContractItems dataContractItem = itemsCore.GetItemByCode("-2");
+      dataContractItem.price = Convert.ToDecimal(paymentParams.Amount) / 100;
+      glvApproval = paymentParams.authNum;
+      transactionInformation.payment.approval = paymentParams.authNum;
+      transactionInformation.payment.card_brand = paymentParams.Brand;
+      transactionInformation.payment.value = Convert.ToDecimal(paymentParams.Amount) / 100;
+      transactionInformation.payment.receipt_number = paymentParams.numReceipt;
+      transactionInformation.payment.number = paymentParams.AccountNumber;
+      transactionInformation.payment.aid = paymentParams.AID;
+      transactionInformation.payment.tvr = paymentParams.TVR;
+      transactionInformation.payment.arqc = paymentParams.ARQC;
+      transactionInformation.payment.tc = paymentParams.TC;
+      transactionInformation.payment.tsi = paymentParams.TSI;
+      transactionInformation.payment.na = paymentParams.NA;
+      transactionInformation.payment.terminal_id = paymentParams.TerminalId;
+      transactionInformation.payment.acquire_id = paymentParams.AcquireId;
+      transactionInformation.payment.pay_entry_mode = paymentParams.PayEntryMode;
+      transactionInformation.payment.cardholder = paymentParams.CardHolderName;
+      transactionInformation.payment.lot = paymentParams.Lot;
+      transactionInformation.payment.reference = paymentParams.Reference;
+      transactionInformation.payment.charge = paymentParams.Charge;
+      transactionInformation.payment.tax1 = Convert.ToDecimal(paymentParams.Tax1) / 100;
+      transactionInformation.payment.tax2 = Convert.ToDecimal(paymentParams.Tax2) / 100;
+      transactionInformation.payment.discount = Convert.ToDecimal(paymentParams.Discount) / 100;
+      transactionInformation.payment.tip = Convert.ToDecimal(paymentParams.Tip) / 100;
+      transactionInformation.payment.base_amount = Convert.ToDecimal(paymentParams.SubTotal) / 100;
+
+      CurrencyInfo curInfo = new CurrencyInfo();
+      //TODO: Poder seleccionar la moneda desde la pantalla de venta para la no integrada
+      GlobalInformation.Instance.ListCurrency.TryGetValue(paymentParams.Currency, out curInfo);
+      transactionInformation.payment.currency = curInfo.name;
+      transactionInformation.payment.currency_symbol = curInfo.symbol;
+      //TODO: Saber si es una tarjeta credito o debito
+      transactionInformation.payment.invoice_payment_type_id = (int)ButtonPayArray.btnPayCreditCard;
+      transactionInformation.AddItem(dataContractItem, 1); // -2 From table ps_item Sale with nonintegrate system
+
+      transactionInformation.CreateListItemsToArray();
+      return paymentCore.PostTransactionSale(transactionInformation.GetInvoiceTransaction());
+
+    }
+
+    private string GetCurrency(string moneda)
+    {
+      //TODO: parametro moneda debe venir de seleccionar en la vista el listado de monedas
+      if ((SYS_COUNTRY_APPLICATION.Nicaragua_Lafise == GlobalInformation.Instance.SysCountryApplication ||
+        SYS_COUNTRY_APPLICATION.Nicaragua_Ficohsa == GlobalInformation.Instance.SysCountryApplication) &&
+        GlobalInformation.Instance.ListAcquirer.Count > 1)
+      {
+        if (acquirerInfo.CurrencyID == "" || acquirerInfo.CurrencyID == null)
+          throw new Exception("Por favor, Seleccione un adquirente");
+        return acquirerInfo.CurrencyID;
+      }
+      else
+      {
+        return "1";
+      }
+    }
+
+
+    //TODO: No debe existir para winforms
+    public void SelectCommerce(FormCollection param)
+    {
+
+      try
+      {
+        string idCommerse = commerces.Text;
+
+
+        foreach (var item in GlobalInformation.Instance.ListAcquirer)
+        {
+          if (item.Value.id == idCommerse)
+          {
+            acquirerInfo.id = item.Value.id;
+            acquirerInfo.name = item.Value.name;
+            acquirerInfo.MerchantID = item.Value.MerchantID;
+            acquirerInfo.TerminalID = item.Value.TerminalID;
+            acquirerInfo.CurrencyID = item.Value.CurrencyID;
+            acquirerInfo.ListCuotas = item.Value.ListCuotas;
+
+            break;
+          }
+        }
+
+      }
+      catch (Exception Ex)
+      {
+        MessageBox.Show(Ex.Message + "  [" + Ex.Source + "][" + Ex.StackTrace + "][" + Ex.TargetSite + "]", "VPOS Control", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+      }
+
+    }
+
+  }
 }

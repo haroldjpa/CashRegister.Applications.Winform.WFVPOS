@@ -52,6 +52,9 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       this.panel4 = new System.Windows.Forms.Panel();
       this.lblInformationTitle = new System.Windows.Forms.Label();
       this.panel6 = new System.Windows.Forms.Panel();
+      this.chkDiscount = new System.Windows.Forms.CheckBox();
+      this.chkLstlstAcquires = new System.Windows.Forms.CheckedListBox();
+      this.btnClose = new System.Windows.Forms.Button();
       this.placeConfiguration = new System.Windows.Forms.Button();
       this.panel8 = new System.Windows.Forms.Panel();
       this.label8 = new System.Windows.Forms.Label();
@@ -69,9 +72,6 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       this.chkLast4 = new System.Windows.Forms.CheckBox();
       this.panel7 = new System.Windows.Forms.Panel();
       this.lblTitleConfigVisibleFields = new System.Windows.Forms.Label();
-      this.btnClose = new System.Windows.Forms.Button();
-      this.chkLstlstAcquires = new System.Windows.Forms.CheckedListBox();
-      this.chkDiscount = new System.Windows.Forms.CheckBox();
       this.panel1.SuspendLayout();
       this.panel2.SuspendLayout();
       this.panel5.SuspendLayout();
@@ -353,6 +353,42 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       this.panel6.Size = new System.Drawing.Size(407, 500);
       this.panel6.TabIndex = 13;
       // 
+      // chkDiscount
+      // 
+      this.chkDiscount.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+      this.chkDiscount.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(255)))));
+      this.chkDiscount.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+      this.chkDiscount.ForeColor = System.Drawing.Color.Black;
+      this.chkDiscount.Location = new System.Drawing.Point(15, 235);
+      this.chkDiscount.Name = "chkDiscount";
+      this.chkDiscount.Size = new System.Drawing.Size(316, 20);
+      this.chkDiscount.TabIndex = 16;
+      this.chkDiscount.Text = "Descuento";
+      this.chkDiscount.UseVisualStyleBackColor = true;
+      // 
+      // chkLstlstAcquires
+      // 
+      this.chkLstlstAcquires.BorderStyle = System.Windows.Forms.BorderStyle.None;
+      this.chkLstlstAcquires.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+      this.chkLstlstAcquires.FormattingEnabled = true;
+      this.chkLstlstAcquires.Location = new System.Drawing.Point(15, 361);
+      this.chkLstlstAcquires.Name = "chkLstlstAcquires";
+      this.chkLstlstAcquires.Size = new System.Drawing.Size(308, 72);
+      this.chkLstlstAcquires.TabIndex = 15;
+      // 
+      // btnClose
+      // 
+      this.btnClose.AccessibleRole = System.Windows.Forms.AccessibleRole.Grip;
+      this.btnClose.Font = new System.Drawing.Font("Century Gothic", 12F);
+      this.btnClose.ForeColor = System.Drawing.Color.Black;
+      this.btnClose.Location = new System.Drawing.Point(224, 449);
+      this.btnClose.Name = "btnClose";
+      this.btnClose.Size = new System.Drawing.Size(155, 36);
+      this.btnClose.TabIndex = 14;
+      this.btnClose.Text = "Cerrar";
+      this.btnClose.UseVisualStyleBackColor = true;
+      this.btnClose.Click += new System.EventHandler(this.closeTechnicalView_Click);
+      // 
       // placeConfiguration
       // 
       this.placeConfiguration.Font = new System.Drawing.Font("Century Gothic", 12F);
@@ -560,42 +596,6 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       this.lblTitleConfigVisibleFields.Size = new System.Drawing.Size(206, 19);
       this.lblTitleConfigVisibleFields.TabIndex = 0;
       this.lblTitleConfigVisibleFields.Text = "Visualización de Campos";
-      // 
-      // btnClose
-      // 
-      this.btnClose.AccessibleRole = System.Windows.Forms.AccessibleRole.Grip;
-      this.btnClose.Font = new System.Drawing.Font("Century Gothic", 12F);
-      this.btnClose.ForeColor = System.Drawing.Color.Black;
-      this.btnClose.Location = new System.Drawing.Point(224, 449);
-      this.btnClose.Name = "btnClose";
-      this.btnClose.Size = new System.Drawing.Size(155, 36);
-      this.btnClose.TabIndex = 14;
-      this.btnClose.Text = "Cerrar";
-      this.btnClose.UseVisualStyleBackColor = true;
-      this.btnClose.Click += new System.EventHandler(this.closeTechnicalView_Click);
-      // 
-      // chkLstlstAcquires
-      // 
-      this.chkLstlstAcquires.BorderStyle = System.Windows.Forms.BorderStyle.None;
-      this.chkLstlstAcquires.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-      this.chkLstlstAcquires.FormattingEnabled = true;
-      this.chkLstlstAcquires.Location = new System.Drawing.Point(15, 361);
-      this.chkLstlstAcquires.Name = "chkLstlstAcquires";
-      this.chkLstlstAcquires.Size = new System.Drawing.Size(308, 72);
-      this.chkLstlstAcquires.TabIndex = 15;
-      // 
-      // chkDiscount
-      // 
-      this.chkDiscount.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-      this.chkDiscount.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(255)))));
-      this.chkDiscount.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-      this.chkDiscount.ForeColor = System.Drawing.Color.Black;
-      this.chkDiscount.Location = new System.Drawing.Point(15, 235);
-      this.chkDiscount.Name = "chkDiscount";
-      this.chkDiscount.Size = new System.Drawing.Size(316, 20);
-      this.chkDiscount.TabIndex = 16;
-      this.chkDiscount.Text = "Descuento";
-      this.chkDiscount.UseVisualStyleBackColor = true;
       // 
       // Technical
       // 

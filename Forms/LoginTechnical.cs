@@ -47,7 +47,9 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
 
         if (hash.Equals(GlobalInformation.Instance.GetParameterValue(PA_PARAMETERS.TECHNICAL_PASS.ToString())))
         {
+          
           OpenChildForm(new Technical());
+          
         }
         else
         {
