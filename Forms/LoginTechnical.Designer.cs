@@ -59,7 +59,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       // 
       this.enviar_technical.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
       this.enviar_technical.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-      this.enviar_technical.Font = new System.Drawing.Font("Century Gothic", 14F);
+      this.enviar_technical.Font = new System.Drawing.Font("Century Gothic", 12F);
       this.enviar_technical.ForeColor = System.Drawing.Color.White;
       this.enviar_technical.Location = new System.Drawing.Point(83, 118);
       this.enviar_technical.Name = "enviar_technical";
@@ -134,6 +134,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       // 
       // LoginTechnical
       // 
+      this.AcceptButton = this.enviar_technical;
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(617, 352);

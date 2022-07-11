@@ -29,8 +29,8 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
         /// </summary>
         private void InitializeComponent()
         {
+      this.components = new System.ComponentModel.Container();
       this.panel1 = new System.Windows.Forms.Panel();
-      this.closeTran = new System.Windows.Forms.Button();
       this.print_copy = new System.Windows.Forms.CheckBox();
       this.print_commerce = new System.Windows.Forms.CheckBox();
       this.lblTicket = new System.Windows.Forms.Label();
@@ -60,12 +60,14 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       this.commerces = new System.Windows.Forms.ComboBox();
       this.panel2 = new System.Windows.Forms.Panel();
       this.lblTitle = new System.Windows.Forms.Label();
+      this.closeTran = new System.Windows.Forms.Button();
       this.panel3 = new System.Windows.Forms.Panel();
       this.codigoAprobacion = new System.Windows.Forms.Label();
       this.lblApprovalNum = new System.Windows.Forms.Label();
       this.lblTitleResultTX = new System.Windows.Forms.Label();
       this.panel4 = new System.Windows.Forms.Panel();
       this.lblTitleResult = new System.Windows.Forms.Label();
+      this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
       this.panel1.SuspendLayout();
       this.panel2.SuspendLayout();
       this.panel3.SuspendLayout();
@@ -109,20 +111,6 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       this.panel1.Name = "panel1";
       this.panel1.Size = new System.Drawing.Size(502, 525);
       this.panel1.TabIndex = 0;
-      // 
-      // closeTran
-      // 
-      this.closeTran.BackColor = System.Drawing.Color.White;
-      this.closeTran.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-      this.closeTran.Font = new System.Drawing.Font("Century Gothic", 12F);
-      this.closeTran.ForeColor = System.Drawing.Color.Black;
-      this.closeTran.Location = new System.Drawing.Point(792, 509);
-      this.closeTran.Name = "closeTran";
-      this.closeTran.Size = new System.Drawing.Size(136, 34);
-      this.closeTran.TabIndex = 29;
-      this.closeTran.Text = "Cerrar";
-      this.closeTran.UseVisualStyleBackColor = false;
-      this.closeTran.Click += new System.EventHandler(this.closeTran_Click);
       // 
       // print_copy
       // 
@@ -177,6 +165,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       this.enviar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(141)))), ((int)(((byte)(188)))));
       this.enviar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
       this.enviar.Font = new System.Drawing.Font("Century Gothic", 12F);
+      this.enviar.ForeColor = System.Drawing.Color.Black;
       this.enviar.Location = new System.Drawing.Point(91, 406);
       this.enviar.Name = "enviar";
       this.enviar.Size = new System.Drawing.Size(136, 34);
@@ -188,13 +177,15 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       // web_total_transaccion
       // 
       this.web_total_transaccion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
-      this.web_total_transaccion.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.web_total_transaccion.Enabled = false;
+      this.web_total_transaccion.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.web_total_transaccion.ForeColor = System.Drawing.Color.DarkGray;
       this.web_total_transaccion.Location = new System.Drawing.Point(79, 366);
       this.web_total_transaccion.Name = "web_total_transaccion";
       this.web_total_transaccion.ReadOnly = true;
-      this.web_total_transaccion.Size = new System.Drawing.Size(350, 23);
+      this.web_total_transaccion.Size = new System.Drawing.Size(350, 27);
       this.web_total_transaccion.TabIndex = 22;
+      this.web_total_transaccion.Text = "0.00";
       // 
       // lblTotal
       // 
@@ -210,12 +201,12 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       // web_fecha_expiracion
       // 
       this.web_fecha_expiracion.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-      this.web_fecha_expiracion.ForeColor = System.Drawing.Color.DarkGray;
+      this.web_fecha_expiracion.ForeColor = System.Drawing.Color.Black;
       this.web_fecha_expiracion.Location = new System.Drawing.Point(289, 315);
       this.web_fecha_expiracion.Name = "web_fecha_expiracion";
       this.web_fecha_expiracion.Size = new System.Drawing.Size(178, 23);
       this.web_fecha_expiracion.TabIndex = 20;
-      this.web_fecha_expiracion.Text = "MMYY";
+      this.toolTip1.SetToolTip(this.web_fecha_expiracion, "MMYY");
       // 
       // lblExpirationDate
       // 
@@ -231,12 +222,12 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       // web_ultimos4
       // 
       this.web_ultimos4.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-      this.web_ultimos4.ForeColor = System.Drawing.Color.DarkGray;
+      this.web_ultimos4.ForeColor = System.Drawing.Color.Black;
       this.web_ultimos4.Location = new System.Drawing.Point(30, 315);
       this.web_ultimos4.Name = "web_ultimos4";
       this.web_ultimos4.Size = new System.Drawing.Size(178, 23);
       this.web_ultimos4.TabIndex = 18;
-      this.web_ultimos4.Text = "XXXX XXXX XXXX 1234";
+      this.toolTip1.SetToolTip(this.web_ultimos4, "XXXX XXXX XXXX 1234");
       // 
       // lblLast4
       // 
@@ -252,12 +243,14 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       // web_propina
       // 
       this.web_propina.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-      this.web_propina.ForeColor = System.Drawing.Color.DarkGray;
+      this.web_propina.ForeColor = System.Drawing.Color.Black;
       this.web_propina.Location = new System.Drawing.Point(291, 257);
       this.web_propina.Name = "web_propina";
       this.web_propina.Size = new System.Drawing.Size(178, 23);
       this.web_propina.TabIndex = 16;
-      this.web_propina.Text = "0.00";
+      this.toolTip1.SetToolTip(this.web_propina, "0.00");
+      this.web_propina.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumeric_KeyPress);
+      this.web_propina.Leave += new System.EventHandler(this.web_importe_base_Leave);
       // 
       // lblTip
       // 
@@ -273,12 +266,14 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       // web_impuesto18
       // 
       this.web_impuesto18.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-      this.web_impuesto18.ForeColor = System.Drawing.Color.DarkGray;
+      this.web_impuesto18.ForeColor = System.Drawing.Color.Black;
       this.web_impuesto18.Location = new System.Drawing.Point(30, 257);
       this.web_impuesto18.Name = "web_impuesto18";
       this.web_impuesto18.Size = new System.Drawing.Size(178, 23);
       this.web_impuesto18.TabIndex = 14;
-      this.web_impuesto18.Text = "0.00";
+      this.toolTip1.SetToolTip(this.web_impuesto18, "0.00");
+      this.web_impuesto18.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumeric_KeyPress);
+      this.web_impuesto18.Leave += new System.EventHandler(this.web_importe_base_Leave);
       // 
       // lblTax2
       // 
@@ -294,12 +289,14 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       // web_impuesto15
       // 
       this.web_impuesto15.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-      this.web_impuesto15.ForeColor = System.Drawing.Color.DarkGray;
+      this.web_impuesto15.ForeColor = System.Drawing.Color.Black;
       this.web_impuesto15.Location = new System.Drawing.Point(291, 201);
       this.web_impuesto15.Name = "web_impuesto15";
       this.web_impuesto15.Size = new System.Drawing.Size(178, 23);
       this.web_impuesto15.TabIndex = 12;
-      this.web_impuesto15.Text = "0.00";
+      this.toolTip1.SetToolTip(this.web_impuesto15, "0.00");
+      this.web_impuesto15.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumeric_KeyPress);
+      this.web_impuesto15.Leave += new System.EventHandler(this.web_importe_base_Leave);
       // 
       // lblTax1
       // 
@@ -315,12 +312,14 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       // web_importe_base
       // 
       this.web_importe_base.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-      this.web_importe_base.ForeColor = System.Drawing.Color.DarkGray;
+      this.web_importe_base.ForeColor = System.Drawing.Color.Black;
       this.web_importe_base.Location = new System.Drawing.Point(30, 201);
       this.web_importe_base.Name = "web_importe_base";
       this.web_importe_base.Size = new System.Drawing.Size(178, 23);
       this.web_importe_base.TabIndex = 10;
-      this.web_importe_base.Text = "0.00";
+      this.toolTip1.SetToolTip(this.web_importe_base, "0.00");
+      this.web_importe_base.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumeric_KeyPress);
+      this.web_importe_base.Leave += new System.EventHandler(this.web_importe_base_Leave);
       // 
       // lblSubTotal
       // 
@@ -340,9 +339,8 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       this.merchant_id.ForeColor = System.Drawing.Color.Black;
       this.merchant_id.Location = new System.Drawing.Point(188, 147);
       this.merchant_id.Name = "merchant_id";
-      this.merchant_id.Size = new System.Drawing.Size(28, 16);
+      this.merchant_id.Size = new System.Drawing.Size(0, 16);
       this.merchant_id.TabIndex = 8;
-      this.merchant_id.Text = "xxx";
       // 
       // lblMerchantId
       // 
@@ -362,9 +360,8 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       this.terminal_id.ForeColor = System.Drawing.Color.Black;
       this.terminal_id.Location = new System.Drawing.Point(188, 128);
       this.terminal_id.Name = "terminal_id";
-      this.terminal_id.Size = new System.Drawing.Size(28, 16);
+      this.terminal_id.Size = new System.Drawing.Size(0, 16);
       this.terminal_id.TabIndex = 6;
-      this.terminal_id.Text = "xxx";
       // 
       // lblTerminalId
       // 
@@ -384,9 +381,8 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       this.merchant_name.ForeColor = System.Drawing.Color.Black;
       this.merchant_name.Location = new System.Drawing.Point(188, 111);
       this.merchant_name.Name = "merchant_name";
-      this.merchant_name.Size = new System.Drawing.Size(28, 16);
+      this.merchant_name.Size = new System.Drawing.Size(0, 16);
       this.merchant_name.TabIndex = 4;
-      this.merchant_name.Text = "xxx";
       // 
       // lblMerchantName
       // 
@@ -413,13 +409,16 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       // 
       // commerces
       // 
+      this.commerces.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
       this.commerces.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-      this.commerces.ForeColor = System.Drawing.Color.Silver;
+      this.commerces.ForeColor = System.Drawing.Color.Black;
       this.commerces.FormattingEnabled = true;
       this.commerces.Location = new System.Drawing.Point(79, 70);
       this.commerces.Name = "commerces";
       this.commerces.Size = new System.Drawing.Size(350, 25);
       this.commerces.TabIndex = 1;
+      this.toolTip1.SetToolTip(this.commerces, "Seleccione un adquirente");
+      this.commerces.SelectedValueChanged += new System.EventHandler(this.commerces_SelectedValueChanged);
       // 
       // panel2
       // 
@@ -441,6 +440,20 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       this.lblTitle.Size = new System.Drawing.Size(65, 23);
       this.lblTitle.TabIndex = 0;
       this.lblTitle.Text = "Venta";
+      // 
+      // closeTran
+      // 
+      this.closeTran.BackColor = System.Drawing.Color.White;
+      this.closeTran.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+      this.closeTran.Font = new System.Drawing.Font("Century Gothic", 12F);
+      this.closeTran.ForeColor = System.Drawing.Color.Black;
+      this.closeTran.Location = new System.Drawing.Point(792, 509);
+      this.closeTran.Name = "closeTran";
+      this.closeTran.Size = new System.Drawing.Size(136, 34);
+      this.closeTran.TabIndex = 29;
+      this.closeTran.Text = "Cerrar";
+      this.closeTran.UseVisualStyleBackColor = false;
+      this.closeTran.Click += new System.EventHandler(this.closeTran_Click);
       // 
       // panel3
       // 
@@ -570,5 +583,6 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
         private System.Windows.Forms.Button closeTran;
         private System.Windows.Forms.Label lblApprovalNum;
         private System.Windows.Forms.Label codigoAprobacion;
+    private System.Windows.Forms.ToolTip toolTip1;
   }
 }

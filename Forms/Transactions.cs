@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,7 +20,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
 {
   public partial class Transactions : Form
   {
-    static AcquirerInfo acquirerInfo;
+    static AcquirerInfo acquirerInfoSelected;
     static VPOSstructParams paymentParamsToPrint;
     static bool AutoPrint = true;
     static string glvApproval = "";
@@ -38,12 +39,12 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
     private void SetViewBagData()
     {
       //TODO: Crear un metodo para este fin en las demas vistas y/o darle una mejor implementacion
-      acquirerInfo = new AcquirerInfo();
+      acquirerInfoSelected = new AcquirerInfo();
 
       if (SYS_COUNTRY_APPLICATION.Nicaragua_Lafise != GlobalInformation.Instance.SysCountryApplication)
       {
         this.web_impuesto15.Visible = GlobalInformation.Instance.GetParameterBooleanValue(PA_PARAMETERS.SHOW_TAX1_FIELD.ToString());
-        this.web_impuesto18.Visible  = GlobalInformation.Instance.GetParameterBooleanValue(PA_PARAMETERS.SHOW_TAX2_FIELD.ToString());
+        this.web_impuesto18.Visible = GlobalInformation.Instance.GetParameterBooleanValue(PA_PARAMETERS.SHOW_TAX2_FIELD.ToString());
         this.web_propina.Visible = GlobalInformation.Instance.GetParameterBooleanValue(PA_PARAMETERS.SHOW_TIP_FIELD.ToString());
       }
       else
@@ -110,7 +111,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
         GlobalInformation.Instance.SysCountryApplication == SYS_COUNTRY_APPLICATION.Honduras_Atlantida)
       {
         //this.DiscountFunction = false;//true;
-        
+
         this.lblTax1.Text = "Impuesto:";
         this.lblTax2.Text = "Otros Impuestos:";
         this.lblLast4.Text = "Últimos 4 de la tarjeta:";
@@ -120,7 +121,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       {
 
         //this.DiscountFunction = false;//true;
-        
+
         this.lblTax1.Text = "Impuesto:";
         this.lblTax2.Text = "Otros Impuestos:";
         this.lblLast4.Text = "Número de tarjeta:";
@@ -161,57 +162,50 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
         this.print_copy.Text = "Cliente";
         //this.lblSelectOption = "Seleccione adquirente";
 
+        FillAdquirerList();
 
-        int IndexAc = 0;
 
-        foreach (var item1 in GlobalInformation.Instance.ListAcquirer)
-        {
-          if (item1.Value.IsSaleVisible)
-            IndexAc++;
-        }
+        //int IndexAc = 0;
 
-        AcquirerInfo[] ArrayAcquirer = new AcquirerInfo[IndexAc];
+        //foreach (var item1 in GlobalInformation.Instance.ListAcquirer)
+        //{
+        //  if (item1.Value.IsSaleVisible)
+        //    IndexAc++;
+        //}
 
-        if (ArrayAcquirer.Length > 0)
-        {
+        //AcquirerInfo[] ArrayAcquirer = new AcquirerInfo[IndexAc];
 
-          IndexAc = 0;
-          foreach (var item in GlobalInformation.Instance.ListAcquirer)
-          {
-            if (item.Value.IsSaleVisible)
-              ArrayAcquirer[IndexAc++] = item.Value;
-          }
+        //if (ArrayAcquirer.Length > 0)
+        //{
 
-          if (ArrayAcquirer.Length == 1)
-          {
-            acquirerInfo.id = ArrayAcquirer[0].id;
-            acquirerInfo.name = ArrayAcquirer[0].name;
-            acquirerInfo.MerchantID = ArrayAcquirer[0].MerchantID;
-            acquirerInfo.TerminalID = ArrayAcquirer[0].TerminalID;
-            acquirerInfo.CurrencyID = ArrayAcquirer[0].CurrencyID;
-            acquirerInfo.ListCuotas = ArrayAcquirer[0].ListCuotas;
+        //  IndexAc = 0;
+        //  foreach (var item in GlobalInformation.Instance.ListAcquirer)
+        //  {
+        //    if (item.Value.IsSaleVisible)
+        //      ArrayAcquirer[IndexAc++] = item.Value;
+        //  }
 
-            this.merchant_id.Text = ArrayAcquirer[0].MerchantID;
-            this.terminal_id.Text = ArrayAcquirer[0].TerminalID;
-            this.merchant_name.Text = ArrayAcquirer[0].name;
-          }
+        //  if (ArrayAcquirer.Length == 1)
+        //  {
+        //    acquirerInfo.id = ArrayAcquirer[0].id;
+        //    acquirerInfo.name = ArrayAcquirer[0].name;
+        //    acquirerInfo.MerchantID = ArrayAcquirer[0].MerchantID;
+        //    acquirerInfo.TerminalID = ArrayAcquirer[0].TerminalID;
+        //    acquirerInfo.CurrencyID = ArrayAcquirer[0].CurrencyID;
+        //    acquirerInfo.ListCuotas = ArrayAcquirer[0].ListCuotas;
 
-          FillAdquirerList();
-        }
-        
-      }
-    }
+        //    this.merchant_id.Text = ArrayAcquirer[0].MerchantID;
+        //    this.terminal_id.Text = ArrayAcquirer[0].TerminalID;
+        //    this.merchant_name.Text = ArrayAcquirer[0].name;
+        //  }
 
-    void FillAdquirerList()
-    {
-      foreach (var item in GlobalInformation.Instance.ListAcquirer)
-      {
-        item.Value.AliasName = "Acquirer" + item.Value.id;
-        if(item.Value.IsSaleVisible)
-          this.commerces.Items.Add(item.Value.name);
+
+        //}
 
       }
     }
+
+
 
     private static object _sync = new object();
     private void enviar_Click(object sender, EventArgs e)
@@ -219,7 +213,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       lock (_sync)
       {
         bool OnlyTrack2 = false;
-       // var resultAjax = new ResultAjax();
+        // var resultAjax = new ResultAjax();
         string ResponseVPOSCode = string.Empty;
         string CalculatedWebAmount;
         try
@@ -245,12 +239,12 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
           paymentParams.VPOSNonIntegred = "yes";
 
           //if (ExistKey(param, "print_copy"))
-            paymentParams.PrintCopy = (print_copy.Checked ? "1" : "2");  //1-Yes copy  2-No copy
-          //else
-          //  paymentParams.PrintCopy = "1"; //1-Yes copy  2-No copy
+          paymentParams.PrintCopy = (print_copy.Checked ? "1" : "2");  //1-Yes copy  2-No copy
+                                                                       //else
+                                                                       //  paymentParams.PrintCopy = "1"; //1-Yes copy  2-No copy
 
           //if (ExistKey(param, "print_commerce"))
-            paymentParams.PrintCommerce = (print_commerce.Checked ? "1" : "2");  //1-Yes copy  2-No copy
+          paymentParams.PrintCommerce = (print_commerce.Checked ? "1" : "2");  //1-Yes copy  2-No copy
           //else
           //  paymentParams.PrintCommerce = "1"; //1-Yes copy  2-No copy        
 
@@ -262,7 +256,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
             {
               paymentParams.Amount = paymentParams.SubTotal;
             }
-            paymentParams.AcquireId = acquirerInfo.id;
+            paymentParams.AcquireId = acquirerInfoSelected.id;
 
             //TODO: SE CREO UNICAMENTE PARA EVALUER UNA PRUEBA, BORRAR O Crear un checkbox que indique que solo se pretende leer el track 2
           }
@@ -275,7 +269,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
           {
             paymentParams.Amount = paymentParams.SubTotal;
 
-            paymentParams.AcquireId = acquirerInfo.id;
+            paymentParams.AcquireId = acquirerInfoSelected.id;
           }
           else
             paymentParams.AcquireId = "1";
@@ -321,7 +315,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
           if (SYS_COUNTRY_APPLICATION.Belice_Atlantida == GlobalInformation.Instance.SysCountryApplication && OnlyTrack2)
           {
             return;
-           // return Json(resultAjax);
+            // return Json(resultAjax);
           }
 
           if (AutoPrint)
@@ -338,7 +332,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
         }
         catch (Exception Ex)
         {
-          MessageBox.Show(Ex.Message , "VPOS Control", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+          MessageBox.Show(Ex.Message, "VPOS Control", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
           if (ResponseVPOSCode.Contains("ERR:07") || ResponseVPOSCode.Contains("ERR:98"))
           {
@@ -410,9 +404,9 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
         SYS_COUNTRY_APPLICATION.Nicaragua_Ficohsa == GlobalInformation.Instance.SysCountryApplication) &&
         GlobalInformation.Instance.ListAcquirer.Count > 1)
       {
-        if (acquirerInfo.CurrencyID == "" || acquirerInfo.CurrencyID == null)
+        if (acquirerInfoSelected.CurrencyID == "" || acquirerInfoSelected.CurrencyID == null)
           throw new Exception("Por favor, Seleccione un adquirente");
-        return acquirerInfo.CurrencyID;
+        return acquirerInfoSelected.CurrencyID;
       }
       else
       {
@@ -421,35 +415,104 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
     }
 
 
-    //TODO: No debe existir para winforms
-    public void SelectCommerce(FormCollection param)
+    private void commerces_SelectedValueChanged(object sender, EventArgs e)
     {
+      string acquirerSelected = commerces.Text;
 
-      try
+      if (acquirerSelected != null)
       {
-        string idCommerse = commerces.Text;
-
-
         foreach (var item in GlobalInformation.Instance.ListAcquirer)
         {
-          if (item.Value.id == idCommerse)
-          {
-            acquirerInfo.id = item.Value.id;
-            acquirerInfo.name = item.Value.name;
-            acquirerInfo.MerchantID = item.Value.MerchantID;
-            acquirerInfo.TerminalID = item.Value.TerminalID;
-            acquirerInfo.CurrencyID = item.Value.CurrencyID;
-            acquirerInfo.ListCuotas = item.Value.ListCuotas;
 
-            break;
+          if (item.Value.name.Equals(acquirerSelected))
+          {
+            merchant_name.Text = item.Value.name;
+            merchant_id.Text = item.Value.MerchantID;
+            terminal_id.Text = item.Value.TerminalID;
+            acquirerInfoSelected = item.Value;
           }
+        }
+      }
+
+    }
+
+    void FillAdquirerList()
+    {
+      int comboListCount = 0;
+      foreach (var item in GlobalInformation.Instance.ListAcquirer)
+      {
+        item.Value.AliasName = "Acquirer" + item.Value.id;
+        if (item.Value.IsSaleVisible)
+        {
+          this.commerces.Items.Add(item.Value.name);
+          comboListCount++;
         }
 
       }
-      catch (Exception Ex)
+
+
+      //Si solo hay un adquirente se selecciona por defecto automaticamente
+      if(comboListCount==1)
       {
-        MessageBox.Show(Ex.Message + "  [" + Ex.Source + "][" + Ex.StackTrace + "][" + Ex.TargetSite + "]", "VPOS Control", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        this.commerces.SelectedIndex = 0;
+        this.commerces.Enabled = false;
+
       }
+      else if(comboListCount==0)
+        this.commerces.Enabled = false;
+      else
+        this.commerces.Enabled = true;
+
+
+    }
+
+    private void txtNumeric_KeyPress(object sender, KeyPressEventArgs e)
+    {
+      char DecimalPoint = Convert.ToChar(CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator);
+
+      if (e.KeyChar == '.' || e.KeyChar == ',')
+      {
+        e.KeyChar = DecimalPoint;
+      }
+
+      if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+            (e.KeyChar != DecimalPoint))
+      {
+        e.Handled = true;
+      }
+
+      // only allow one decimal point
+      if ((e.KeyChar == DecimalPoint) && ((sender as TextBox).Text.IndexOf(DecimalPoint) > -1))
+      {
+        e.Handled = true;
+      }
+    }
+
+    private void web_importe_base_Leave(object sender, EventArgs e)
+    {
+      double SumTotal = 0.0;
+      double currentValue = 0.0;
+      
+
+      if (ValidateCurrency(sender, ((TextBox)sender).Text))
+      {
+        SumTotal = Convert.ToDouble((web_importe_base.Text == "" ? "0.00": web_importe_base.Text)) +
+        Convert.ToDouble((web_impuesto15.Text == "" ? "0.00" : web_impuesto15.Text)) +
+        Convert.ToDouble((web_impuesto18.Text == "" ? "0.00" : web_impuesto18.Text)) +
+        Convert.ToDouble((web_propina.Text == "" ? "0.00" : web_propina.Text));
+        web_total_transaccion.Text = string.Format("{0:N2}", SumTotal);
+
+      }
+
+      //double TotalField =  Convert.ToDouble(sender.Text) ;
+    }
+
+    private bool ValidateCurrency(object sender, string value)
+    {
+      double dummy;
+      bool valid = double.TryParse(value, NumberStyles.Currency, CultureInfo.CurrentCulture, out dummy);
+
+      return valid;
 
     }
 
