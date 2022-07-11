@@ -29,33 +29,33 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
         /// </summary>
         private void InitializeComponent()
         {
-      this.label1 = new System.Windows.Forms.Label();
+      this.Title = new System.Windows.Forms.Label();
       this.panel1 = new System.Windows.Forms.Panel();
       this.getInformation = new System.Windows.Forms.Button();
       this.getInitialization = new System.Windows.Forms.Button();
-      this.currencies = new System.Windows.Forms.ListBox();
+      this.lstCurrencies = new System.Windows.Forms.ListBox();
       this.lblCurrency = new System.Windows.Forms.Label();
       this.web_admin_to_technical = new System.Windows.Forms.TextBox();
       this.lblPass = new System.Windows.Forms.Label();
       this.panel2 = new System.Windows.Forms.Panel();
       this.panel5 = new System.Windows.Forms.Panel();
-      this.label6 = new System.Windows.Forms.Label();
+      this.lblInitializationTitle = new System.Windows.Forms.Label();
       this.label2 = new System.Windows.Forms.Label();
       this.panel3 = new System.Windows.Forms.Panel();
       this.PINpadTerminalID = new System.Windows.Forms.Label();
       this.PINpadSerial = new System.Windows.Forms.Label();
       this.PINpadVersion = new System.Windows.Forms.Label();
-      this.label3 = new System.Windows.Forms.Label();
+      this.lblTerminalID = new System.Windows.Forms.Label();
       this.lblSerial = new System.Windows.Forms.Label();
       this.lblVersion = new System.Windows.Forms.Label();
-      this.label4 = new System.Windows.Forms.Label();
+      this.lblInformation = new System.Windows.Forms.Label();
       this.panel4 = new System.Windows.Forms.Panel();
-      this.label5 = new System.Windows.Forms.Label();
+      this.lblInformationTitle = new System.Windows.Forms.Label();
       this.panel6 = new System.Windows.Forms.Panel();
       this.placeConfiguration = new System.Windows.Forms.Button();
       this.panel8 = new System.Windows.Forms.Panel();
       this.label8 = new System.Windows.Forms.Label();
-      this.label7 = new System.Windows.Forms.Label();
+      this.lblCommerces = new System.Windows.Forms.Label();
       this.chkAutoPrintSaleTicket = new System.Windows.Forms.CheckBox();
       this.chkAllowSesionExpired = new System.Windows.Forms.CheckBox();
       this.chkAlwaysCheckedPrintCustom = new System.Windows.Forms.CheckBox();
@@ -68,9 +68,10 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       this.chkExpirationDate = new System.Windows.Forms.CheckBox();
       this.chkLast4 = new System.Windows.Forms.CheckBox();
       this.panel7 = new System.Windows.Forms.Panel();
-      this.label14 = new System.Windows.Forms.Label();
-      this.closeTechnicalView = new System.Windows.Forms.Button();
+      this.lblTitleConfigVisibleFields = new System.Windows.Forms.Label();
+      this.btnClose = new System.Windows.Forms.Button();
       this.chkLstlstAcquires = new System.Windows.Forms.CheckedListBox();
+      this.chkDiscount = new System.Windows.Forms.CheckBox();
       this.panel1.SuspendLayout();
       this.panel2.SuspendLayout();
       this.panel5.SuspendLayout();
@@ -81,64 +82,67 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       this.panel7.SuspendLayout();
       this.SuspendLayout();
       // 
-      // label1
+      // Title
       // 
-      this.label1.AutoSize = true;
-      this.label1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold);
-      this.label1.ForeColor = System.Drawing.Color.Black;
-      this.label1.Location = new System.Drawing.Point(22, 10);
-      this.label1.Name = "label1";
-      this.label1.Size = new System.Drawing.Size(82, 23);
-      this.label1.TabIndex = 0;
-      this.label1.Text = "Tecnico";
+      this.Title.AutoSize = true;
+      this.Title.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold);
+      this.Title.ForeColor = System.Drawing.Color.Black;
+      this.Title.Location = new System.Drawing.Point(22, 10);
+      this.Title.Name = "Title";
+      this.Title.Size = new System.Drawing.Size(82, 23);
+      this.Title.TabIndex = 0;
+      this.Title.Text = "Tecnico";
       // 
       // panel1
       // 
       this.panel1.BackColor = System.Drawing.Color.White;
       this.panel1.Controls.Add(this.getInformation);
       this.panel1.Controls.Add(this.getInitialization);
-      this.panel1.Controls.Add(this.currencies);
+      this.panel1.Controls.Add(this.lstCurrencies);
       this.panel1.Controls.Add(this.lblCurrency);
       this.panel1.Controls.Add(this.web_admin_to_technical);
       this.panel1.Controls.Add(this.lblPass);
       this.panel1.Controls.Add(this.panel2);
       this.panel1.Location = new System.Drawing.Point(22, 39);
       this.panel1.Name = "panel1";
-      this.panel1.Size = new System.Drawing.Size(407, 251);
+      this.panel1.Size = new System.Drawing.Size(407, 283);
       this.panel1.TabIndex = 1;
       // 
       // getInformation
       // 
       this.getInformation.Font = new System.Drawing.Font("Century Gothic", 12F);
       this.getInformation.ForeColor = System.Drawing.Color.Black;
-      this.getInformation.Location = new System.Drawing.Point(181, 194);
+      this.getInformation.Location = new System.Drawing.Point(235, 191);
       this.getInformation.Name = "getInformation";
       this.getInformation.Size = new System.Drawing.Size(155, 36);
       this.getInformation.TabIndex = 6;
       this.getInformation.Text = "Información";
       this.getInformation.UseVisualStyleBackColor = true;
+      this.getInformation.Click += new System.EventHandler(this.getInformation_Click);
       // 
       // getInitialization
       // 
+      this.getInitialization.BackColor = System.Drawing.Color.White;
       this.getInitialization.Font = new System.Drawing.Font("Century Gothic", 12F);
       this.getInitialization.ForeColor = System.Drawing.Color.Black;
-      this.getInitialization.Location = new System.Drawing.Point(181, 135);
+      this.getInitialization.Location = new System.Drawing.Point(235, 135);
       this.getInitialization.Name = "getInitialization";
       this.getInitialization.Size = new System.Drawing.Size(155, 36);
       this.getInitialization.TabIndex = 5;
       this.getInitialization.Text = "Inicializar";
-      this.getInitialization.UseVisualStyleBackColor = true;
+      this.getInitialization.UseVisualStyleBackColor = false;
+      this.getInitialization.Click += new System.EventHandler(this.getInitialization_Click);
       // 
-      // currencies
+      // lstCurrencies
       // 
-      this.currencies.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-      this.currencies.FormattingEnabled = true;
-      this.currencies.ItemHeight = 17;
-      this.currencies.Location = new System.Drawing.Point(15, 128);
-      this.currencies.Name = "currencies";
-      this.currencies.ScrollAlwaysVisible = true;
-      this.currencies.Size = new System.Drawing.Size(142, 106);
-      this.currencies.TabIndex = 4;
+      this.lstCurrencies.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+      this.lstCurrencies.FormattingEnabled = true;
+      this.lstCurrencies.ItemHeight = 17;
+      this.lstCurrencies.Location = new System.Drawing.Point(15, 128);
+      this.lstCurrencies.Name = "lstCurrencies";
+      this.lstCurrencies.ScrollAlwaysVisible = true;
+      this.lstCurrencies.Size = new System.Drawing.Size(198, 106);
+      this.lstCurrencies.TabIndex = 4;
       // 
       // lblCurrency
       // 
@@ -185,23 +189,23 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       // panel5
       // 
       this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(214)))), ((int)(((byte)(222)))));
-      this.panel5.Controls.Add(this.label6);
+      this.panel5.Controls.Add(this.lblInitializationTitle);
       this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
       this.panel5.Location = new System.Drawing.Point(0, 0);
       this.panel5.Name = "panel5";
       this.panel5.Size = new System.Drawing.Size(407, 37);
       this.panel5.TabIndex = 1;
       // 
-      // label6
+      // lblInitializationTitle
       // 
-      this.label6.AutoSize = true;
-      this.label6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-      this.label6.ForeColor = System.Drawing.Color.Black;
-      this.label6.Location = new System.Drawing.Point(15, 10);
-      this.label6.Name = "label6";
-      this.label6.Size = new System.Drawing.Size(112, 19);
-      this.label6.TabIndex = 0;
-      this.label6.Text = "Inicialización";
+      this.lblInitializationTitle.AutoSize = true;
+      this.lblInitializationTitle.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+      this.lblInitializationTitle.ForeColor = System.Drawing.Color.Black;
+      this.lblInitializationTitle.Location = new System.Drawing.Point(15, 10);
+      this.lblInitializationTitle.Name = "lblInitializationTitle";
+      this.lblInitializationTitle.Size = new System.Drawing.Size(112, 19);
+      this.lblInitializationTitle.TabIndex = 0;
+      this.lblInitializationTitle.Text = "Inicialización";
       // 
       // label2
       // 
@@ -219,12 +223,12 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       this.panel3.Controls.Add(this.PINpadTerminalID);
       this.panel3.Controls.Add(this.PINpadSerial);
       this.panel3.Controls.Add(this.PINpadVersion);
-      this.panel3.Controls.Add(this.label3);
+      this.panel3.Controls.Add(this.lblTerminalID);
       this.panel3.Controls.Add(this.lblSerial);
       this.panel3.Controls.Add(this.lblVersion);
-      this.panel3.Controls.Add(this.label4);
+      this.panel3.Controls.Add(this.lblInformation);
       this.panel3.Controls.Add(this.panel4);
-      this.panel3.Location = new System.Drawing.Point(22, 296);
+      this.panel3.Location = new System.Drawing.Point(22, 329);
       this.panel3.Name = "panel3";
       this.panel3.Size = new System.Drawing.Size(407, 211);
       this.panel3.TabIndex = 7;
@@ -236,9 +240,8 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       this.PINpadTerminalID.ForeColor = System.Drawing.Color.Black;
       this.PINpadTerminalID.Location = new System.Drawing.Point(107, 131);
       this.PINpadTerminalID.Name = "PINpadTerminalID";
-      this.PINpadTerminalID.Size = new System.Drawing.Size(28, 16);
+      this.PINpadTerminalID.Size = new System.Drawing.Size(0, 16);
       this.PINpadTerminalID.TabIndex = 12;
-      this.PINpadTerminalID.Text = "xxx";
       // 
       // PINpadSerial
       // 
@@ -247,9 +250,8 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       this.PINpadSerial.ForeColor = System.Drawing.Color.Black;
       this.PINpadSerial.Location = new System.Drawing.Point(107, 107);
       this.PINpadSerial.Name = "PINpadSerial";
-      this.PINpadSerial.Size = new System.Drawing.Size(28, 16);
+      this.PINpadSerial.Size = new System.Drawing.Size(0, 16);
       this.PINpadSerial.TabIndex = 11;
-      this.PINpadSerial.Text = "xxx";
       // 
       // PINpadVersion
       // 
@@ -258,80 +260,80 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       this.PINpadVersion.ForeColor = System.Drawing.Color.Black;
       this.PINpadVersion.Location = new System.Drawing.Point(107, 83);
       this.PINpadVersion.Name = "PINpadVersion";
-      this.PINpadVersion.Size = new System.Drawing.Size(28, 16);
+      this.PINpadVersion.Size = new System.Drawing.Size(0, 16);
       this.PINpadVersion.TabIndex = 10;
-      this.PINpadVersion.Text = "xxx";
       // 
-      // label3
+      // lblTerminalID
       // 
-      this.label3.AutoSize = true;
-      this.label3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
-      this.label3.ForeColor = System.Drawing.Color.Black;
-      this.label3.Location = new System.Drawing.Point(15, 131);
-      this.label3.Name = "label3";
-      this.label3.Size = new System.Drawing.Size(80, 16);
-      this.label3.TabIndex = 9;
-      this.label3.Text = "TerminalID:";
+      this.lblTerminalID.AutoSize = true;
+      this.lblTerminalID.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.lblTerminalID.ForeColor = System.Drawing.Color.Black;
+      this.lblTerminalID.Location = new System.Drawing.Point(15, 131);
+      this.lblTerminalID.Name = "lblTerminalID";
+      this.lblTerminalID.Size = new System.Drawing.Size(78, 17);
+      this.lblTerminalID.TabIndex = 9;
+      this.lblTerminalID.Text = "TerminalID:";
       // 
       // lblSerial
       // 
       this.lblSerial.AutoSize = true;
-      this.lblSerial.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+      this.lblSerial.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.lblSerial.ForeColor = System.Drawing.Color.Black;
       this.lblSerial.Location = new System.Drawing.Point(15, 107);
       this.lblSerial.Name = "lblSerial";
-      this.lblSerial.Size = new System.Drawing.Size(48, 16);
+      this.lblSerial.Size = new System.Drawing.Size(45, 17);
       this.lblSerial.TabIndex = 8;
       this.lblSerial.Text = "Serial:";
       // 
       // lblVersion
       // 
       this.lblVersion.AutoSize = true;
-      this.lblVersion.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+      this.lblVersion.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.lblVersion.ForeColor = System.Drawing.Color.Black;
       this.lblVersion.Location = new System.Drawing.Point(15, 83);
       this.lblVersion.Name = "lblVersion";
-      this.lblVersion.Size = new System.Drawing.Size(91, 16);
+      this.lblVersion.Size = new System.Drawing.Size(89, 17);
       this.lblVersion.TabIndex = 7;
       this.lblVersion.Text = "Versión App:";
       // 
-      // label4
+      // lblInformation
       // 
-      this.label4.AutoSize = true;
-      this.label4.Font = new System.Drawing.Font("Century Gothic", 12F);
-      this.label4.ForeColor = System.Drawing.Color.Black;
-      this.label4.Location = new System.Drawing.Point(15, 48);
-      this.label4.Name = "label4";
-      this.label4.Size = new System.Drawing.Size(198, 21);
-      this.label4.TabIndex = 1;
-      this.label4.Text = "Información de Terminal";
+      this.lblInformation.AutoSize = true;
+      this.lblInformation.Font = new System.Drawing.Font("Century Gothic", 12F);
+      this.lblInformation.ForeColor = System.Drawing.Color.Black;
+      this.lblInformation.Location = new System.Drawing.Point(15, 48);
+      this.lblInformation.Name = "lblInformation";
+      this.lblInformation.Size = new System.Drawing.Size(198, 21);
+      this.lblInformation.TabIndex = 1;
+      this.lblInformation.Text = "Información de Terminal";
       // 
       // panel4
       // 
       this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(214)))), ((int)(((byte)(222)))));
-      this.panel4.Controls.Add(this.label5);
+      this.panel4.Controls.Add(this.lblInformationTitle);
       this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
       this.panel4.Location = new System.Drawing.Point(0, 0);
       this.panel4.Name = "panel4";
       this.panel4.Size = new System.Drawing.Size(407, 37);
       this.panel4.TabIndex = 0;
       // 
-      // label5
+      // lblInformationTitle
       // 
-      this.label5.AutoSize = true;
-      this.label5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-      this.label5.ForeColor = System.Drawing.Color.Black;
-      this.label5.Location = new System.Drawing.Point(15, 10);
-      this.label5.Name = "label5";
-      this.label5.Size = new System.Drawing.Size(103, 19);
-      this.label5.TabIndex = 0;
-      this.label5.Text = "Información";
+      this.lblInformationTitle.AutoSize = true;
+      this.lblInformationTitle.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+      this.lblInformationTitle.ForeColor = System.Drawing.Color.Black;
+      this.lblInformationTitle.Location = new System.Drawing.Point(15, 10);
+      this.lblInformationTitle.Name = "lblInformationTitle";
+      this.lblInformationTitle.Size = new System.Drawing.Size(103, 19);
+      this.lblInformationTitle.TabIndex = 0;
+      this.lblInformationTitle.Text = "Información";
       // 
       // panel6
       // 
       this.panel6.BackColor = System.Drawing.Color.White;
+      this.panel6.Controls.Add(this.chkDiscount);
       this.panel6.Controls.Add(this.chkLstlstAcquires);
-      this.panel6.Controls.Add(this.closeTechnicalView);
+      this.panel6.Controls.Add(this.btnClose);
       this.panel6.Controls.Add(this.placeConfiguration);
       this.panel6.Controls.Add(this.panel8);
       this.panel6.Controls.Add(this.chkAutoPrintSaleTicket);
@@ -348,26 +350,27 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       this.panel6.Controls.Add(this.panel7);
       this.panel6.Location = new System.Drawing.Point(466, 40);
       this.panel6.Name = "panel6";
-      this.panel6.Size = new System.Drawing.Size(407, 466);
+      this.panel6.Size = new System.Drawing.Size(407, 500);
       this.panel6.TabIndex = 13;
       // 
       // placeConfiguration
       // 
       this.placeConfiguration.Font = new System.Drawing.Font("Century Gothic", 12F);
       this.placeConfiguration.ForeColor = System.Drawing.Color.Black;
-      this.placeConfiguration.Location = new System.Drawing.Point(19, 406);
+      this.placeConfiguration.Location = new System.Drawing.Point(19, 449);
       this.placeConfiguration.Name = "placeConfiguration";
       this.placeConfiguration.Size = new System.Drawing.Size(185, 36);
       this.placeConfiguration.TabIndex = 7;
       this.placeConfiguration.Text = "Tomar Configuración";
       this.placeConfiguration.UseVisualStyleBackColor = true;
+      this.placeConfiguration.Click += new System.EventHandler(this.placeConfiguration_Click);
       // 
       // panel8
       // 
       this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(237)))), ((int)(((byte)(247)))));
       this.panel8.Controls.Add(this.label8);
-      this.panel8.Controls.Add(this.label7);
-      this.panel8.Location = new System.Drawing.Point(15, 257);
+      this.panel8.Controls.Add(this.lblCommerces);
+      this.panel8.Location = new System.Drawing.Point(15, 306);
       this.panel8.Name = "panel8";
       this.panel8.Size = new System.Drawing.Size(365, 36);
       this.panel8.TabIndex = 12;
@@ -382,17 +385,16 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       this.label8.Size = new System.Drawing.Size(0, 16);
       this.label8.TabIndex = 1;
       // 
-      // label7
+      // lblCommerces
       // 
-      this.label7.AutoSize = true;
-      this.label7.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
-      this.label7.ForeColor = System.Drawing.Color.Black;
-      this.label7.Location = new System.Drawing.Point(35, 9);
-      this.label7.Name = "label7";
-      this.label7.Size = new System.Drawing.Size(288, 16);
-      this.label7.TabIndex = 0;
-      this.label7.Text = "Adquirientes disponibles para Venta Retail";
-      this.label7.Click += new System.EventHandler(this.label7_Click);
+      this.lblCommerces.AutoSize = true;
+      this.lblCommerces.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+      this.lblCommerces.ForeColor = System.Drawing.Color.Black;
+      this.lblCommerces.Location = new System.Drawing.Point(35, 9);
+      this.lblCommerces.Name = "lblCommerces";
+      this.lblCommerces.Size = new System.Drawing.Size(288, 16);
+      this.lblCommerces.TabIndex = 0;
+      this.lblCommerces.Text = "Adquirientes disponibles para Venta Retail";
       // 
       // chkAutoPrintSaleTicket
       // 
@@ -541,55 +543,69 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       // panel7
       // 
       this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(214)))), ((int)(((byte)(222)))));
-      this.panel7.Controls.Add(this.label14);
+      this.panel7.Controls.Add(this.lblTitleConfigVisibleFields);
       this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
       this.panel7.Location = new System.Drawing.Point(0, 0);
       this.panel7.Name = "panel7";
       this.panel7.Size = new System.Drawing.Size(407, 37);
       this.panel7.TabIndex = 0;
       // 
-      // label14
+      // lblTitleConfigVisibleFields
       // 
-      this.label14.AutoSize = true;
-      this.label14.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-      this.label14.ForeColor = System.Drawing.Color.Black;
-      this.label14.Location = new System.Drawing.Point(15, 10);
-      this.label14.Name = "label14";
-      this.label14.Size = new System.Drawing.Size(206, 19);
-      this.label14.TabIndex = 0;
-      this.label14.Text = "Visualización de Campos";
+      this.lblTitleConfigVisibleFields.AutoSize = true;
+      this.lblTitleConfigVisibleFields.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+      this.lblTitleConfigVisibleFields.ForeColor = System.Drawing.Color.Black;
+      this.lblTitleConfigVisibleFields.Location = new System.Drawing.Point(15, 10);
+      this.lblTitleConfigVisibleFields.Name = "lblTitleConfigVisibleFields";
+      this.lblTitleConfigVisibleFields.Size = new System.Drawing.Size(206, 19);
+      this.lblTitleConfigVisibleFields.TabIndex = 0;
+      this.lblTitleConfigVisibleFields.Text = "Visualización de Campos";
       // 
-      // closeTechnicalView
+      // btnClose
       // 
-      this.closeTechnicalView.Font = new System.Drawing.Font("Century Gothic", 12F);
-      this.closeTechnicalView.ForeColor = System.Drawing.Color.Black;
-      this.closeTechnicalView.Location = new System.Drawing.Point(224, 406);
-      this.closeTechnicalView.Name = "closeTechnicalView";
-      this.closeTechnicalView.Size = new System.Drawing.Size(155, 36);
-      this.closeTechnicalView.TabIndex = 14;
-      this.closeTechnicalView.Text = "Cerrar";
-      this.closeTechnicalView.UseVisualStyleBackColor = true;
-      this.closeTechnicalView.Click += new System.EventHandler(this.closeTechnicalView_Click);
+      this.btnClose.AccessibleRole = System.Windows.Forms.AccessibleRole.Grip;
+      this.btnClose.Font = new System.Drawing.Font("Century Gothic", 12F);
+      this.btnClose.ForeColor = System.Drawing.Color.Black;
+      this.btnClose.Location = new System.Drawing.Point(224, 449);
+      this.btnClose.Name = "btnClose";
+      this.btnClose.Size = new System.Drawing.Size(155, 36);
+      this.btnClose.TabIndex = 14;
+      this.btnClose.Text = "Cerrar";
+      this.btnClose.UseVisualStyleBackColor = true;
+      this.btnClose.Click += new System.EventHandler(this.closeTechnicalView_Click);
       // 
       // chkLstlstAcquires
       // 
       this.chkLstlstAcquires.BorderStyle = System.Windows.Forms.BorderStyle.None;
       this.chkLstlstAcquires.Font = new System.Drawing.Font("Century Gothic", 9.75F);
       this.chkLstlstAcquires.FormattingEnabled = true;
-      this.chkLstlstAcquires.Location = new System.Drawing.Point(15, 307);
+      this.chkLstlstAcquires.Location = new System.Drawing.Point(15, 361);
       this.chkLstlstAcquires.Name = "chkLstlstAcquires";
       this.chkLstlstAcquires.Size = new System.Drawing.Size(308, 72);
       this.chkLstlstAcquires.TabIndex = 15;
+      // 
+      // chkDiscount
+      // 
+      this.chkDiscount.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+      this.chkDiscount.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(255)))));
+      this.chkDiscount.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+      this.chkDiscount.ForeColor = System.Drawing.Color.Black;
+      this.chkDiscount.Location = new System.Drawing.Point(15, 235);
+      this.chkDiscount.Name = "chkDiscount";
+      this.chkDiscount.Size = new System.Drawing.Size(316, 20);
+      this.chkDiscount.TabIndex = 16;
+      this.chkDiscount.Text = "Descuento";
+      this.chkDiscount.UseVisualStyleBackColor = true;
       // 
       // Technical
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(901, 535);
+      this.ClientSize = new System.Drawing.Size(901, 552);
       this.Controls.Add(this.panel6);
       this.Controls.Add(this.panel3);
       this.Controls.Add(this.panel1);
-      this.Controls.Add(this.label1);
+      this.Controls.Add(this.Title);
       this.Name = "Technical";
       this.Text = "Technical";
       this.panel1.ResumeLayout(false);
@@ -614,31 +630,31 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label Title;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox web_admin_to_technical;
         private System.Windows.Forms.Label lblPass;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblCurrency;
-        private System.Windows.Forms.ListBox currencies;
+        private System.Windows.Forms.ListBox lstCurrencies;
         private System.Windows.Forms.Button getInitialization;
         private System.Windows.Forms.Button getInformation;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblInformation;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblInformationTitle;
         private System.Windows.Forms.Label lblVersion;
         private System.Windows.Forms.Label lblSerial;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblTerminalID;
         private System.Windows.Forms.Label PINpadVersion;
         private System.Windows.Forms.Label PINpadSerial;
         private System.Windows.Forms.Label PINpadTerminalID;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblInitializationTitle;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label lblTitleConfigVisibleFields;
         private System.Windows.Forms.CheckBox chkExpirationDate;
         private System.Windows.Forms.CheckBox chkLast4;
         private System.Windows.Forms.CheckBox chkTip;
@@ -651,11 +667,12 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
         private System.Windows.Forms.CheckBox chkAllowSesionExpired;
         private System.Windows.Forms.CheckBox chkAutoPrintSaleTicket;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblCommerces;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button closeTechnicalView;
+        private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button placeConfiguration;
     private System.Windows.Forms.CheckedListBox chkLstlstAcquires;
+    private System.Windows.Forms.CheckBox chkDiscount;
   }
 }
