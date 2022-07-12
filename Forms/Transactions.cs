@@ -490,13 +490,9 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
 
     private void web_importe_base_Leave(object sender, EventArgs e)
     {
-      double SumTotal = 0.0;
-      double currentValue = 0.0;
-      
-
       if (ValidateCurrency(sender, ((TextBox)sender).Text))
       {
-        SumTotal = Convert.ToDouble((web_importe_base.Text == "" ? "0.00": web_importe_base.Text)) +
+        double SumTotal = Convert.ToDouble((web_importe_base.Text == "" ? "0.00": web_importe_base.Text)) +
         Convert.ToDouble((web_impuesto15.Text == "" ? "0.00" : web_impuesto15.Text)) +
         Convert.ToDouble((web_impuesto18.Text == "" ? "0.00" : web_impuesto18.Text)) +
         Convert.ToDouble((web_propina.Text == "" ? "0.00" : web_propina.Text));
