@@ -35,3 +35,8 @@ F:\EVO_VirtualBox\Postek-tfs\CashRegister\Dev\Project\CashRegister\Applications\
 F:\EVO_VirtualBox\Postek-tfs\CashRegister\Dev\Project\CashRegister\Applications\WinForm\CashRegister.Applications.Winform.WFVPOS\obj\Debug\WinPostek.pdb
 F:\EVO_VirtualBox\Postek-tfs\CashRegister\Dev\Project\CashRegister\Applications\WinForm\CashRegister.Applications.Winform.WFVPOS\obj\Debug\CashRegister.Applications.Winform.WFVPos.Forms.FinancialFee.resources
 F:\EVO_VirtualBox\Postek-tfs\CashRegister\Dev\Project\CashRegister\Applications\WinForm\CashRegister.Applications.Winform.WFVPOS\obj\Debug\CashRegister.Applications.Winform.WFVPos.Forms.Points.resources
+C:\Assemblies\CashRegister\Debug\Winform\CashRegister.Applications.Winform.WinPostek\Resources\Ficohsa.PNG
+C:\Assemblies\CashRegister\Debug\Winform\CashRegister.Applications.Winform.WinPostek\Resources\logo_Ficohsa.bmp
+C:\Assemblies\CashRegister\Debug\Winform\CashRegister.Applications.Winform.WinPostek\Resources\payment_brands.png
+C:\Assemblies\CashRegister\Debug\Winform\CashRegister.Applications.Winform.WinPostek\Resources\user-default-ficohsa-160x160.jpg
+C:\Assemblies\CashRegister\Debug\Winform\CashRegister.Applications.Winform.WinPostek\Resources\user-default-ficohsa-160x1601.jpg

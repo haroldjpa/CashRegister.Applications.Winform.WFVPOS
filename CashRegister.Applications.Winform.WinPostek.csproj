@@ -345,10 +345,21 @@
     <Content Include="favicon.ico" />
     <Content Include="Postek.ico" />
     <Content Include="PostekApp.ico" />
-    <Content Include="Resources\Ficohsa.PNG" />
-    <Content Include="Resources\logo_Ficohsa.bmp" />
-    <Content Include="Resources\user-default-ficohsa-160x160.jpg" />
-    <Content Include="Resources\user-default-ficohsa-160x1601.jpg" />
+    <Content Include="Resources\Ficohsa.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\logo_Ficohsa.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\payment_brands.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\user-default-ficohsa-160x160.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\user-default-ficohsa-160x1601.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\..\..\packages\System.Text.Json.6.0.0\build\System.Text.Json.targets" Condition="Exists('..\..\..\packages\System.Text.Json.6.0.0\build\System.Text.Json.targets')" />

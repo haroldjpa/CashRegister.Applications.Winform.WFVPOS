@@ -34,24 +34,26 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       this.label3 = new System.Windows.Forms.Label();
       this.label2 = new System.Windows.Forms.Label();
       this.label1 = new System.Windows.Forms.Label();
-      this.pictureBox1 = new System.Windows.Forms.PictureBox();
       this.panel2 = new System.Windows.Forms.Panel();
       this.btnCloseWindow = new System.Windows.Forms.Button();
       this.btnLogin = new System.Windows.Forms.Button();
       this.panel4 = new System.Windows.Forms.Panel();
       this.txtPass = new System.Windows.Forms.TextBox();
-      this.iconPictureBox2 = new FontAwesome.Sharp.IconPictureBox();
       this.panel3 = new System.Windows.Forms.Panel();
       this.txtUser = new System.Windows.Forms.TextBox();
-      this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
       this.label4 = new System.Windows.Forms.Label();
+      this.picBrands = new System.Windows.Forms.PictureBox();
+      this.iconPictureBox2 = new FontAwesome.Sharp.IconPictureBox();
+      this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
+      this.pictureBox1 = new System.Windows.Forms.PictureBox();
       this.panel1.SuspendLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
       this.panel2.SuspendLayout();
       this.panel4.SuspendLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).BeginInit();
       this.panel3.SuspendLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.picBrands)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
       this.SuspendLayout();
       // 
       // panel1
@@ -100,17 +102,9 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       this.label1.TabIndex = 1;
       this.label1.Text = "Bienvenido A";
       // 
-      // pictureBox1
-      // 
-      this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-      this.pictureBox1.Location = new System.Drawing.Point(66, 32);
-      this.pictureBox1.Name = "pictureBox1";
-      this.pictureBox1.Size = new System.Drawing.Size(131, 131);
-      this.pictureBox1.TabIndex = 0;
-      this.pictureBox1.TabStop = false;
-      // 
       // panel2
       // 
+      this.panel2.Controls.Add(this.picBrands);
       this.panel2.Controls.Add(this.btnCloseWindow);
       this.panel2.Controls.Add(this.btnLogin);
       this.panel2.Controls.Add(this.panel4);
@@ -174,22 +168,6 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       this.txtPass.Click += new System.EventHandler(this.textBox2_Click);
       this.txtPass.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
       // 
-      // iconPictureBox2
-      // 
-      this.iconPictureBox2.BackColor = System.Drawing.SystemColors.Control;
-      this.iconPictureBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
-      this.iconPictureBox2.IconChar = FontAwesome.Sharp.IconChar.Lock;
-      this.iconPictureBox2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
-      this.iconPictureBox2.IconFont = FontAwesome.Sharp.IconFont.Solid;
-      this.iconPictureBox2.IconSize = 21;
-      this.iconPictureBox2.Location = new System.Drawing.Point(13, 10);
-      this.iconPictureBox2.Name = "iconPictureBox2";
-      this.iconPictureBox2.Size = new System.Drawing.Size(21, 21);
-      this.iconPictureBox2.TabIndex = 1;
-      this.iconPictureBox2.TabStop = false;
-      this.iconPictureBox2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.iconPictureBox2_MouseDown);
-      this.iconPictureBox2.MouseUp += new System.Windows.Forms.MouseEventHandler(this.iconPictureBox2_MouseUp);
-      // 
       // panel3
       // 
       this.panel3.BackColor = System.Drawing.Color.White;
@@ -211,6 +189,43 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       this.txtUser.TabIndex = 1;
       this.txtUser.Click += new System.EventHandler(this.textBox1_Click);
       // 
+      // label4
+      // 
+      this.label4.AutoSize = true;
+      this.label4.Font = new System.Drawing.Font("Century Gothic", 15.75F);
+      this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
+      this.label4.Location = new System.Drawing.Point(55, 119);
+      this.label4.Name = "label4";
+      this.label4.Size = new System.Drawing.Size(212, 24);
+      this.label4.TabIndex = 2;
+      this.label4.Text = "Ingrese a su cuenta";
+      // 
+      // picBrands
+      // 
+      this.picBrands.Image = global::Cashregister.Properties.Resources.payment_brands;
+      this.picBrands.Location = new System.Drawing.Point(87, 408);
+      this.picBrands.Name = "picBrands";
+      this.picBrands.Size = new System.Drawing.Size(299, 51);
+      this.picBrands.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+      this.picBrands.TabIndex = 7;
+      this.picBrands.TabStop = false;
+      // 
+      // iconPictureBox2
+      // 
+      this.iconPictureBox2.BackColor = System.Drawing.SystemColors.Control;
+      this.iconPictureBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
+      this.iconPictureBox2.IconChar = FontAwesome.Sharp.IconChar.Lock;
+      this.iconPictureBox2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
+      this.iconPictureBox2.IconFont = FontAwesome.Sharp.IconFont.Solid;
+      this.iconPictureBox2.IconSize = 21;
+      this.iconPictureBox2.Location = new System.Drawing.Point(13, 10);
+      this.iconPictureBox2.Name = "iconPictureBox2";
+      this.iconPictureBox2.Size = new System.Drawing.Size(21, 21);
+      this.iconPictureBox2.TabIndex = 1;
+      this.iconPictureBox2.TabStop = false;
+      this.iconPictureBox2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.iconPictureBox2_MouseDown);
+      this.iconPictureBox2.MouseUp += new System.Windows.Forms.MouseEventHandler(this.iconPictureBox2_MouseUp);
+      // 
       // iconPictureBox1
       // 
       this.iconPictureBox1.BackColor = System.Drawing.Color.White;
@@ -225,16 +240,14 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       this.iconPictureBox1.TabIndex = 0;
       this.iconPictureBox1.TabStop = false;
       // 
-      // label4
+      // pictureBox1
       // 
-      this.label4.AutoSize = true;
-      this.label4.Font = new System.Drawing.Font("Century Gothic", 15.75F);
-      this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
-      this.label4.Location = new System.Drawing.Point(55, 119);
-      this.label4.Name = "label4";
-      this.label4.Size = new System.Drawing.Size(212, 24);
-      this.label4.TabIndex = 2;
-      this.label4.Text = "Ingrese a su cuenta";
+      this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+      this.pictureBox1.Location = new System.Drawing.Point(66, 32);
+      this.pictureBox1.Name = "pictureBox1";
+      this.pictureBox1.Size = new System.Drawing.Size(131, 131);
+      this.pictureBox1.TabIndex = 0;
+      this.pictureBox1.TabStop = false;
       // 
       // Login
       // 
@@ -252,15 +265,16 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       this.Text = "Form2";
       this.panel1.ResumeLayout(false);
       this.panel1.PerformLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
       this.panel2.ResumeLayout(false);
       this.panel2.PerformLayout();
       this.panel4.ResumeLayout(false);
       this.panel4.PerformLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).EndInit();
       this.panel3.ResumeLayout(false);
       this.panel3.PerformLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.picBrands)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
       this.ResumeLayout(false);
 
         }
@@ -282,5 +296,6 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
         private System.Windows.Forms.TextBox txtUser;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Button btnCloseWindow;
-    }
+    private System.Windows.Forms.PictureBox picBrands;
+  }
 }
