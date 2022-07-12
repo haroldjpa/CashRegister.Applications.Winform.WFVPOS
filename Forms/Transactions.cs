@@ -210,8 +210,16 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
     private static object _sync = new object();
     private void enviar_Click(object sender, EventArgs e)
     {
+      if(!IsCorrectTextboxInformation())
+      {
+        return;
+      }
+
+
       lock (_sync)
       {
+        DisableWidgets();
+        
         bool OnlyTrack2 = false;
         // var resultAjax = new ResultAjax();
         string ResponseVPOSCode = string.Empty;
@@ -224,11 +232,11 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
           paymentParams.Last4 = web_ultimos4.Text;
           paymentParams.ExpDate = web_fecha_expiracion.Text;
           paymentParams.Currency = GetCurrency("moneda");
-          paymentParams.Tip = Utils.GetValueWithoutPoint(web_propina.Text, true);
-          paymentParams.Tax1 = Utils.GetValueWithoutPoint(web_impuesto15.Text, true);
-          paymentParams.Tax2 = Utils.GetValueWithoutPoint(web_impuesto18.Text, true);
-          paymentParams.SubTotal = Utils.GetValueWithoutPoint(web_importe_base.Text, true);
-          paymentParams.Amount = Utils.GetValueWithoutPoint(web_total_transaccion.Text, true);
+          paymentParams.Tip = Utils.GetValueWithoutPoint(web_propina.Text, false);
+          paymentParams.Tax1 = Utils.GetValueWithoutPoint(web_impuesto15.Text, false);
+          paymentParams.Tax2 = Utils.GetValueWithoutPoint(web_impuesto18.Text, false);
+          paymentParams.SubTotal = Utils.GetValueWithoutPoint(web_importe_base.Text, false);
+          paymentParams.Amount = Utils.GetValueWithoutPoint(web_total_transaccion.Text, false);
           CalculatedWebAmount = paymentParams.Amount;
           paymentParams.SysCountryApplication = GlobalInformation.Instance.SysCountryApplication;
           //paymentParams.PayEntryMode = ((PA_PAYMENT_ENTRY_MODE)Convert.ToInt32(param["pay_entry_mode"])).ToString();
@@ -328,11 +336,10 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
             //SendPrintVoucher(paymentParamsToPrint);
 
           }
-
+          
         }
         catch (Exception Ex)
         {
-          MessageBox.Show(Ex.Message, "VPOS Control", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
           if (ResponseVPOSCode.Contains("ERR:07") || ResponseVPOSCode.Contains("ERR:98"))
           {
@@ -346,8 +353,75 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
           }
           //resultAjax.Message = Ex.Message;
         }
+        finally
+        {
+          EnableWidgets();
+        }
 
       }
+    }
+
+    private void DisableWidgets()
+    {
+      pnlMain.Enabled = false;
+      closeTran.Enabled=false;
+
+
+    }
+
+    private void EnableWidgets()
+    {
+      pnlMain.Enabled = true;
+      closeTran.Enabled = true;
+    }
+
+
+    private bool IsCorrectTextboxInformation()
+    {
+      if (merchant_name.Text == "") { 
+        MessageBox.Show("Debe Seleccionar un adquirente", "VPOS Control", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        commerces.Focus();
+        return false;
+      }
+      if (web_importe_base.Text == "")
+      {
+        MessageBox.Show("Debe indicar un monto", "VPOS Control", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        web_importe_base.Focus();
+        return false;
+      }
+      if (web_impuesto15.Visible && web_impuesto15.Text == "")
+      {
+        MessageBox.Show("Debe indicar un monto de impuesto", "VPOS Control", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        web_impuesto15.Focus();
+        return false;
+      }
+      if (web_impuesto18.Visible && web_impuesto18.Text == "")
+      {
+        MessageBox.Show("Debe indicar un monto de impuesto", "VPOS Control", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        web_impuesto18.Focus();
+        return false;
+      }
+      if (web_propina.Visible && web_propina.Text == "")
+      {
+        MessageBox.Show("Debe indicar un monto de propina", "VPOS Control", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        web_propina.Focus();
+        return false;
+      }
+
+      if (web_ultimos4.Visible && web_ultimos4.Text == "")
+      {
+        MessageBox.Show("Debe indicar los 4 ultimos dígitos de la tarjeta", "VPOS Control", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        web_ultimos4.Focus();
+        return false;
+      }
+      if (web_fecha_expiracion.Visible && web_fecha_expiracion.Text == "")
+      {
+        MessageBox.Show("Debe indicar la fecha de expiracion MMYY de la tarjeta", "VPOS Control", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        web_fecha_expiracion.Focus();
+        return false;
+      }
+      
+      return true;
     }
 
     private string SaveTransactionSale(VPOSstructParams paymentParams)
@@ -487,6 +561,15 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
         e.Handled = true;
       }
     }
+
+    private void txtNumericOnly_KeyPress(object sender, KeyPressEventArgs e)
+    {
+      if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) )
+      {
+        e.Handled = true;
+      }
+    }
+
 
     private void web_importe_base_Leave(object sender, EventArgs e)
     {

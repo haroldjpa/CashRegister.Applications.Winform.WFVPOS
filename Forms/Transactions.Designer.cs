@@ -30,7 +30,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
         private void InitializeComponent()
         {
       this.components = new System.ComponentModel.Container();
-      this.panel1 = new System.Windows.Forms.Panel();
+      this.pnlMain = new System.Windows.Forms.Panel();
       this.print_copy = new System.Windows.Forms.CheckBox();
       this.print_commerce = new System.Windows.Forms.CheckBox();
       this.lblTicket = new System.Windows.Forms.Label();
@@ -68,49 +68,49 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       this.panel4 = new System.Windows.Forms.Panel();
       this.lblTitleResult = new System.Windows.Forms.Label();
       this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-      this.panel1.SuspendLayout();
+      this.pnlMain.SuspendLayout();
       this.panel2.SuspendLayout();
       this.panel3.SuspendLayout();
       this.panel4.SuspendLayout();
       this.SuspendLayout();
       // 
-      // panel1
+      // pnlMain
       // 
-      this.panel1.BackColor = System.Drawing.Color.White;
-      this.panel1.Controls.Add(this.print_copy);
-      this.panel1.Controls.Add(this.print_commerce);
-      this.panel1.Controls.Add(this.lblTicket);
-      this.panel1.Controls.Add(this.limpiar);
-      this.panel1.Controls.Add(this.enviar);
-      this.panel1.Controls.Add(this.web_total_transaccion);
-      this.panel1.Controls.Add(this.lblTotal);
-      this.panel1.Controls.Add(this.web_fecha_expiracion);
-      this.panel1.Controls.Add(this.lblExpirationDate);
-      this.panel1.Controls.Add(this.web_ultimos4);
-      this.panel1.Controls.Add(this.lblLast4);
-      this.panel1.Controls.Add(this.web_propina);
-      this.panel1.Controls.Add(this.lblTip);
-      this.panel1.Controls.Add(this.web_impuesto18);
-      this.panel1.Controls.Add(this.lblTax2);
-      this.panel1.Controls.Add(this.web_impuesto15);
-      this.panel1.Controls.Add(this.lblTax1);
-      this.panel1.Controls.Add(this.web_importe_base);
-      this.panel1.Controls.Add(this.lblSubTotal);
-      this.panel1.Controls.Add(this.merchant_id);
-      this.panel1.Controls.Add(this.lblMerchantId);
-      this.panel1.Controls.Add(this.terminal_id);
-      this.panel1.Controls.Add(this.lblTerminalId);
-      this.panel1.Controls.Add(this.merchant_name);
-      this.panel1.Controls.Add(this.lblMerchantName);
-      this.panel1.Controls.Add(this.lblCommerce);
-      this.panel1.Controls.Add(this.commerces);
-      this.panel1.Controls.Add(this.panel2);
-      this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-      this.panel1.Location = new System.Drawing.Point(34, 35);
-      this.panel1.Margin = new System.Windows.Forms.Padding(11, 3, 3, 3);
-      this.panel1.Name = "panel1";
-      this.panel1.Size = new System.Drawing.Size(502, 525);
-      this.panel1.TabIndex = 0;
+      this.pnlMain.BackColor = System.Drawing.Color.White;
+      this.pnlMain.Controls.Add(this.print_copy);
+      this.pnlMain.Controls.Add(this.print_commerce);
+      this.pnlMain.Controls.Add(this.lblTicket);
+      this.pnlMain.Controls.Add(this.limpiar);
+      this.pnlMain.Controls.Add(this.enviar);
+      this.pnlMain.Controls.Add(this.web_total_transaccion);
+      this.pnlMain.Controls.Add(this.lblTotal);
+      this.pnlMain.Controls.Add(this.web_fecha_expiracion);
+      this.pnlMain.Controls.Add(this.lblExpirationDate);
+      this.pnlMain.Controls.Add(this.web_ultimos4);
+      this.pnlMain.Controls.Add(this.lblLast4);
+      this.pnlMain.Controls.Add(this.web_propina);
+      this.pnlMain.Controls.Add(this.lblTip);
+      this.pnlMain.Controls.Add(this.web_impuesto18);
+      this.pnlMain.Controls.Add(this.lblTax2);
+      this.pnlMain.Controls.Add(this.web_impuesto15);
+      this.pnlMain.Controls.Add(this.lblTax1);
+      this.pnlMain.Controls.Add(this.web_importe_base);
+      this.pnlMain.Controls.Add(this.lblSubTotal);
+      this.pnlMain.Controls.Add(this.merchant_id);
+      this.pnlMain.Controls.Add(this.lblMerchantId);
+      this.pnlMain.Controls.Add(this.terminal_id);
+      this.pnlMain.Controls.Add(this.lblTerminalId);
+      this.pnlMain.Controls.Add(this.merchant_name);
+      this.pnlMain.Controls.Add(this.lblMerchantName);
+      this.pnlMain.Controls.Add(this.lblCommerce);
+      this.pnlMain.Controls.Add(this.commerces);
+      this.pnlMain.Controls.Add(this.panel2);
+      this.pnlMain.Dock = System.Windows.Forms.DockStyle.Left;
+      this.pnlMain.Location = new System.Drawing.Point(34, 35);
+      this.pnlMain.Margin = new System.Windows.Forms.Padding(11, 3, 3, 3);
+      this.pnlMain.Name = "pnlMain";
+      this.pnlMain.Size = new System.Drawing.Size(502, 525);
+      this.pnlMain.TabIndex = 0;
       // 
       // print_copy
       // 
@@ -203,10 +203,12 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       this.web_fecha_expiracion.Font = new System.Drawing.Font("Century Gothic", 9.75F);
       this.web_fecha_expiracion.ForeColor = System.Drawing.Color.Black;
       this.web_fecha_expiracion.Location = new System.Drawing.Point(289, 315);
+      this.web_fecha_expiracion.MaxLength = 4;
       this.web_fecha_expiracion.Name = "web_fecha_expiracion";
       this.web_fecha_expiracion.Size = new System.Drawing.Size(178, 23);
       this.web_fecha_expiracion.TabIndex = 20;
       this.toolTip1.SetToolTip(this.web_fecha_expiracion, "MMYY");
+      this.web_fecha_expiracion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumericOnly_KeyPress);
       // 
       // lblExpirationDate
       // 
@@ -224,10 +226,12 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       this.web_ultimos4.Font = new System.Drawing.Font("Century Gothic", 9.75F);
       this.web_ultimos4.ForeColor = System.Drawing.Color.Black;
       this.web_ultimos4.Location = new System.Drawing.Point(30, 315);
+      this.web_ultimos4.MaxLength = 16;
       this.web_ultimos4.Name = "web_ultimos4";
       this.web_ultimos4.Size = new System.Drawing.Size(178, 23);
       this.web_ultimos4.TabIndex = 18;
       this.toolTip1.SetToolTip(this.web_ultimos4, "XXXX XXXX XXXX 1234");
+      this.web_ultimos4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumericOnly_KeyPress);
       // 
       // lblLast4
       // 
@@ -245,6 +249,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       this.web_propina.Font = new System.Drawing.Font("Century Gothic", 9.75F);
       this.web_propina.ForeColor = System.Drawing.Color.Black;
       this.web_propina.Location = new System.Drawing.Point(291, 257);
+      this.web_propina.MaxLength = 16;
       this.web_propina.Name = "web_propina";
       this.web_propina.Size = new System.Drawing.Size(178, 23);
       this.web_propina.TabIndex = 16;
@@ -268,6 +273,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       this.web_impuesto18.Font = new System.Drawing.Font("Century Gothic", 9.75F);
       this.web_impuesto18.ForeColor = System.Drawing.Color.Black;
       this.web_impuesto18.Location = new System.Drawing.Point(30, 257);
+      this.web_impuesto18.MaxLength = 16;
       this.web_impuesto18.Name = "web_impuesto18";
       this.web_impuesto18.Size = new System.Drawing.Size(178, 23);
       this.web_impuesto18.TabIndex = 14;
@@ -291,6 +297,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       this.web_impuesto15.Font = new System.Drawing.Font("Century Gothic", 9.75F);
       this.web_impuesto15.ForeColor = System.Drawing.Color.Black;
       this.web_impuesto15.Location = new System.Drawing.Point(291, 201);
+      this.web_impuesto15.MaxLength = 16;
       this.web_impuesto15.Name = "web_impuesto15";
       this.web_impuesto15.Size = new System.Drawing.Size(178, 23);
       this.web_impuesto15.TabIndex = 12;
@@ -314,6 +321,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       this.web_importe_base.Font = new System.Drawing.Font("Century Gothic", 9.75F);
       this.web_importe_base.ForeColor = System.Drawing.Color.Black;
       this.web_importe_base.Location = new System.Drawing.Point(30, 201);
+      this.web_importe_base.MaxLength = 16;
       this.web_importe_base.Name = "web_importe_base";
       this.web_importe_base.Size = new System.Drawing.Size(178, 23);
       this.web_importe_base.TabIndex = 10;
@@ -528,12 +536,12 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       this.ClientSize = new System.Drawing.Size(949, 560);
       this.Controls.Add(this.closeTran);
       this.Controls.Add(this.panel3);
-      this.Controls.Add(this.panel1);
+      this.Controls.Add(this.pnlMain);
       this.Name = "Transactions";
       this.Padding = new System.Windows.Forms.Padding(34, 35, 0, 0);
       this.Text = "Transactions";
-      this.panel1.ResumeLayout(false);
-      this.panel1.PerformLayout();
+      this.pnlMain.ResumeLayout(false);
+      this.pnlMain.PerformLayout();
       this.panel2.ResumeLayout(false);
       this.panel2.PerformLayout();
       this.panel3.ResumeLayout(false);
@@ -546,7 +554,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnlMain;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Panel panel3;
