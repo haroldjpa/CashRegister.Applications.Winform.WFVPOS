@@ -57,8 +57,7 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>
-    </ApplicationIcon>
+    <ApplicationIcon>PostekApp.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>CashRegister.Program</StartupObject>
@@ -343,7 +342,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="favicon.ico" />
     <Content Include="Postek.ico" />
+    <Content Include="PostekApp.ico" />
     <Content Include="Resources\Ficohsa.PNG" />
     <Content Include="Resources\logo_Ficohsa.bmp" />
     <Content Include="Resources\user-default-ficohsa-160x160.jpg" />

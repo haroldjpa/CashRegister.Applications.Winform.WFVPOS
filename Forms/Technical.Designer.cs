@@ -29,6 +29,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
         /// </summary>
         private void InitializeComponent()
         {
+      System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Technical));
       this.Title = new System.Windows.Forms.Label();
       this.panel1 = new System.Windows.Forms.Panel();
       this.getInformation = new System.Windows.Forms.Button();
@@ -606,6 +607,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       this.Controls.Add(this.panel3);
       this.Controls.Add(this.panel1);
       this.Controls.Add(this.Title);
+      this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
       this.Name = "Technical";
       this.Text = "Technical";
       this.panel1.ResumeLayout(false);

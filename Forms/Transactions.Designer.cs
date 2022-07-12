@@ -30,6 +30,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
         private void InitializeComponent()
         {
       this.components = new System.ComponentModel.Container();
+      System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Transactions));
       this.pnlMain = new System.Windows.Forms.Panel();
       this.print_copy = new System.Windows.Forms.CheckBox();
       this.print_commerce = new System.Windows.Forms.CheckBox();
@@ -537,6 +538,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       this.Controls.Add(this.closeTran);
       this.Controls.Add(this.panel3);
       this.Controls.Add(this.pnlMain);
+      this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
       this.Name = "Transactions";
       this.Padding = new System.Windows.Forms.Padding(34, 35, 0, 0);
       this.Text = "Transactions";

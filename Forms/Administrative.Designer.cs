@@ -29,7 +29,9 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
         /// </summary>
         private void InitializeComponent()
         {
+      System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Administrative));
       this.panel1 = new System.Windows.Forms.Panel();
+      this.closeTransactionView = new System.Windows.Forms.Button();
       this.panel2 = new System.Windows.Forms.Panel();
       this.tabControl1 = new System.Windows.Forms.TabControl();
       this.tab_1 = new System.Windows.Forms.TabPage();
@@ -71,7 +73,6 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       this.panel10 = new System.Windows.Forms.Panel();
       this.label16 = new System.Windows.Forms.Label();
       this.label1 = new System.Windows.Forms.Label();
-      this.closeTransactionView = new System.Windows.Forms.Button();
       this.panel1.SuspendLayout();
       this.panel2.SuspendLayout();
       this.tabControl1.SuspendLayout();
@@ -98,6 +99,18 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       this.panel1.Name = "panel1";
       this.panel1.Size = new System.Drawing.Size(748, 518);
       this.panel1.TabIndex = 0;
+      // 
+      // closeTransactionView
+      // 
+      this.closeTransactionView.Font = new System.Drawing.Font("Century Gothic", 12F);
+      this.closeTransactionView.ForeColor = System.Drawing.Color.Black;
+      this.closeTransactionView.Location = new System.Drawing.Point(577, 477);
+      this.closeTransactionView.Name = "closeTransactionView";
+      this.closeTransactionView.Size = new System.Drawing.Size(155, 36);
+      this.closeTransactionView.TabIndex = 8;
+      this.closeTransactionView.Text = "Cerrar";
+      this.closeTransactionView.UseVisualStyleBackColor = true;
+      this.closeTransactionView.Click += new System.EventHandler(this.closeTransactionView_Click_1);
       // 
       // panel2
       // 
@@ -535,24 +548,13 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       this.label1.TabIndex = 0;
       this.label1.Text = "Administrativo";
       // 
-      // closeTransactionView
-      // 
-      this.closeTransactionView.Font = new System.Drawing.Font("Century Gothic", 12F);
-      this.closeTransactionView.ForeColor = System.Drawing.Color.Black;
-      this.closeTransactionView.Location = new System.Drawing.Point(577, 477);
-      this.closeTransactionView.Name = "closeTransactionView";
-      this.closeTransactionView.Size = new System.Drawing.Size(155, 36);
-      this.closeTransactionView.TabIndex = 8;
-      this.closeTransactionView.Text = "Cerrar";
-      this.closeTransactionView.UseVisualStyleBackColor = true;
-      this.closeTransactionView.Click += new System.EventHandler(this.closeTransactionView_Click_1);
-      // 
       // Administrative
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(812, 557);
       this.Controls.Add(this.panel1);
+      this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
       this.Name = "Administrative";
       this.Text = "Administrative";
       this.panel1.ResumeLayout(false);

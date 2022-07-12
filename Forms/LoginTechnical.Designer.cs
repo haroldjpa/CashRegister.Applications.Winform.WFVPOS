@@ -29,6 +29,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
         /// </summary>
         private void InitializeComponent()
         {
+      System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginTechnical));
       this.panel1 = new System.Windows.Forms.Panel();
       this.enviar_technical = new System.Windows.Forms.Button();
       this.panel3 = new System.Windows.Forms.Panel();
@@ -139,6 +140,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(617, 352);
       this.Controls.Add(this.panel4);
+      this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
       this.Name = "LoginTechnical";
       this.Text = "LoginTechnical";
       this.panel1.ResumeLayout(false);

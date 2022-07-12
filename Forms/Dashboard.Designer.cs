@@ -383,6 +383,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       this.Controls.Add(this.panelContenedor);
       this.Controls.Add(this.panelMenu);
       this.Controls.Add(this.panelTitulo);
+      this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
       this.Name = "Dashboard";
       this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
       this.Text = "Dashboard";
