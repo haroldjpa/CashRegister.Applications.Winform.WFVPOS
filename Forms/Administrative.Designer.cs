@@ -30,13 +30,13 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
         private void InitializeComponent()
         {
       System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Administrative));
-      this.panel1 = new System.Windows.Forms.Panel();
-      this.closeTransactionView = new System.Windows.Forms.Button();
+      this.pnlMain = new System.Windows.Forms.Panel();
+      this.btnCloseWindow = new System.Windows.Forms.Button();
       this.panel2 = new System.Windows.Forms.Panel();
       this.tabMainAdmin = new System.Windows.Forms.TabControl();
       this.tabReport = new System.Windows.Forms.TabPage();
       this.panel3 = new System.Windows.Forms.Panel();
-      this.printReportResult = new System.Windows.Forms.Button();
+      this.btnPrintReport = new System.Windows.Forms.Button();
       this.codigoAprobacion = new System.Windows.Forms.Label();
       this.label5 = new System.Windows.Forms.Label();
       this.label4 = new System.Windows.Forms.Label();
@@ -49,7 +49,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       this.web_admin_to_void = new System.Windows.Forms.TextBox();
       this.lblAdminPassVoid = new System.Windows.Forms.Label();
       this.lblResultVoid = new System.Windows.Forms.Label();
-      this.voidResult = new System.Windows.Forms.Button();
+      this.btnVoid = new System.Windows.Forms.Button();
       this.codigoVoidAprobacion = new System.Windows.Forms.Label();
       this.lblApprCode = new System.Windows.Forms.Label();
       this.web_number_to_void = new System.Windows.Forms.TextBox();
@@ -59,21 +59,21 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       this.panel7 = new System.Windows.Forms.Panel();
       this.web_admin_to_settle = new System.Windows.Forms.TextBox();
       this.label6 = new System.Windows.Forms.Label();
-      this.settleResult = new System.Windows.Forms.Button();
+      this.btnSettle = new System.Windows.Forms.Button();
       this.codigoSettleAprobacion = new System.Windows.Forms.Label();
       this.label13 = new System.Windows.Forms.Label();
       this.panel8 = new System.Windows.Forms.Panel();
       this.lblSettle = new System.Windows.Forms.Label();
       this.tabDuplicate = new System.Windows.Forms.TabPage();
       this.panel9 = new System.Windows.Forms.Panel();
-      this.duplicateResult = new System.Windows.Forms.Button();
+      this.btnDuplicate = new System.Windows.Forms.Button();
       this.label17 = new System.Windows.Forms.Label();
       this.web_number_to_duplicate = new System.Windows.Forms.TextBox();
-      this.printLastDuplicate = new System.Windows.Forms.Button();
+      this.btnPrintLastDuplicate = new System.Windows.Forms.Button();
       this.panel10 = new System.Windows.Forms.Panel();
       this.lblDuplicate = new System.Windows.Forms.Label();
       this.TitleView = new System.Windows.Forms.Label();
-      this.panel1.SuspendLayout();
+      this.pnlMain.SuspendLayout();
       this.panel2.SuspendLayout();
       this.tabMainAdmin.SuspendLayout();
       this.tabReport.SuspendLayout();
@@ -90,27 +90,27 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       this.panel10.SuspendLayout();
       this.SuspendLayout();
       // 
-      // panel1
+      // pnlMain
       // 
-      this.panel1.Controls.Add(this.closeTransactionView);
-      this.panel1.Controls.Add(this.panel2);
-      this.panel1.Controls.Add(this.TitleView);
-      this.panel1.Location = new System.Drawing.Point(54, 29);
-      this.panel1.Name = "panel1";
-      this.panel1.Size = new System.Drawing.Size(748, 518);
-      this.panel1.TabIndex = 0;
+      this.pnlMain.Controls.Add(this.btnCloseWindow);
+      this.pnlMain.Controls.Add(this.panel2);
+      this.pnlMain.Controls.Add(this.TitleView);
+      this.pnlMain.Location = new System.Drawing.Point(54, 29);
+      this.pnlMain.Name = "pnlMain";
+      this.pnlMain.Size = new System.Drawing.Size(748, 518);
+      this.pnlMain.TabIndex = 0;
       // 
-      // closeTransactionView
+      // btnCloseWindow
       // 
-      this.closeTransactionView.Font = new System.Drawing.Font("Century Gothic", 12F);
-      this.closeTransactionView.ForeColor = System.Drawing.Color.Black;
-      this.closeTransactionView.Location = new System.Drawing.Point(577, 477);
-      this.closeTransactionView.Name = "closeTransactionView";
-      this.closeTransactionView.Size = new System.Drawing.Size(155, 36);
-      this.closeTransactionView.TabIndex = 8;
-      this.closeTransactionView.Text = "Cerrar";
-      this.closeTransactionView.UseVisualStyleBackColor = true;
-      this.closeTransactionView.Click += new System.EventHandler(this.closeTransactionView_Click_1);
+      this.btnCloseWindow.Font = new System.Drawing.Font("Century Gothic", 12F);
+      this.btnCloseWindow.ForeColor = System.Drawing.Color.Black;
+      this.btnCloseWindow.Location = new System.Drawing.Point(577, 477);
+      this.btnCloseWindow.Name = "btnCloseWindow";
+      this.btnCloseWindow.Size = new System.Drawing.Size(155, 36);
+      this.btnCloseWindow.TabIndex = 8;
+      this.btnCloseWindow.Text = "Cerrar";
+      this.btnCloseWindow.UseVisualStyleBackColor = true;
+      this.btnCloseWindow.Click += new System.EventHandler(this.closeTransactionView_Click_1);
       // 
       // panel2
       // 
@@ -151,7 +151,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       // panel3
       // 
       this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-      this.panel3.Controls.Add(this.printReportResult);
+      this.panel3.Controls.Add(this.btnPrintReport);
       this.panel3.Controls.Add(this.codigoAprobacion);
       this.panel3.Controls.Add(this.label5);
       this.panel3.Controls.Add(this.label4);
@@ -163,18 +163,18 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       this.panel3.Size = new System.Drawing.Size(657, 324);
       this.panel3.TabIndex = 0;
       // 
-      // printReportResult
+      // btnPrintReport
       // 
-      this.printReportResult.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
-      this.printReportResult.Font = new System.Drawing.Font("Century Gothic", 12F);
-      this.printReportResult.ForeColor = System.Drawing.Color.White;
-      this.printReportResult.Location = new System.Drawing.Point(475, 262);
-      this.printReportResult.Name = "printReportResult";
-      this.printReportResult.Size = new System.Drawing.Size(155, 36);
-      this.printReportResult.TabIndex = 6;
-      this.printReportResult.Text = "Imprimir Reporte";
-      this.printReportResult.UseVisualStyleBackColor = false;
-      this.printReportResult.Click += new System.EventHandler(this.printReportResult_Click);
+      this.btnPrintReport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
+      this.btnPrintReport.Font = new System.Drawing.Font("Century Gothic", 12F);
+      this.btnPrintReport.ForeColor = System.Drawing.Color.White;
+      this.btnPrintReport.Location = new System.Drawing.Point(475, 262);
+      this.btnPrintReport.Name = "btnPrintReport";
+      this.btnPrintReport.Size = new System.Drawing.Size(155, 36);
+      this.btnPrintReport.TabIndex = 6;
+      this.btnPrintReport.Text = "Imprimir Reporte";
+      this.btnPrintReport.UseVisualStyleBackColor = false;
+      this.btnPrintReport.Click += new System.EventHandler(this.printReportResult_Click);
       // 
       // codigoAprobacion
       // 
@@ -260,7 +260,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       this.panel5.Controls.Add(this.web_admin_to_void);
       this.panel5.Controls.Add(this.lblAdminPassVoid);
       this.panel5.Controls.Add(this.lblResultVoid);
-      this.panel5.Controls.Add(this.voidResult);
+      this.panel5.Controls.Add(this.btnVoid);
       this.panel5.Controls.Add(this.codigoVoidAprobacion);
       this.panel5.Controls.Add(this.lblApprCode);
       this.panel5.Controls.Add(this.web_number_to_void);
@@ -299,18 +299,18 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       this.lblResultVoid.TabIndex = 8;
       this.lblResultVoid.Text = "Cargo:";
       // 
-      // voidResult
+      // btnVoid
       // 
-      this.voidResult.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
-      this.voidResult.Font = new System.Drawing.Font("Century Gothic", 12F);
-      this.voidResult.ForeColor = System.Drawing.Color.White;
-      this.voidResult.Location = new System.Drawing.Point(475, 262);
-      this.voidResult.Name = "voidResult";
-      this.voidResult.Size = new System.Drawing.Size(155, 36);
-      this.voidResult.TabIndex = 6;
-      this.voidResult.Text = "Anular";
-      this.voidResult.UseVisualStyleBackColor = false;
-      this.voidResult.Click += new System.EventHandler(this.voidResult_Click);
+      this.btnVoid.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
+      this.btnVoid.Font = new System.Drawing.Font("Century Gothic", 12F);
+      this.btnVoid.ForeColor = System.Drawing.Color.White;
+      this.btnVoid.Location = new System.Drawing.Point(475, 262);
+      this.btnVoid.Name = "btnVoid";
+      this.btnVoid.Size = new System.Drawing.Size(155, 36);
+      this.btnVoid.TabIndex = 6;
+      this.btnVoid.Text = "Anular";
+      this.btnVoid.UseVisualStyleBackColor = false;
+      this.btnVoid.Click += new System.EventHandler(this.voidResult_Click);
       // 
       // codigoVoidAprobacion
       // 
@@ -375,7 +375,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.panel7.Controls.Add(this.web_admin_to_settle);
       this.panel7.Controls.Add(this.label6);
-      this.panel7.Controls.Add(this.settleResult);
+      this.panel7.Controls.Add(this.btnSettle);
       this.panel7.Controls.Add(this.codigoSettleAprobacion);
       this.panel7.Controls.Add(this.label13);
       this.panel7.Controls.Add(this.panel8);
@@ -403,18 +403,18 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       this.label6.TabIndex = 9;
       this.label6.Text = "Contraseña Administrador PINpad";
       // 
-      // settleResult
+      // btnSettle
       // 
-      this.settleResult.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
-      this.settleResult.Font = new System.Drawing.Font("Century Gothic", 12F);
-      this.settleResult.ForeColor = System.Drawing.Color.White;
-      this.settleResult.Location = new System.Drawing.Point(475, 262);
-      this.settleResult.Name = "settleResult";
-      this.settleResult.Size = new System.Drawing.Size(155, 36);
-      this.settleResult.TabIndex = 6;
-      this.settleResult.Text = "Cierre";
-      this.settleResult.UseVisualStyleBackColor = false;
-      this.settleResult.Click += new System.EventHandler(this.settleResult_Click);
+      this.btnSettle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
+      this.btnSettle.Font = new System.Drawing.Font("Century Gothic", 12F);
+      this.btnSettle.ForeColor = System.Drawing.Color.White;
+      this.btnSettle.Location = new System.Drawing.Point(475, 262);
+      this.btnSettle.Name = "btnSettle";
+      this.btnSettle.Size = new System.Drawing.Size(155, 36);
+      this.btnSettle.TabIndex = 6;
+      this.btnSettle.Text = "Cierre";
+      this.btnSettle.UseVisualStyleBackColor = false;
+      this.btnSettle.Click += new System.EventHandler(this.settleResult_Click);
       // 
       // codigoSettleAprobacion
       // 
@@ -469,28 +469,28 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       // panel9
       // 
       this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-      this.panel9.Controls.Add(this.duplicateResult);
+      this.panel9.Controls.Add(this.btnDuplicate);
       this.panel9.Controls.Add(this.label17);
       this.panel9.Controls.Add(this.web_number_to_duplicate);
-      this.panel9.Controls.Add(this.printLastDuplicate);
+      this.panel9.Controls.Add(this.btnPrintLastDuplicate);
       this.panel9.Controls.Add(this.panel10);
       this.panel9.Location = new System.Drawing.Point(6, 6);
       this.panel9.Name = "panel9";
       this.panel9.Size = new System.Drawing.Size(657, 324);
       this.panel9.TabIndex = 3;
       // 
-      // duplicateResult
+      // btnDuplicate
       // 
-      this.duplicateResult.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
-      this.duplicateResult.Font = new System.Drawing.Font("Century Gothic", 12F);
-      this.duplicateResult.ForeColor = System.Drawing.Color.White;
-      this.duplicateResult.Location = new System.Drawing.Point(475, 262);
-      this.duplicateResult.Name = "duplicateResult";
-      this.duplicateResult.Size = new System.Drawing.Size(155, 36);
-      this.duplicateResult.TabIndex = 11;
-      this.duplicateResult.Text = "Duplicado";
-      this.duplicateResult.UseVisualStyleBackColor = false;
-      this.duplicateResult.Click += new System.EventHandler(this.duplicateResult_Click);
+      this.btnDuplicate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
+      this.btnDuplicate.Font = new System.Drawing.Font("Century Gothic", 12F);
+      this.btnDuplicate.ForeColor = System.Drawing.Color.White;
+      this.btnDuplicate.Location = new System.Drawing.Point(475, 262);
+      this.btnDuplicate.Name = "btnDuplicate";
+      this.btnDuplicate.Size = new System.Drawing.Size(155, 36);
+      this.btnDuplicate.TabIndex = 11;
+      this.btnDuplicate.Text = "Duplicado";
+      this.btnDuplicate.UseVisualStyleBackColor = false;
+      this.btnDuplicate.Click += new System.EventHandler(this.duplicateResult_Click);
       // 
       // label17
       // 
@@ -510,17 +510,17 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       this.web_number_to_duplicate.Size = new System.Drawing.Size(322, 30);
       this.web_number_to_duplicate.TabIndex = 9;
       // 
-      // printLastDuplicate
+      // btnPrintLastDuplicate
       // 
-      this.printLastDuplicate.Font = new System.Drawing.Font("Century Gothic", 12F);
-      this.printLastDuplicate.ForeColor = System.Drawing.Color.Black;
-      this.printLastDuplicate.Location = new System.Drawing.Point(314, 262);
-      this.printLastDuplicate.Name = "printLastDuplicate";
-      this.printLastDuplicate.Size = new System.Drawing.Size(155, 36);
-      this.printLastDuplicate.TabIndex = 6;
-      this.printLastDuplicate.Text = "Último";
-      this.printLastDuplicate.UseVisualStyleBackColor = true;
-      this.printLastDuplicate.Click += new System.EventHandler(this.printLastDuplicate_Click);
+      this.btnPrintLastDuplicate.Font = new System.Drawing.Font("Century Gothic", 12F);
+      this.btnPrintLastDuplicate.ForeColor = System.Drawing.Color.Black;
+      this.btnPrintLastDuplicate.Location = new System.Drawing.Point(314, 262);
+      this.btnPrintLastDuplicate.Name = "btnPrintLastDuplicate";
+      this.btnPrintLastDuplicate.Size = new System.Drawing.Size(155, 36);
+      this.btnPrintLastDuplicate.TabIndex = 6;
+      this.btnPrintLastDuplicate.Text = "Último";
+      this.btnPrintLastDuplicate.UseVisualStyleBackColor = true;
+      this.btnPrintLastDuplicate.Click += new System.EventHandler(this.printLastDuplicate_Click);
       // 
       // panel10
       // 
@@ -558,12 +558,12 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(812, 557);
-      this.Controls.Add(this.panel1);
+      this.Controls.Add(this.pnlMain);
       this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
       this.Name = "Administrative";
       this.Text = "Administrative";
-      this.panel1.ResumeLayout(false);
-      this.panel1.PerformLayout();
+      this.pnlMain.ResumeLayout(false);
+      this.pnlMain.PerformLayout();
       this.panel2.ResumeLayout(false);
       this.tabMainAdmin.ResumeLayout(false);
       this.tabReport.ResumeLayout(false);
@@ -592,7 +592,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnlMain;
         private System.Windows.Forms.Label TitleView;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TabControl tabMainAdmin;
@@ -610,9 +610,9 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button getInitialization;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button printReportResult;
+        private System.Windows.Forms.Button btnPrintReport;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Button voidResult;
+        private System.Windows.Forms.Button btnVoid;
         private System.Windows.Forms.Label codigoVoidAprobacion;
         private System.Windows.Forms.Label lblApprCode;
         private System.Windows.Forms.TextBox web_number_to_void;
@@ -623,7 +623,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
         private System.Windows.Forms.TextBox web_admin_to_void;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button settleResult;
+        private System.Windows.Forms.Button btnSettle;
         private System.Windows.Forms.Label codigoSettleAprobacion;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Panel panel8;
@@ -633,10 +633,10 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Label lblDuplicate;
-        private System.Windows.Forms.Button duplicateResult;
+        private System.Windows.Forms.Button btnDuplicate;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox web_number_to_duplicate;
-        private System.Windows.Forms.Button printLastDuplicate;
-    private System.Windows.Forms.Button closeTransactionView;
+        private System.Windows.Forms.Button btnPrintLastDuplicate;
+    private System.Windows.Forms.Button btnCloseWindow;
   }
 }

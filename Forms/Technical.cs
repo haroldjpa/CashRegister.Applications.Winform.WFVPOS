@@ -179,7 +179,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
     {
       try
       {
-
+        DisableWidgets();
         CashRegisterCore cashRegisterCore = new CashRegisterCore();
 
         cashRegisterCore.SetCashParameterBooleanValue(PA_PARAMETERS.SHOW_EXP_DATE_FIELD.ToString(), chkExpirationDate.Checked);
@@ -228,6 +228,11 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
         MessageBox.Show(Ex.Message + "  [" + Ex.Source + "][" + Ex.StackTrace + "][" + Ex.TargetSite + "]", "VPOS Control", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
       }
+      finally
+      {
+        EnableWidgets();
+
+      }
     }
 
     private void SaveVisibleAcquirerSale()
@@ -250,7 +255,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
     {
       try
       {
-
+        DisableWidgets();
         VPOSstructParams paymentParams = new VPOSstructParams();
         paymentParams.ClientLocalIP = "localhost";
 
@@ -274,12 +279,18 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
         MessageBox.Show(Ex.Message , "VPOS Control", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
       }
+      finally
+      {
+        EnableWidgets();
+      }
     }
 
     private void getInitialization_Click(object sender, EventArgs e)
     {
       try
       {
+
+        DisableWidgets();
 
         VPOSstructParams paymentParams = new VPOSstructParams();
         paymentParams.VPOSAdmin = web_admin_to_technical.Text;
@@ -309,6 +320,10 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       {
         MessageBox.Show(Ex.Message, "VPOS Control", MessageBoxButtons.OK, MessageBoxIcon.Warning);
       }
+      finally
+      {
+        EnableWidgets();
+      }
     }
 
     void FillCurrencyList()
@@ -331,6 +346,18 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       }
     }
 
+
+    private void DisableWidgets()
+    {
+      this.Enabled = false;
+
+      Application.DoEvents();
+    }
+
+    private void EnableWidgets()
+    {
+      this.Enabled=true;
+    }
   }
 
 

@@ -366,7 +366,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       pnlMain.Enabled = false;
       closeTran.Enabled=false;
 
-
+      Application.DoEvents();
     }
 
     private void EnableWidgets()
