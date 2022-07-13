@@ -20,7 +20,6 @@ F:\EVO_VirtualBox\Postek-tfs\CashRegister\Dev\Project\CashRegister\Applications\
 F:\EVO_VirtualBox\Postek-tfs\CashRegister\Dev\Project\CashRegister\Applications\WinForm\CashRegister.Applications.Winform.WinPostek\obj\Debug\WinPostek.pdb
 F:\EVO_VirtualBox\Postek-tfs\CashRegister\Dev\Project\CashRegister\Applications\WinForm\CashRegister.Applications.Winform.WFVPOS\obj\Debug\CashRegister.Applications.Winform.WinPostek.csproj.AssemblyReference.cache
 F:\EVO_VirtualBox\Postek-tfs\CashRegister\Dev\Project\CashRegister\Applications\WinForm\CashRegister.Applications.Winform.WFVPOS\obj\Debug\CashRegister.Applications.Winform.WinPostek.csproj.SuggestedBindingRedirects.cache
-F:\EVO_VirtualBox\Postek-tfs\CashRegister\Dev\Project\CashRegister\Applications\WinForm\CashRegister.Applications.Winform.WFVPOS\obj\Debug\WinPostek.exe.config
 F:\EVO_VirtualBox\Postek-tfs\CashRegister\Dev\Project\CashRegister\Applications\WinForm\CashRegister.Applications.Winform.WFVPOS\obj\Debug\CashRegister.Applications.Winform.WFVPos.Forms.Administrative.resources
 F:\EVO_VirtualBox\Postek-tfs\CashRegister\Dev\Project\CashRegister\Applications\WinForm\CashRegister.Applications.Winform.WFVPOS\obj\Debug\CashRegister.Applications.Winform.WFVPos.Forms.Dashboard.resources
 F:\EVO_VirtualBox\Postek-tfs\CashRegister\Dev\Project\CashRegister\Applications\WinForm\CashRegister.Applications.Winform.WFVPOS\obj\Debug\CashRegister.Applications.Winform.WFVPos.Forms.Login.resources
@@ -40,3 +39,4 @@ C:\Assemblies\CashRegister\Debug\Winform\CashRegister.Applications.Winform.WinPo
 C:\Assemblies\CashRegister\Debug\Winform\CashRegister.Applications.Winform.WinPostek\Resources\payment_brands.png
 C:\Assemblies\CashRegister\Debug\Winform\CashRegister.Applications.Winform.WinPostek\Resources\user-default-ficohsa-160x160.jpg
 C:\Assemblies\CashRegister\Debug\Winform\CashRegister.Applications.Winform.WinPostek\Resources\user-default-ficohsa-160x1601.jpg
+C:\Assemblies\CashRegister\Debug\Winform\CashRegister.Applications.Winform.WinPostek\postgres.dll
