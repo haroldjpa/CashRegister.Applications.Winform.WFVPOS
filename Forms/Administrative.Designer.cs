@@ -209,6 +209,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       // 
       this.web_admin_to_report.Location = new System.Drawing.Point(11, 72);
       this.web_admin_to_report.Name = "web_admin_to_report";
+      this.web_admin_to_report.PasswordChar = '*';
       this.web_admin_to_report.Size = new System.Drawing.Size(322, 31);
       this.web_admin_to_report.TabIndex = 2;
       // 
@@ -274,6 +275,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       this.web_admin_to_void.Font = new System.Drawing.Font("Century Gothic", 14F);
       this.web_admin_to_void.Location = new System.Drawing.Point(11, 132);
       this.web_admin_to_void.Name = "web_admin_to_void";
+      this.web_admin_to_void.PasswordChar = '*';
       this.web_admin_to_void.Size = new System.Drawing.Size(322, 30);
       this.web_admin_to_void.TabIndex = 10;
       // 
@@ -387,6 +389,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       this.web_admin_to_settle.Font = new System.Drawing.Font("Century Gothic", 14F);
       this.web_admin_to_settle.Location = new System.Drawing.Point(11, 72);
       this.web_admin_to_settle.Name = "web_admin_to_settle";
+      this.web_admin_to_settle.PasswordChar = '*';
       this.web_admin_to_settle.Size = new System.Drawing.Size(322, 30);
       this.web_admin_to_settle.TabIndex = 10;
       // 
@@ -411,6 +414,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       this.settleResult.TabIndex = 6;
       this.settleResult.Text = "Cierre";
       this.settleResult.UseVisualStyleBackColor = false;
+      this.settleResult.Click += new System.EventHandler(this.settleResult_Click);
       // 
       // codigoSettleAprobacion
       // 
@@ -418,9 +422,8 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       this.codigoSettleAprobacion.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
       this.codigoSettleAprobacion.Location = new System.Drawing.Point(171, 123);
       this.codigoSettleAprobacion.Name = "codigoSettleAprobacion";
-      this.codigoSettleAprobacion.Size = new System.Drawing.Size(36, 19);
+      this.codigoSettleAprobacion.Size = new System.Drawing.Size(0, 19);
       this.codigoSettleAprobacion.TabIndex = 4;
-      this.codigoSettleAprobacion.Text = "xxx";
       // 
       // label13
       // 
@@ -487,6 +490,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       this.duplicateResult.TabIndex = 11;
       this.duplicateResult.Text = "Duplicado";
       this.duplicateResult.UseVisualStyleBackColor = false;
+      this.duplicateResult.Click += new System.EventHandler(this.duplicateResult_Click);
       // 
       // label17
       // 
@@ -516,6 +520,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       this.printLastDuplicate.TabIndex = 6;
       this.printLastDuplicate.Text = "Último";
       this.printLastDuplicate.UseVisualStyleBackColor = true;
+      this.printLastDuplicate.Click += new System.EventHandler(this.printLastDuplicate_Click);
       // 
       // panel10
       // 

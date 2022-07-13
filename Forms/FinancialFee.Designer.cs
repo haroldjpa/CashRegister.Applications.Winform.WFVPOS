@@ -49,7 +49,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       this.lblTip = new System.Windows.Forms.Label();
       this.web_impuesto18 = new System.Windows.Forms.TextBox();
       this.lblTax2 = new System.Windows.Forms.Label();
-      this.textBox1 = new System.Windows.Forms.TextBox();
+      this.web_impuesto15 = new System.Windows.Forms.TextBox();
       this.lblTax1 = new System.Windows.Forms.Label();
       this.web_importe_base = new System.Windows.Forms.TextBox();
       this.lblSubTotal = new System.Windows.Forms.Label();
@@ -96,7 +96,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       this.panel1.Controls.Add(this.lblTip);
       this.panel1.Controls.Add(this.web_impuesto18);
       this.panel1.Controls.Add(this.lblTax2);
-      this.panel1.Controls.Add(this.textBox1);
+      this.panel1.Controls.Add(this.web_impuesto15);
       this.panel1.Controls.Add(this.lblTax1);
       this.panel1.Controls.Add(this.web_importe_base);
       this.panel1.Controls.Add(this.lblSubTotal);
@@ -322,15 +322,15 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       this.lblTax2.TabIndex = 13;
       this.lblTax2.Text = "Otros Impuestos";
       // 
-      // textBox1
+      // web_impuesto15
       // 
-      this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.textBox1.ForeColor = System.Drawing.Color.DarkGray;
-      this.textBox1.Location = new System.Drawing.Point(200, 186);
-      this.textBox1.Name = "textBox1";
-      this.textBox1.Size = new System.Drawing.Size(163, 21);
-      this.textBox1.TabIndex = 12;
-      this.textBox1.Text = "0.00";
+      this.web_impuesto15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.web_impuesto15.ForeColor = System.Drawing.Color.DarkGray;
+      this.web_impuesto15.Location = new System.Drawing.Point(200, 186);
+      this.web_impuesto15.Name = "web_impuesto15";
+      this.web_impuesto15.Size = new System.Drawing.Size(163, 21);
+      this.web_impuesto15.TabIndex = 12;
+      this.web_impuesto15.Text = "0.00";
       // 
       // lblTax1
       // 
@@ -580,7 +580,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
         private System.Windows.Forms.Label lblTip;
         private System.Windows.Forms.TextBox web_impuesto18;
         private System.Windows.Forms.Label lblTax2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox web_impuesto15;
         private System.Windows.Forms.Label lblTax1;
         private System.Windows.Forms.TextBox web_importe_base;
         private System.Windows.Forms.Label lblSubTotal;

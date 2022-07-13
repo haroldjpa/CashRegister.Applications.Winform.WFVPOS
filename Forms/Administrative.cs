@@ -265,5 +265,197 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       paymentResponse2 = VPOSComm3.PerformVPOSTransaction();
 
     }
+
+    private void settleResult_Click(object sender, EventArgs e)
+    {
+      var resultAjax = new ResultAjax();
+      try
+      {
+
+        VPOSstructParams paymentParams = new VPOSstructParams();
+        paymentParams.ClientLocalIP = "localhost";
+        paymentParams.SysCountryApplication = GlobalInformation.Instance.SysCountryApplication;
+        paymentParams.VPOSAdmin = web_admin_to_settle.Text;
+
+        paymentParams.VPOSTxType = VPOSTransactionType.TxClose;
+        paymentParams.ReportType = ((int)VPOSReportType.Void).ToString();
+        VPOSCommunication VPOSComm = new VPOSCommunication(paymentParams);
+        VPOSstructParams paymentResponse = VPOSComm.PerformVPOSTransaction();
+        CoreMessage.GetErrorVposMessage(paymentResponse.claAuth);
+
+        PaymentCore paymentCore = new PaymentCore();
+        paymentCore.ChangeStateToTransactionToClose(paymentResponse.TerminalId, paymentResponse.AcquireId);
+
+        glvApprovalSettle = paymentParams.claAuth;
+
+        codigoSettleAprobacion.Text = glvApprovalSettle;
+
+      }
+      catch (Exception Ex)
+      {
+        MessageBox.Show(Ex.Message, "VPOS Control", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+      }
+      
+    }
+
+    private void duplicateResult_Click(object sender, EventArgs e)
+    {
+
+      PrintDuplicate(web_number_to_duplicate.Text);
+    }
+
+
+    void PrintDuplicate(string param)
+    {
+      try
+      {
+
+        VPOSstructParams paymentParamsToPrintDuplicate;
+
+        string numReceipt = param ;
+        PaymentCore paymentCore = new PaymentCore();
+        pa_invoice_payment invoice;
+
+        if (!numReceipt.Equals("last"))
+        {
+          //TODO: Mostrar pantalla Modal para seleccional los numeros de recibo activos y repetidos 
+          List<pa_invoice_payment> pa_Invoice_Payments = paymentCore.GetInvoicePaymentsByReceiptNumber(numReceipt.PadLeft(6, '0'));
+          invoice = pa_Invoice_Payments.FirstOrDefault();
+        }
+        else
+          invoice = paymentCore.GetLastInvoicePayments();
+
+
+
+
+        paymentParamsToPrintDuplicate = new VPOSstructParams();
+        paymentParamsToPrintDuplicate.ClientLocalIP = "localhost";
+        paymentParamsToPrintDuplicate.VPOSTxType = VPOSTransactionType.TxSale;
+        paymentParamsToPrintDuplicate.Amount = Convert.ToString(invoice.value);
+        paymentParamsToPrintDuplicate.numReceipt = invoice.receipt_number;
+        paymentParamsToPrintDuplicate.NumberBill = invoice.receipt_number;
+        paymentParamsToPrintDuplicate.Last4 = invoice.number;
+        paymentParamsToPrintDuplicate.Brand = invoice.card_brand;
+        paymentParamsToPrintDuplicate.AcquireId = invoice.acquire_id;
+        paymentParamsToPrintDuplicate.AID = invoice.aid;
+        paymentParamsToPrintDuplicate.TerminalId = invoice.terminal_id;
+        paymentParamsToPrintDuplicate.authNum = invoice.approval;
+        paymentParamsToPrintDuplicate.AccountNumber = invoice.number;
+        paymentParamsToPrintDuplicate.TVR = invoice.tvr;
+        paymentParamsToPrintDuplicate.ARQC = invoice.arqc;
+        paymentParamsToPrintDuplicate.TC = invoice.tc;
+        paymentParamsToPrintDuplicate.TSI = invoice.tsi;
+        paymentParamsToPrintDuplicate.NA = invoice.na;
+        paymentParamsToPrintDuplicate.Tax1 = Utils.GetValueWithoutPoint(Convert.ToString(invoice.tax1));
+        paymentParamsToPrintDuplicate.Tax2 = Utils.GetValueWithoutPoint(Convert.ToString(invoice.tax2));
+        paymentParamsToPrintDuplicate.Discount = Utils.GetValueWithoutPoint(Convert.ToString(invoice.discount));
+        paymentParamsToPrintDuplicate.Tip = Utils.GetValueWithoutPoint(Convert.ToString(invoice.tip));
+        paymentParamsToPrintDuplicate.SubTotal = Utils.GetValueWithoutPoint(Convert.ToString(invoice.base_amount));
+        paymentParamsToPrintDuplicate.Amount = Utils.GetValueWithoutPoint(Convert.ToString(invoice.value));
+
+        paymentParamsToPrintDuplicate.TransactionDateTime = invoice.creation_date;
+        paymentParamsToPrintDuplicate.CurrencySymbol = invoice.currency_symbol;
+        paymentParamsToPrintDuplicate.PayEntryMode = invoice.pay_entry_mode;
+        paymentParamsToPrintDuplicate.CardHolderName = invoice.cardholder;
+        paymentParamsToPrintDuplicate.Lot = invoice.lot;
+        paymentParamsToPrintDuplicate.Reference = invoice.reference;
+        paymentParamsToPrintDuplicate.Charge = invoice.charge;
+
+        SendPrintDuplicateVoucher(paymentParamsToPrintDuplicate);
+
+      }
+      catch (Exception Ex)
+      {
+        MessageBox.Show(Ex.Message, "VPOS Control", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+      }
+    }
+
+    void SendPrintDuplicateVoucher(VPOSstructParams paymentParams)
+    {
+      POSReceiptParemeters pOSReceiptParemeters = new POSReceiptParemeters(GlobalInformation.Instance.SysCountryApplication);
+
+      pOSReceiptParemeters.VoucherType = Convert.ToString((int)VPOSTransactionType.TxSale);
+      pOSReceiptParemeters.CompanyName = GlobalInformation.Instance.CompanyName;
+      pOSReceiptParemeters.CompanyAddress = GlobalInformation.Instance.CompanyAddress;
+      pOSReceiptParemeters.TransactionDateTime = paymentParams.TransactionDateTime;
+      pOSReceiptParemeters.CompanyPhone = GlobalInformation.Instance.CompanyPhone;
+      pOSReceiptParemeters.WebPage = GlobalInformation.Instance.WebPage;
+      pOSReceiptParemeters.NumberBill = Convert.ToInt32(paymentParams.numReceipt);
+      pOSReceiptParemeters.CardNumber = paymentParams.AccountNumber;
+      pOSReceiptParemeters.CardBrand = paymentParams.Brand;
+      pOSReceiptParemeters.ApprovalNumber = paymentParams.authNum;
+      pOSReceiptParemeters.ReceiptNumber = paymentParams.numReceipt;
+      pOSReceiptParemeters.CardAmount = Convert.ToDecimal(paymentParams.Amount) / 100;
+      pOSReceiptParemeters.SubTotal = Convert.ToDecimal(paymentParams.SubTotal) / 100;
+      pOSReceiptParemeters.Tax1 = (GlobalInformation.Instance.GetParameterBooleanValue(PA_PARAMETERS.SHOW_TAX1_FIELD.ToString()) ? Convert.ToDecimal(paymentParams.Tax1) : Convert.ToDecimal(-432100)) / 100;
+      pOSReceiptParemeters.Tax2 = (GlobalInformation.Instance.GetParameterBooleanValue(PA_PARAMETERS.SHOW_TAX2_FIELD.ToString()) ? Convert.ToDecimal(paymentParams.Tax2) : Convert.ToDecimal(-432100)) / 100;
+      pOSReceiptParemeters.Tip = (GlobalInformation.Instance.GetParameterBooleanValue(PA_PARAMETERS.SHOW_TIP_FIELD.ToString()) ? Convert.ToDecimal(paymentParams.Tip) : Convert.ToDecimal(-432100)) / 100;
+      pOSReceiptParemeters.Discount = (GlobalInformation.Instance.GetParameterBooleanValue(PA_PARAMETERS.SHOW_DISCOUNT_FIELD.ToString()) ? Convert.ToDecimal(paymentParams.Discount) : Convert.ToDecimal(-432100)) / 100;
+      pOSReceiptParemeters.Total = Convert.ToDecimal(paymentParams.Amount) / 100;
+      pOSReceiptParemeters.ReceiptNumber = paymentParams.numReceipt;
+      pOSReceiptParemeters.AID = paymentParams.AID;
+      pOSReceiptParemeters.TVR = paymentParams.TVR;
+      pOSReceiptParemeters.ARQC = paymentParams.ARQC;
+      pOSReceiptParemeters.TC = paymentParams.TC;
+      pOSReceiptParemeters.TSI = paymentParams.TSI;
+      pOSReceiptParemeters.NA = paymentParams.NA;
+      pOSReceiptParemeters.TerminalId = paymentParams.TerminalId;
+      pOSReceiptParemeters.AcquireId = paymentParams.AcquireId;
+      pOSReceiptParemeters.PayEntryMode = paymentParams.PayEntryMode;
+      pOSReceiptParemeters.CardHolderName = paymentParams.CardHolderName;
+      pOSReceiptParemeters.Lot = paymentParams.Lot;
+      pOSReceiptParemeters.Reference = paymentParams.Reference;
+      pOSReceiptParemeters.Charge = paymentParams.Charge;
+      pOSReceiptParemeters.IsDuplicate = true;
+      pOSReceiptParemeters.lblCurrencySymbol = paymentParams.CurrencySymbol;
+      pOSReceiptParemeters.IsComerce = true;
+
+
+      POSReceiptItemInfo item = new POSReceiptItemInfo();
+      if (pOSReceiptParemeters.PayEntryMode == "01 Manual")
+        item.Description = "Pago manual";
+      else
+        item.Description = "Pago con tarjeta";
+      item.Quantity = 1;
+      item.UnitPrice = pOSReceiptParemeters.Total;
+      item.UnitTotal = item.UnitPrice;
+      pOSReceiptParemeters.InvoiceItems.Add(item);
+
+
+      // Send Merchant Voucher
+      VPOSVoucherToJSON vPOSVoucherToJSON = new VPOSVoucherToJSON(pOSReceiptParemeters);
+      paymentParams.JSONVoucher = Utils.Base64Encode(vPOSVoucherToJSON.GetJSON());
+      paymentParams.VPOSTxType = VPOSTransactionType.TxPrintVoucher;
+      VPOSCommunication VPOSComm2 = new VPOSCommunication(paymentParams);
+      VPOSstructParams paymentResponse2 = VPOSComm2.PerformVPOSTransaction();
+
+      Thread.Sleep(3000);
+
+      // Send Customer Voucher
+      pOSReceiptParemeters.IsComerce = false;
+      VPOSVoucherToJSON vPOSVoucherToJSON_2 = new VPOSVoucherToJSON(pOSReceiptParemeters);
+      paymentParams.JSONVoucher = Utils.Base64Encode(vPOSVoucherToJSON_2.GetJSON());
+      paymentParams.VPOSTxType = VPOSTransactionType.TxPrintVoucher;
+      VPOSCommunication VPOSComm3 = new VPOSCommunication(paymentParams);
+      paymentResponse2 = VPOSComm3.PerformVPOSTransaction();
+
+
+    }
+
+    private void printLastDuplicate_Click(object sender, EventArgs e)
+    {
+     
+      try
+      {
+        PrintDuplicate("last");
+      }
+      catch (Exception Ex)
+      {
+        MessageBox.Show(Ex.Message, "VPOS Control", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+      }
+    }
   }
 }
