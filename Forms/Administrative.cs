@@ -34,8 +34,31 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       //this.glvApprovalReport = glvApprovalReport;
       //this.glvApprovalSettle = glvApprovalSettle;
     }
+    private void EnableWidgets()
+    {
+      
+      btnCloseWindow.Enabled = true;
+      btnDuplicate.Enabled = true;
+      btnPrintLastDuplicate.Enabled = true  ;
+      btnPrintReport.Enabled = true ;
+      btnSettle.Enabled = true;
+      btnVoid.Enabled = true;
+
+    }
 
 
+    private void DisableWidgets()
+    {
+      
+      btnCloseWindow.Enabled = false;
+      btnDuplicate.Enabled = false;
+      btnPrintLastDuplicate.Enabled = false;
+      btnPrintReport.Enabled = false;
+      btnSettle.Enabled = false;
+      btnVoid.Enabled = false;
+      Application.DoEvents();
+
+    }
     private void closeTransactionView_Click_1(object sender, EventArgs e)
     {
       this.Close();
@@ -73,15 +96,15 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
 
       this.lblApprCode.Text = "Código Aprobación:";
       this.lblAdminPassVoid.Text = "Contraseña administrador PINpad";
-      this.settleResult.Text = "Cierre";
-      this.voidResult.Text = "Anular";
-      this.closeTransactionView.Text = "Cerrar";
+      this.btnSettle.Text = "Cierre";
+      this.btnVoid.Text = "Anular";
+      this.btnCloseWindow.Text = "Cerrar";
       //this.ButtonCaptionPrint = "Imprimir Voucher";
-      this.printReportResult.Text = "Imprimir Reporte";
+      this.btnPrintReport.Text = "Imprimir Reporte";
       this.lblSettle.Text = "Cierre ventas";
 
-      this.duplicateResult.Text = "Duplicado";
-      this.printLastDuplicate.Text = "Último";
+      this.btnDuplicate.Text = "Duplicado";
+      this.btnPrintLastDuplicate.Text = "Último";
       this.lblDuplicate.Text = "Duplicado";
 
 
@@ -91,9 +114,10 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
     private void printReportResult_Click(object sender, EventArgs e)
     {
 
+
       try
       {
-
+        DisableWidgets();
         VPOSstructParams paymentParams = new VPOSstructParams();
         paymentParams.ClientLocalIP = "localhost";
         paymentParams.SysCountryApplication = GlobalInformation.Instance.SysCountryApplication;
@@ -119,6 +143,10 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
         MessageBox.Show(Ex.Message, "VPOS Control", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
       }
+      finally 
+      { 
+        EnableWidgets();
+      }
 
     }
 
@@ -127,7 +155,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       string retValue = "";
       try
       {
-
+        DisableWidgets();
         VPOSstructParams paymentParams = new VPOSstructParams();
         paymentParams.ClientLocalIP = "localhost";
         paymentParamsToPrintVoid = null;
@@ -197,6 +225,10 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
         }
         
 
+      }
+      finally
+      {
+        EnableWidgets();
       }
     }
 
@@ -268,10 +300,10 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
 
     private void settleResult_Click(object sender, EventArgs e)
     {
-      var resultAjax = new ResultAjax();
+
       try
       {
-
+        DisableWidgets();
         VPOSstructParams paymentParams = new VPOSstructParams();
         paymentParams.ClientLocalIP = "localhost";
         paymentParams.SysCountryApplication = GlobalInformation.Instance.SysCountryApplication;
@@ -296,7 +328,10 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
         MessageBox.Show(Ex.Message, "VPOS Control", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
       }
-      
+      finally
+      {
+        EnableWidgets();
+      }
     }
 
     private void duplicateResult_Click(object sender, EventArgs e)
@@ -310,7 +345,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
     {
       try
       {
-
+        DisableWidgets();
         VPOSstructParams paymentParamsToPrintDuplicate;
 
         string numReceipt = param ;
@@ -369,6 +404,10 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       {
         MessageBox.Show(Ex.Message, "VPOS Control", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
+      }
+      finally
+      {
+        EnableWidgets();
       }
     }
 
