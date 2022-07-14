@@ -596,6 +596,25 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
             this.Close();
         }
 
+    private void limpiar_Click(object sender, EventArgs e)
+    {
+      commerces.Text = string.Empty;
+      web_importe_base.Text = string.Empty;
+      web_impuesto15.Text = string.Empty;
+      web_impuesto18.Text = string.Empty;
+      web_propina.Text = string.Empty;
+      web_ultimos4.Text = string.Empty;
+      web_fecha_expiracion.Text = string.Empty;
+      codigoAprobacion.Text = string.Empty;
+      web_total_transaccion.Text = "0.00";
+      merchant_name.Text = string.Empty;
+      merchant_id.Text = string.Empty;
+      terminal_id.Text = string.Empty;
 
+      if (SYS_COUNTRY_APPLICATION.Nicaragua_Ficohsa == GlobalInformation.Instance.SysCountryApplication)
+        FillAdquirerList(1);
+      else
+        FillAdquirerList(0);
     }
+  }
 }

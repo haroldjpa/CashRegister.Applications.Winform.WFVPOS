@@ -344,9 +344,11 @@
   <ItemGroup>
     <Content Include="favicon.ico" />
     <Content Include="Postek.ico" />
-    <Content Include="PostekApp.ico" />
+    <Content Include="PostekApp.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="postgres.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\Ficohsa.PNG">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

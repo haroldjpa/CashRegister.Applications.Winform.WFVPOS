@@ -7,8 +7,10 @@ using CashRegister.Libraries.ControlDataBase;
 using CashRegister.Libraries.Database.Interface;
 using CashRegister.Libraries.Database.Repository;
 using CashRegister.Libraries.DataStructs;
+using CashRegister.Libraries.Utilities;
 using System;
 using System.Configuration;
+using System.Diagnostics;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -35,6 +37,10 @@ namespace CashRegister
           return;
         }
 
+        DiagnosticTrace.SetTraceSourceName("WinPostekTraceSource", "WinPostek");
+        DiagnosticTrace.Trace(TraceEventType.Start, DiagnosticTrace.DefaultCategory + ".Main" + " v" + Application.ProductVersion, 0, "Iniciando WinPostek", string.Empty);
+
+        
 
         if (ControlDB())
           ;
@@ -53,6 +59,8 @@ namespace CashRegister
     {
       try
       {
+        DiagnosticTrace.TraceInformation("CheckDB", 0, "ControlDB", DateTime.Now + " : "  , false);
+
         ControlDataBaseEngine dataBaseEngine = new ControlDataBaseEngine();
         dataBaseEngine.ValidateDB();
         return true;

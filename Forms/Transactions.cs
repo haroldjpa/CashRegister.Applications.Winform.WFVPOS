@@ -520,6 +520,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
     void FillAdquirerList()
     {
       int comboListCount = 0;
+      this.commerces.Items.Clear();
       foreach (var item in GlobalInformation.Instance.ListAcquirer)
       {
         item.Value.AliasName = "Acquirer" + item.Value.id;
@@ -602,5 +603,23 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
 
     }
 
+    private void limpiar_Click(object sender, EventArgs e)
+    {
+      commerces.Text  = string.Empty;
+      web_importe_base.Text=string.Empty;
+      web_impuesto15.Text=string.Empty;
+      web_impuesto18.Text=string.Empty;
+      web_propina.Text=string.Empty;
+      web_ultimos4.Text=string.Empty;
+      web_fecha_expiracion.Text=string.Empty;
+      codigoAprobacion.Text = string.Empty;
+      web_total_transaccion.Text="0.00";
+      merchant_name.Text = string.Empty;
+      merchant_id.Text = string.Empty;
+      terminal_id.Text = string.Empty;
+      
+      FillAdquirerList();
+
+    }
   }
 }
