@@ -44,16 +44,22 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       if (SYS_COUNTRY_APPLICATION.Nicaragua_Lafise != GlobalInformation.Instance.SysCountryApplication)
       {
         this.web_impuesto15.Visible = GlobalInformation.Instance.GetParameterBooleanValue(PA_PARAMETERS.SHOW_TAX1_FIELD.ToString());
+        this.lblTax1.Visible = GlobalInformation.Instance.GetParameterBooleanValue(PA_PARAMETERS.SHOW_TAX1_FIELD.ToString());
         this.web_impuesto18.Visible = GlobalInformation.Instance.GetParameterBooleanValue(PA_PARAMETERS.SHOW_TAX2_FIELD.ToString());
+        this.lblTax2.Visible = GlobalInformation.Instance.GetParameterBooleanValue(PA_PARAMETERS.SHOW_TAX2_FIELD.ToString());
         this.web_propina.Visible = GlobalInformation.Instance.GetParameterBooleanValue(PA_PARAMETERS.SHOW_TIP_FIELD.ToString());
+        this.lblTip.Visible = GlobalInformation.Instance.GetParameterBooleanValue(PA_PARAMETERS.SHOW_TIP_FIELD.ToString());
       }
       else
       {
         this.web_impuesto15.Visible = this.web_impuesto18.Visible = this.web_propina.Visible = false;
+        this.lblTax1.Visible = this.lblTax2.Visible = this.lblTip.Visible = false;
       }
 
       this.web_fecha_expiracion.Visible = GlobalInformation.Instance.GetParameterBooleanValue(PA_PARAMETERS.SHOW_EXP_DATE_FIELD.ToString());
+      this.lblExpirationDate.Visible = GlobalInformation.Instance.GetParameterBooleanValue(PA_PARAMETERS.SHOW_EXP_DATE_FIELD.ToString());
       this.web_ultimos4.Visible = GlobalInformation.Instance.GetParameterBooleanValue(PA_PARAMETERS.SHOW_LAST_4_FIELD.ToString());
+      this.lblLast4.Visible = GlobalInformation.Instance.GetParameterBooleanValue(PA_PARAMETERS.SHOW_LAST_4_FIELD.ToString());
       this.print_commerce.Checked = GlobalInformation.Instance.GetParameterBooleanValue(PA_PARAMETERS.ALWAYS_CHECKED_PRINT_COMMERCE.ToString());
       this.print_copy.Checked = GlobalInformation.Instance.GetParameterBooleanValue(PA_PARAMETERS.ALWAYS_CHECKED_PRINT_CUSTOM.ToString());
 
@@ -150,8 +156,9 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       else if (SYS_COUNTRY_APPLICATION.Nicaragua_Ficohsa == GlobalInformation.Instance.SysCountryApplication)
       {
         this.web_impuesto15.Visible = this.web_impuesto18.Visible = this.web_propina.Visible = false;
+        this.lblTax1.Visible = this.lblTax2.Visible = this.lblTip.Visible = false;
 
-        this.lblSubTotal.Text = "Monto:";
+                this.lblSubTotal.Text = "Monto:";
         this.lblLast4.Text = "Últimos 4 de la tarjeta:";
         this.lblMerchantName.Text = "Nombre:";
         this.lblTerminalId.Text = "Terminal ID:";

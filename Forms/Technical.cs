@@ -25,7 +25,8 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
 
     private void closeTechnicalView_Click(object sender, EventArgs e)
     {
-      this.Close();
+        Dashboard f = new Dashboard();
+        f.Show();
     }
 
 
