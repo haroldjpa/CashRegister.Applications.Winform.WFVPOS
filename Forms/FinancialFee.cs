@@ -227,7 +227,15 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
         private static object _sync = new object();
         private void enviar_Click(object sender, EventArgs e)
         {
-            realizarOperacion(5);
+            if (SYS_COUNTRY_APPLICATION.Honduras_Ficohsa == GlobalInformation.Instance.SysCountryApplication)
+            {
+                realizarOperacion(5);
+            }
+            else
+            {
+                realizarOperacion(7);
+            }
+            
         }
 
         private void enviarCtls_Click(object sender, EventArgs e)
@@ -360,6 +368,14 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
                         //SendPrintVoucher(paymentParamsToPrint);
                     }
 
+                    if (AutoPrint)
+                    {
+                        CurrencyInfo curInfo = new CurrencyInfo();
+                        //TODO: Poder seleccionar la moneda desde la pantalla de venta para la no integrada
+                        GlobalInformation.Instance.ListCurrency.TryGetValue(paymentParams.Currency, out curInfo);
+                        paymentParamsToPrint.CurrencySymbol = curInfo.symbol;
+                        //SendPrintVoucher(paymentParamsToPrint);
+                    }
                 }
                 catch (Exception Ex)
                 {
