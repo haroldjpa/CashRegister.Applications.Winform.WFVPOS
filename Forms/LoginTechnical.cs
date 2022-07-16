@@ -15,10 +15,12 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
   public partial class LoginTechnical : Form
   {
     private Form currentChildForm;
-    public LoginTechnical()
+        private int datoPantalla;
+    public LoginTechnical(int origen)
     {
       InitializeComponent();
       this.DoubleBuffered = true;
+            datoPantalla = origen;
     }
 
     public void OpenChildForm(Form childForm)
@@ -47,10 +49,17 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
 
         if (hash.Equals(GlobalInformation.Instance.GetParameterValue(PA_PARAMETERS.TECHNICAL_PASS.ToString())))
         {
-          
-          OpenChildForm(new Technical());
-          
-        }
+
+                    if (datoPantalla == 1)
+                    {
+                        OpenChildForm(new Technical());
+                    }
+                    else if (datoPantalla == 2)
+                    {
+                        OpenChildForm(new Users());
+                    }
+
+                }
         else
         {
           MessageBox.Show("Contraseña equivocada", "VPOS Control", MessageBoxButtons.OK, MessageBoxIcon.Warning);
