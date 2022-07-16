@@ -149,13 +149,15 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
     private void btnTecnico_Click(object sender, EventArgs e)
     {
       ActivateButton(sender, RGBColors.color5);
-      OpenChildForm(new LoginTechnical());
+      OpenChildForm(new LoginTechnical(1));
     }
 
     private void btnUsuarios_Click(object sender, EventArgs e)
     {
       ActivateButton(sender, RGBColors.color6);
-    }
+            OpenChildForm(new LoginTechnical(2));
+            
+        }
 
     private void rjCircularPictureBox2_Click(object sender, EventArgs e)
     {
