@@ -343,7 +343,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
             //SendPrintVoucher(paymentParamsToPrint);
 
           }
-          
+          CleanWidgets();
         }
         catch (Exception Ex)
         {
@@ -568,6 +568,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       {
         e.Handled = true;
       }
+
     }
 
     private void txtNumericOnly_KeyPress(object sender, KeyPressEventArgs e)
@@ -581,14 +582,26 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
 
     private void web_importe_base_Leave(object sender, EventArgs e)
     {
+
+
+
       if (ValidateCurrency(sender, ((TextBox)sender).Text))
       {
-        double SumTotal = Convert.ToDouble((web_importe_base.Text == "" ? "0.00": web_importe_base.Text)) +
+        double twoDecimals = Convert.ToDouble(((TextBox)sender).Text);
+
+        ((TextBox)sender).Text = string.Format("{0:N2}", twoDecimals);
+
+        double SumTotal = Convert.ToDouble((web_importe_base.Text == "" ? "0.00" : web_importe_base.Text)) +
         Convert.ToDouble((web_impuesto15.Text == "" ? "0.00" : web_impuesto15.Text)) +
         Convert.ToDouble((web_impuesto18.Text == "" ? "0.00" : web_impuesto18.Text)) +
         Convert.ToDouble((web_propina.Text == "" ? "0.00" : web_propina.Text));
         web_total_transaccion.Text = string.Format("{0:N2}", SumTotal);
 
+      }
+      else
+      {
+        char DecimalPoint = Convert.ToChar(CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator);
+        ((TextBox)sender).Text = "0" + DecimalPoint + "00";
       }
 
       //double TotalField =  Convert.ToDouble(sender.Text) ;
@@ -603,23 +616,27 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
 
     }
 
-    private void limpiar_Click(object sender, EventArgs e)
+    private void CleanWidgets()
     {
-      commerces.Text  = string.Empty;
-      web_importe_base.Text=string.Empty;
-      web_impuesto15.Text=string.Empty;
-      web_impuesto18.Text=string.Empty;
-      web_propina.Text=string.Empty;
-      web_ultimos4.Text=string.Empty;
-      web_fecha_expiracion.Text=string.Empty;
-      codigoAprobacion.Text = string.Empty;
-      web_total_transaccion.Text="0.00";
+      commerces.Text = string.Empty;
+      web_importe_base.Text = string.Empty;
+      web_impuesto15.Text = string.Empty;
+      web_impuesto18.Text = string.Empty;
+      web_propina.Text = string.Empty;
+      web_ultimos4.Text = string.Empty;
+      web_fecha_expiracion.Text = string.Empty;
+      web_total_transaccion.Text = "0.00";
       merchant_name.Text = string.Empty;
       merchant_id.Text = string.Empty;
       terminal_id.Text = string.Empty;
-      
+
       FillAdquirerList();
 
+    }
+    private void limpiar_Click(object sender, EventArgs e)
+    {
+      CleanWidgets();
+      codigoAprobacion.Text = string.Empty;
     }
   }
 }
