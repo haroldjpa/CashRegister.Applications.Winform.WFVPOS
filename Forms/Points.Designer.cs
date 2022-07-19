@@ -69,10 +69,20 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
             this.lblTitle = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.closeTran = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.pnlMain.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.panel8.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel3
@@ -143,24 +153,10 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
             // pnlMain
             // 
             this.pnlMain.BackColor = System.Drawing.Color.White;
-            this.pnlMain.Controls.Add(this.enviar);
-            this.pnlMain.Controls.Add(this.limpiar);
+            this.pnlMain.Controls.Add(this.panel1);
             this.pnlMain.Controls.Add(this.commerces);
-            this.pnlMain.Controls.Add(this.lblLast4);
-            this.pnlMain.Controls.Add(this.web_propina);
-            this.pnlMain.Controls.Add(this.web_ultimos4);
             this.pnlMain.Controls.Add(this.web_impuesto15);
-            this.pnlMain.Controls.Add(this.lblTip);
-            this.pnlMain.Controls.Add(this.lblExpirationDate);
-            this.pnlMain.Controls.Add(this.web_fecha_expiracion);
             this.pnlMain.Controls.Add(this.lblTax1);
-            this.pnlMain.Controls.Add(this.web_impuesto18);
-            this.pnlMain.Controls.Add(this.lblTax2);
-            this.pnlMain.Controls.Add(this.print_copy);
-            this.pnlMain.Controls.Add(this.print_commerce);
-            this.pnlMain.Controls.Add(this.lblTicket);
-            this.pnlMain.Controls.Add(this.web_total_transaccion);
-            this.pnlMain.Controls.Add(this.lblTotal);
             this.pnlMain.Controls.Add(this.web_importe_base);
             this.pnlMain.Controls.Add(this.lblSubTotal);
             this.pnlMain.Controls.Add(this.merchant_id);
@@ -183,7 +179,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
             this.enviar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.enviar.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.enviar.ForeColor = System.Drawing.Color.Black;
-            this.enviar.Location = new System.Drawing.Point(113, 380);
+            this.enviar.Location = new System.Drawing.Point(104, 13);
             this.enviar.Name = "enviar";
             this.enviar.Size = new System.Drawing.Size(94, 34);
             this.enviar.TabIndex = 34;
@@ -197,7 +193,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
             this.limpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.limpiar.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.limpiar.ForeColor = System.Drawing.Color.Black;
-            this.limpiar.Location = new System.Drawing.Point(232, 380);
+            this.limpiar.Location = new System.Drawing.Point(223, 13);
             this.limpiar.Name = "limpiar";
             this.limpiar.Size = new System.Drawing.Size(77, 34);
             this.limpiar.TabIndex = 33;
@@ -225,7 +221,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
             this.lblLast4.AutoSize = true;
             this.lblLast4.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.lblLast4.ForeColor = System.Drawing.Color.Black;
-            this.lblLast4.Location = new System.Drawing.Point(29, 279);
+            this.lblLast4.Location = new System.Drawing.Point(10, 0);
             this.lblLast4.Name = "lblLast4";
             this.lblLast4.Size = new System.Drawing.Size(208, 17);
             this.lblLast4.TabIndex = 17;
@@ -235,7 +231,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
             // 
             this.web_propina.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.web_propina.ForeColor = System.Drawing.Color.Black;
-            this.web_propina.Location = new System.Drawing.Point(251, 238);
+            this.web_propina.Location = new System.Drawing.Point(234, 22);
             this.web_propina.Name = "web_propina";
             this.web_propina.Size = new System.Drawing.Size(178, 23);
             this.web_propina.TabIndex = 20;
@@ -247,7 +243,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
             // 
             this.web_ultimos4.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.web_ultimos4.ForeColor = System.Drawing.Color.DarkGray;
-            this.web_ultimos4.Location = new System.Drawing.Point(29, 296);
+            this.web_ultimos4.Location = new System.Drawing.Point(11, 18);
             this.web_ultimos4.Name = "web_ultimos4";
             this.web_ultimos4.Size = new System.Drawing.Size(178, 23);
             this.web_ultimos4.TabIndex = 18;
@@ -258,7 +254,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
             // 
             this.web_impuesto15.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.web_impuesto15.ForeColor = System.Drawing.Color.Black;
-            this.web_impuesto15.Location = new System.Drawing.Point(246, 184);
+            this.web_impuesto15.Location = new System.Drawing.Point(248, 184);
             this.web_impuesto15.Name = "web_impuesto15";
             this.web_impuesto15.Size = new System.Drawing.Size(178, 23);
             this.web_impuesto15.TabIndex = 14;
@@ -271,7 +267,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
             this.lblTip.AutoSize = true;
             this.lblTip.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.lblTip.ForeColor = System.Drawing.Color.Black;
-            this.lblTip.Location = new System.Drawing.Point(251, 220);
+            this.lblTip.Location = new System.Drawing.Point(234, 4);
             this.lblTip.Name = "lblTip";
             this.lblTip.Size = new System.Drawing.Size(58, 17);
             this.lblTip.TabIndex = 19;
@@ -282,7 +278,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
             this.lblExpirationDate.AutoSize = true;
             this.lblExpirationDate.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.lblExpirationDate.ForeColor = System.Drawing.Color.Black;
-            this.lblExpirationDate.Location = new System.Drawing.Point(247, 279);
+            this.lblExpirationDate.Location = new System.Drawing.Point(232, 0);
             this.lblExpirationDate.Name = "lblExpirationDate";
             this.lblExpirationDate.Size = new System.Drawing.Size(128, 17);
             this.lblExpirationDate.TabIndex = 19;
@@ -292,7 +288,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
             // 
             this.web_fecha_expiracion.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.web_fecha_expiracion.ForeColor = System.Drawing.Color.DarkGray;
-            this.web_fecha_expiracion.Location = new System.Drawing.Point(247, 296);
+            this.web_fecha_expiracion.Location = new System.Drawing.Point(233, 17);
             this.web_fecha_expiracion.Name = "web_fecha_expiracion";
             this.web_fecha_expiracion.Size = new System.Drawing.Size(178, 23);
             this.web_fecha_expiracion.TabIndex = 20;
@@ -314,7 +310,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
             // 
             this.web_impuesto18.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.web_impuesto18.ForeColor = System.Drawing.Color.Black;
-            this.web_impuesto18.Location = new System.Drawing.Point(28, 238);
+            this.web_impuesto18.Location = new System.Drawing.Point(11, 22);
             this.web_impuesto18.Name = "web_impuesto18";
             this.web_impuesto18.Size = new System.Drawing.Size(178, 23);
             this.web_impuesto18.TabIndex = 18;
@@ -327,7 +323,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
             this.lblTax2.AutoSize = true;
             this.lblTax2.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.lblTax2.ForeColor = System.Drawing.Color.Black;
-            this.lblTax2.Location = new System.Drawing.Point(28, 220);
+            this.lblTax2.Location = new System.Drawing.Point(11, 4);
             this.lblTax2.Name = "lblTax2";
             this.lblTax2.Size = new System.Drawing.Size(111, 17);
             this.lblTax2.TabIndex = 17;
@@ -338,7 +334,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
             this.print_copy.AutoSize = true;
             this.print_copy.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.print_copy.ForeColor = System.Drawing.Color.Black;
-            this.print_copy.Location = new System.Drawing.Point(302, 470);
+            this.print_copy.Location = new System.Drawing.Point(293, 103);
             this.print_copy.Name = "print_copy";
             this.print_copy.Size = new System.Drawing.Size(73, 21);
             this.print_copy.TabIndex = 27;
@@ -350,7 +346,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
             this.print_commerce.AutoSize = true;
             this.print_commerce.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.print_commerce.ForeColor = System.Drawing.Color.Black;
-            this.print_commerce.Location = new System.Drawing.Point(47, 470);
+            this.print_commerce.Location = new System.Drawing.Point(38, 103);
             this.print_commerce.Name = "print_commerce";
             this.print_commerce.Size = new System.Drawing.Size(92, 21);
             this.print_commerce.TabIndex = 26;
@@ -362,7 +358,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
             this.lblTicket.AutoSize = true;
             this.lblTicket.Font = new System.Drawing.Font("Century Gothic", 15.75F);
             this.lblTicket.ForeColor = System.Drawing.Color.Black;
-            this.lblTicket.Location = new System.Drawing.Point(183, 436);
+            this.lblTicket.Location = new System.Drawing.Point(174, 69);
             this.lblTicket.Name = "lblTicket";
             this.lblTicket.Size = new System.Drawing.Size(67, 24);
             this.lblTicket.TabIndex = 25;
@@ -372,7 +368,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
             // 
             this.web_total_transaccion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.web_total_transaccion.ForeColor = System.Drawing.Color.DarkGray;
-            this.web_total_transaccion.Location = new System.Drawing.Point(54, 339);
+            this.web_total_transaccion.Location = new System.Drawing.Point(37, 26);
             this.web_total_transaccion.Name = "web_total_transaccion";
             this.web_total_transaccion.ReadOnly = true;
             this.web_total_transaccion.Size = new System.Drawing.Size(350, 20);
@@ -383,7 +379,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
             this.lblTotal.AutoSize = true;
             this.lblTotal.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.lblTotal.ForeColor = System.Drawing.Color.Black;
-            this.lblTotal.Location = new System.Drawing.Point(54, 322);
+            this.lblTotal.Location = new System.Drawing.Point(37, 9);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(47, 17);
             this.lblTotal.TabIndex = 21;
@@ -525,6 +521,72 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
             this.closeTran.UseVisualStyleBackColor = false;
             this.closeTran.Click += new System.EventHandler(this.closeTran_Click);
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.panel8);
+            this.panel1.Controls.Add(this.panel7);
+            this.panel1.Controls.Add(this.panel6);
+            this.panel1.Controls.Add(this.panel5);
+            this.panel1.Location = new System.Drawing.Point(14, 219);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(423, 292);
+            this.panel1.TabIndex = 35;
+            // 
+            // panel5
+            // 
+            this.panel5.AutoSize = true;
+            this.panel5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel5.Controls.Add(this.lblTax2);
+            this.panel5.Controls.Add(this.lblTip);
+            this.panel5.Controls.Add(this.web_impuesto18);
+            this.panel5.Controls.Add(this.web_propina);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel5.Location = new System.Drawing.Point(0, 0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(423, 48);
+            this.panel5.TabIndex = 0;
+            // 
+            // panel6
+            // 
+            this.panel6.AutoSize = true;
+            this.panel6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel6.Controls.Add(this.lblLast4);
+            this.panel6.Controls.Add(this.lblExpirationDate);
+            this.panel6.Controls.Add(this.web_fecha_expiracion);
+            this.panel6.Controls.Add(this.web_ultimos4);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel6.Location = new System.Drawing.Point(0, 48);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(423, 44);
+            this.panel6.TabIndex = 1;
+            // 
+            // panel7
+            // 
+            this.panel7.AutoSize = true;
+            this.panel7.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel7.Controls.Add(this.lblTotal);
+            this.panel7.Controls.Add(this.web_total_transaccion);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel7.Location = new System.Drawing.Point(0, 92);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(423, 49);
+            this.panel7.TabIndex = 2;
+            // 
+            // panel8
+            // 
+            this.panel8.AutoSize = true;
+            this.panel8.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel8.Controls.Add(this.enviar);
+            this.panel8.Controls.Add(this.print_copy);
+            this.panel8.Controls.Add(this.limpiar);
+            this.panel8.Controls.Add(this.print_commerce);
+            this.panel8.Controls.Add(this.lblTicket);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel8.Location = new System.Drawing.Point(0, 141);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(423, 127);
+            this.panel8.TabIndex = 3;
+            // 
             // Points
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -544,6 +606,16 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
             this.pnlMain.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -588,5 +660,10 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
         private System.Windows.Forms.Button enviar;
         private System.Windows.Forms.Label lblTitleResult;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Panel panel8;
     }
 }
