@@ -20,6 +20,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
 {
   public partial class Transactions : Form
   {
+    string glTextAmount=string.Empty;
     static AcquirerInfo acquirerInfoSelected;
     static VPOSstructParams paymentParamsToPrint;
     static bool AutoPrint = true;
@@ -243,7 +244,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
           paymentParams.Tax1 = Utils.GetValueWithoutPoint(web_impuesto15.Text, false);
           paymentParams.Tax2 = Utils.GetValueWithoutPoint(web_impuesto18.Text, false);
           paymentParams.SubTotal = Utils.GetValueWithoutPoint(web_importe_base.Text, false);
-          paymentParams.Amount = Utils.GetValueWithoutPoint(web_total_transaccion.Text, false);
+          paymentParams.Amount = Utils.GetValueWithoutPoint(glTextAmount, false);
           CalculatedWebAmount = paymentParams.Amount;
           paymentParams.SysCountryApplication = GlobalInformation.Instance.SysCountryApplication;
           //paymentParams.PayEntryMode = ((PA_PAYMENT_ENTRY_MODE)Convert.ToInt32(param["pay_entry_mode"])).ToString();
@@ -396,6 +397,15 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
         web_importe_base.Focus();
         return false;
       }
+
+      if (Convert.ToDouble(web_importe_base.Text) <=0)
+      {
+        MessageBox.Show("Monto no debe ser 0", "VPOS Control", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        web_importe_base.Focus();
+        return false;
+      }
+
+
       if (web_impuesto15.Visible && web_impuesto15.Text == "")
       {
         MessageBox.Show("Debe indicar un monto de impuesto", "VPOS Control", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -487,6 +497,10 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       {
         if (acquirerInfoSelected.CurrencyID == "" || acquirerInfoSelected.CurrencyID == null)
           throw new Exception("Por favor, Seleccione un adquirente");
+        return acquirerInfoSelected.CurrencyID;
+      }
+      else if(SYS_COUNTRY_APPLICATION.Honduras_Ficohsa == GlobalInformation.Instance.SysCountryApplication)
+      {
         return acquirerInfoSelected.CurrencyID;
       }
       else
@@ -588,6 +602,8 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
       if (ValidateCurrency(sender, ((TextBox)sender).Text))
       {
         double twoDecimals = Convert.ToDouble(((TextBox)sender).Text);
+        string CurrencySymbol = GetCurrencySymbol(); 
+
 
         ((TextBox)sender).Text = string.Format("{0:N2}", twoDecimals);
 
@@ -595,8 +611,8 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
         Convert.ToDouble((web_impuesto15.Text == "" ? "0.00" : web_impuesto15.Text)) +
         Convert.ToDouble((web_impuesto18.Text == "" ? "0.00" : web_impuesto18.Text)) +
         Convert.ToDouble((web_propina.Text == "" ? "0.00" : web_propina.Text));
-        web_total_transaccion.Text = string.Format("{0:N2}", SumTotal);
-
+        web_total_transaccion.Text = string.Format("{0}{1:N2}", CurrencySymbol, SumTotal);
+        glTextAmount= string.Format("{0:N2}",  SumTotal);
       }
       else
       {
@@ -604,7 +620,20 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
         ((TextBox)sender).Text = "0" + DecimalPoint + "00";
       }
 
-      //double TotalField =  Convert.ToDouble(sender.Text) ;
+    }
+
+    private string GetCurrencySymbol()
+    {
+      try
+      {
+        CurrencyInfo curInfo = new CurrencyInfo();
+        GlobalInformation.Instance.ListCurrency.TryGetValue(acquirerInfoSelected.CurrencyID, out curInfo);
+        return curInfo.symbol;
+      }
+      catch
+      {
+        return "";
+      }
     }
 
     private bool ValidateCurrency(object sender, string value)

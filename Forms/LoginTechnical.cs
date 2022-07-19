@@ -56,7 +56,7 @@ namespace CashRegister.Applications.Winform.WFVPos.Forms
                     }
                     else if (datoPantalla == 2)
                     {
-                        OpenChildForm(new Users());
+            ;//OpenChildForm(new Users());
                     }
 
                 }
